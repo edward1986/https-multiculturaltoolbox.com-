@@ -1,0 +1,45 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'TechFlow'
+
+[params]
+  tagline = 'Innovative Solutions for a Digital World'
+  brand_color = '#007bff'
+  description = 'A clean, modern Hugo website for TechFlow agency.'
+
+  [params.contact]
+    email = 'info@techflow.example.com'
+    phone = '+1 (555) 000-0000'
+    address = '123 Tech Avenue, Silicon Valley, CA'
+
+  [[params.social]]
+    name = 'Twitter'
+    url = 'https://twitter.com/techflow'
+  [[params.social]]
+    name = 'GitHub'
+    url = 'https://github.com/techflow'
+  [[params.social]]
+    name = 'LinkedIn'
+    url = 'https://linkedin.com/company/techflow'
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    url = '/'
+    weight = 10
+  [[menu.main]]
+    name = 'About'
+    url = '/about/'
+    weight = 20
+  [[menu.main]]
+    name = 'Services'
+    url = '/services/'
+    weight = 30
+  [[menu.main]]
+    name = 'Blog'
+    url = '/blog/'
+    weight = 40
+  [[menu.main]]
+    name = 'Contact'
+    url = '/contact/'
+    weight = 50
