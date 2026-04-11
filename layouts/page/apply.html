@@ -1,0 +1,90 @@
+{{ define "main" }}
+<section class="apply-portal" style="padding: 60px 0;">
+    <div class="container">
+        <h1 class="section-title" style="margin-top: 0; text-align: left;">Application Portal</h1>
+
+        <!-- Portal Stepper -->
+        <div class="stepper" style="margin-bottom: 60px; max-width: 900px; margin-left: auto; margin-right: auto;">
+            <div class="step active">
+                <div class="step-number">1</div>
+                <div class="step-label">Service selection</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-label">Details & Upload</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-label">Review</div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-label">Confirmation</div>
+            </div>
+        </div>
+
+        <div class="portal-container" style="background: white; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: grid; grid-template-columns: 300px 1fr;">
+            <!-- Sidebar -->
+            <div class="portal-sidebar" style="background: #f1f3f5; padding: 30px; border-right: 1px solid var(--border-color);">
+                <h4 style="margin-bottom: 20px; color: var(--primary-color);">Application Guide</h4>
+                <div style="font-size: 0.85rem; color: #555;">
+                    <p style="margin-bottom: 15px;">Ensure you have the following ready:</p>
+                    <ul style="list-style: disc; padding-left: 15px; margin-bottom: 20px;">
+                        <li>Valid Identification</li>
+                        <li>Digital copies of requirements (PDF/JPG)</li>
+                        <li>Stable internet connection</li>
+                    </ul>
+                    <p>Applications with incomplete requirements will be automatically returned.</p>
+                </div>
+            </div>
+
+            <!-- Main Form Area -->
+            <div class="portal-main" style="padding: 40px;">
+                <h3 style="margin-bottom: 30px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block;">Step 1: Select Service & Region</h3>
+
+                <div class="form-group" style="margin-bottom: 25px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">Select Regulatory Service</label>
+                    <select style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
+                        <option value="">-- Choose a service --</option>
+                        <option>Radio Operator Certificate (ROC)</option>
+                        <option>Radio Station License (RSL)</option>
+                        <option>Permit to Purchase / Possess</option>
+                        <option>Equipment Registration / Type Approval</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 25px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">Select Regional Office</label>
+                    <p style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">Choose the NTC regional office that has jurisdiction over your location.</p>
+                    <select style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
+                        <option value="">-- Choose a region --</option>
+                        <option>NCR - National Capital Region</option>
+                        <option>Region I - Ilocos Region</option>
+                        <option>Region II - Cagayan Valley</option>
+                        <option>Region III - Central Luzon</option>
+                        <option>Region IV-A - CALABARZON</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 40px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 15px;">Processing Mode</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div style="border: 2px solid var(--secondary-color); padding: 15px; border-radius: 8px; background: #f0f7ff; cursor: pointer;">
+                            <input type="radio" name="mode" checked> <strong>Regular Processing</strong>
+                            <p style="font-size: 0.8rem; margin-top: 5px; margin-left: 20px;">Standard turnaround time as per Citizen's Charter.</p>
+                        </div>
+                        <div style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; cursor: pointer; color: #666;">
+                            <input type="radio" name="mode"> <strong>Express Processing</strong>
+                            <p style="font-size: 0.8rem; margin-top: 5px; margin-left: 20px;">Expedited processing for eligible transactions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: right; border-top: 1px solid #eee; padding-top: 30px;">
+                    <button class="btn btn-primary" style="padding: 12px 40px;">Next Step &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

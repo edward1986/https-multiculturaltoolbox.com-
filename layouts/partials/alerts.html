@@ -1,0 +1,8 @@
+{{ $alerts := where .Site.RegularPages "Section" "announcements" }}
+{{ range first 1 (where $alerts "Params.important" true) }}
+<div class="alert-banner">
+    <div class="container">
+        <strong>ADVISORY:</strong> {{ .Title }} - <a href="{{ .RelPermalink }}">Read more</a>
+    </div>
+</div>
+{{ end }}
