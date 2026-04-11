@@ -1,45 +1,53 @@
-baseURL = 'https://example.org/'
+baseURL = '/'
 languageCode = 'en-us'
-title = 'TechFlow'
+title = 'NTC EDGE Portal'
 
 [params]
-  tagline = 'Innovative Solutions for a Digital World'
-  brand_color = '#007bff'
-  description = 'A clean, modern Hugo website for TechFlow agency.'
+  description = "National Telecommunications Commission - Electronic Data Governance and Evaluation System"
+  government_name = "Republic of the Philippines"
+  agency_name = "National Telecommunications Commission"
+  agency_short_name = "NTC"
+  portal_name = "EDGE Portal"
+  contact_email = "support@ntc.gov.ph"
+  contact_phone = "(02) 8924-4008"
+  contact_address = "NTC Building, BIR Road, East Triangle, Diliman, Quezon City"
 
-  [params.contact]
-    email = 'info@techflow.example.com'
-    phone = '+1 (555) 000-0000'
-    address = '123 Tech Avenue, Silicon Valley, CA'
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
 
-  [[params.social]]
-    name = 'Twitter'
-    url = 'https://twitter.com/techflow'
-  [[params.social]]
-    name = 'GitHub'
-    url = 'https://github.com/techflow'
-  [[params.social]]
-    name = 'LinkedIn'
-    url = 'https://linkedin.com/company/techflow'
+[[menu.main]]
+  name = "Services"
+  url = "/services"
+  weight = 2
 
-[menu]
-  [[menu.main]]
-    name = 'Home'
-    url = '/'
-    weight = 10
-  [[menu.main]]
-    name = 'About'
-    url = '/about/'
-    weight = 20
-  [[menu.main]]
-    name = 'Services'
-    url = '/services/'
-    weight = 30
-  [[menu.main]]
-    name = 'Blog'
-    url = '/blog/'
-    weight = 40
-  [[menu.main]]
-    name = 'Contact'
-    url = '/contact/'
-    weight = 50
+[[menu.main]]
+  name = "Apply"
+  url = "/apply"
+  weight = 3
+
+[[menu.main]]
+  name = "Track Application"
+  url = "/track"
+  weight = 4
+
+[[menu.main]]
+  name = "Announcements"
+  url = "/announcements"
+  weight = 5
+
+[[menu.main]]
+  name = "FAQ"
+  url = "/faq"
+  weight = 6
+
+[[menu.main]]
+  name = "About"
+  url = "/about"
+  weight = 7
+
+[[menu.main]]
+  name = "Contact"
+  url = "/contact"
+  weight = 8

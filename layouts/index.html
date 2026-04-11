@@ -1,49 +1,99 @@
 {{ define "main" }}
 <section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <h1>{{ .Site.Title }}</h1>
-      <p class="tagline">{{ .Site.Params.tagline }}</p>
-      <div class="hero-actions">
-        <a href="{{ "/services/" | relURL }}" class="btn btn-primary">Our Services</a>
-        <a href="{{ "/contact/" | relURL }}" class="btn btn-secondary">Get in Touch</a>
-      </div>
+    <div class="container">
+        <h2>{{ .Site.Title }}</h2>
+        <p>{{ .Site.Params.description }}</p>
+        <div class="hero-btns">
+            <a href="{{ "/apply" | relURL }}" class="btn btn-primary">Apply Now</a>
+            <a href="{{ "/track" | relURL }}" class="btn btn-outline">Track Application</a>
+            <a href="{{ "/services" | relURL }}" class="btn btn-outline">View Services</a>
+        </div>
     </div>
-  </div>
 </section>
 
-<section class="featured-section section">
-  <div class="container">
-    <h2 class="section-title text-center">Why Choose Us?</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3>Modern Technology</h3>
-        <p>We use the latest tools and frameworks to build fast, reliable websites.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Clean Design</h3>
-        <p>Our designs are modern, professional, and tailored to your brand.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Fast Performance</h3>
-        <p>Speed is our priority. We ensure your site loads quickly on all devices.</p>
-      </div>
+<section class="quick-access">
+    <div class="container">
+        <div class="grid" style="margin-top: -40px;">
+            <div class="card" style="text-align: center;">
+                <div class="card-icon">📄</div>
+                <h3>New Application</h3>
+                <p>Start a new application for NTC services.</p>
+                <a href="{{ "/apply" | relURL }}" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Get Started</a>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div class="card-icon">🔍</div>
+                <h3>Track Status</h3>
+                <p>Check the real-time status of your request.</p>
+                <a href="{{ "/track" | relURL }}" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Track Now</a>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div class="card-icon">📞</div>
+                <h3>Help & Support</h3>
+                <p>Need assistance with your application?</p>
+                <a href="{{ "/contact" | relURL }}" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Contact Us</a>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
-<section class="latest-posts section bg-light">
-  <div class="container">
-    <h2 class="section-title text-center">Latest from the Blog</h2>
-    <div class="post-grid">
-      {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
-      <article class="post-card">
-        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        <p>{{ .Summary | truncate 100 }}</p>
-        <a href="{{ .Permalink }}" class="link-more">Read More &rarr;</a>
-      </article>
-      {{ end }}
+<section class="featured-services">
+    <div class="container">
+        <h2 class="section-title">Common Digital Services</h2>
+        <div class="grid">
+            {{ range first 3 (where .Site.RegularPages "Section" "services") }}
+            <div class="card">
+                <h3>{{ .Title }}</h3>
+                <p>{{ .Description | truncate 100 }}</p>
+                <a href="{{ .RelPermalink }}">Learn More &rarr;</a>
+            </div>
+            {{ end }}
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="{{ "/services" | relURL }}" class="btn btn-outline" style="color: var(--primary-color); border-color: var(--primary-color);">View All Services</a>
+        </div>
     </div>
-  </div>
+</section>
+
+<section class="how-it-works" style="background: white; padding: 60px 0;">
+    <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="stepper">
+            <div class="step active">
+                <div class="step-number">1</div>
+                <div class="step-label">Select Service</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-label">Fill Form</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-label">Upload Files</div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-label">Submit & Track</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="news-announcements" style="padding: 60px 0;">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <h2 style="color: var(--primary-color); margin: 0;">Latest Announcements</h2>
+            <a href="{{ "/announcements" | relURL }}">View All &rarr;</a>
+        </div>
+        <div class="grid">
+            {{ range first 2 (where .Site.RegularPages "Section" "announcements") }}
+            <div class="card" style="display: flex; flex-direction: column;">
+                <span style="font-size: 0.8rem; color: #666; margin-bottom: 10px;">{{ .Date.Format "January 2, 2006" }}</span>
+                <h3 style="font-size: 1.1rem; margin-bottom: 15px;">{{ .Title }}</h3>
+                <p style="font-size: 0.9rem; flex-grow: 1;">{{ .Summary | truncate 150 }}</p>
+                <a href="{{ .RelPermalink }}" style="margin-top: 15px; font-weight: 600;">Read More</a>
+            </div>
+            {{ end }}
+        </div>
+    </div>
 </section>
 {{ end }}

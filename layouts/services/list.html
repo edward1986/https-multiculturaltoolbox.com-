@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="services-list" style="padding: 60px 0;">
+    <div class="container">
+        <h1 class="section-title" style="margin-top: 0; text-align: left;">Government Services</h1>
+        <p style="margin-bottom: 40px; font-size: 1.1rem; color: #666;">Choose a service category to find the requirements and start your application.</p>
+
+        <div class="grid">
+            {{ range .Pages }}
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                    <span class="status-badge status-processing" style="font-size: 0.7rem;">{{ .Params.category }}</span>
+                </div>
+                <h3>{{ .Title }}</h3>
+                <p>{{ .Description }}</p>
+                <div style="margin-top: 20px; display: flex; gap: 10px;">
+                    <a href="{{ .RelPermalink }}" class="btn btn-outline" style="color: var(--primary-color); border-color: var(--primary-color); padding: 8px 16px; font-size: 0.85rem;">Learn More</a>
+                    <a href="{{ "/apply" | relURL }}" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Apply Now</a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
