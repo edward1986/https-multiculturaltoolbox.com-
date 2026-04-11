@@ -1,0 +1,9 @@
+<div class="breadcrumb">
+    <div class="container">
+        <a href="/">Home</a>
+        {{ range .Ancestors.Reverse }}
+            <span>/</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ end }}
+        <span>/</span> <strong>{{ .Title }}</strong>
+    </div>
+</div>
