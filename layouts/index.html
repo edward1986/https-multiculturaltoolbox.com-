@@ -1,0 +1,49 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>{{ .Site.Title }}</h1>
+      <p class="tagline">{{ .Site.Params.tagline }}</p>
+      <div class="hero-actions">
+        <a href="{{ "/services/" | relURL }}" class="btn btn-primary">Our Services</a>
+        <a href="{{ "/contact/" | relURL }}" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="featured-section section">
+  <div class="container">
+    <h2 class="section-title text-center">Why Choose Us?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Modern Technology</h3>
+        <p>We use the latest tools and frameworks to build fast, reliable websites.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Clean Design</h3>
+        <p>Our designs are modern, professional, and tailored to your brand.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Fast Performance</h3>
+        <p>Speed is our priority. We ensure your site loads quickly on all devices.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="latest-posts section bg-light">
+  <div class="container">
+    <h2 class="section-title text-center">Latest from the Blog</h2>
+    <div class="post-grid">
+      {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+      <article class="post-card">
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Summary | truncate 100 }}</p>
+        <a href="{{ .Permalink }}" class="link-more">Read More &rarr;</a>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
