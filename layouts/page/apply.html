@@ -23,9 +23,9 @@
             </div>
         </div>
 
-        <div class="portal-container" style="background: white; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: grid; grid-template-columns: 300px 1fr;">
+        <div class="portal-container">
             <!-- Sidebar -->
-            <div class="portal-sidebar" style="background: #f1f3f5; padding: 30px; border-right: 1px solid var(--border-color);">
+            <div class="portal-sidebar">
                 <h4 style="margin-bottom: 20px; color: var(--primary-color);">Application Guide</h4>
                 <div style="font-size: 0.85rem; color: #555;">
                     <p style="margin-bottom: 15px;">Ensure you have the following ready:</p>
@@ -38,13 +38,13 @@
                 </div>
             </div>
 
-            <!-- Main Form Area -->
-            <div class="portal-main" style="padding: 40px;">
+            <!-- Main Form Area (Step 1 - Current) -->
+            <div class="portal-main">
                 <h3 style="margin-bottom: 30px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block;">Step 1: Select Service & Region</h3>
 
-                <div class="form-group" style="margin-bottom: 25px;">
-                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">Select Regulatory Service</label>
-                    <select style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
+                <div class="form-group">
+                    <label class="form-label">Select Regulatory Service</label>
+                    <select class="form-control">
                         <option value="">-- Choose a service --</option>
                         <option>Radio Operator Certificate (ROC)</option>
                         <option>Radio Station License (RSL)</option>
@@ -53,10 +53,10 @@
                     </select>
                 </div>
 
-                <div class="form-group" style="margin-bottom: 25px;">
-                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">Select Regional Office</label>
+                <div class="form-group">
+                    <label class="form-label">Select Regional Office</label>
                     <p style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">Choose the NTC regional office that has jurisdiction over your location.</p>
-                    <select style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
+                    <select class="form-control">
                         <option value="">-- Choose a region --</option>
                         <option>NCR - National Capital Region</option>
                         <option>Region I - Ilocos Region</option>
@@ -67,13 +67,13 @@
                 </div>
 
                 <div class="form-group" style="margin-bottom: 40px;">
-                    <label style="display: block; font-weight: 600; margin-bottom: 15px;">Processing Mode</label>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div style="border: 2px solid var(--secondary-color); padding: 15px; border-radius: 8px; background: #f0f7ff; cursor: pointer;">
+                    <label class="form-label" style="margin-bottom: 15px;">Processing Mode</label>
+                    <div class="processing-modes">
+                        <div class="mode-card active">
                             <input type="radio" name="mode" checked> <strong>Regular Processing</strong>
                             <p style="font-size: 0.8rem; margin-top: 5px; margin-left: 20px;">Standard turnaround time as per Citizen's Charter.</p>
                         </div>
-                        <div style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; cursor: pointer; color: #666;">
+                        <div class="mode-card" style="color: #666;">
                             <input type="radio" name="mode"> <strong>Express Processing</strong>
                             <p style="font-size: 0.8rem; margin-top: 5px; margin-left: 20px;">Expedited processing for eligible transactions.</p>
                         </div>
@@ -85,6 +85,96 @@
                 </div>
             </div>
         </div>
+
+        <!-- Mock Upload Section (For visual reference) -->
+        <div class="portal-container" style="margin-top: 40px; opacity: 0.6; display: block;">
+            <div style="padding: 40px;">
+                <h3 style="margin-bottom: 30px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block;">Step 2: Upload Documents</h3>
+                <div class="upload-zone">
+                    <p style="font-size: 1.5rem; margin-bottom: 10px;">📤</p>
+                    <p>Drag and drop files here or <a href="#" style="font-weight: 600;">Browse Files</a></p>
+                    <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">Supported formats: PDF, JPG, PNG (Max 5MB per file)</p>
+                </div>
+                <div style="margin-top: 20px;">
+                    <div style="display: flex; justify-content: space-between; padding: 10px; background: #f8f9fa; border-radius: 4px; margin-bottom: 10px; font-size: 0.9rem;">
+                        <span>identification_card.pdf</span>
+                        <span style="color: var(--success-color);">Ready to upload</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Summary Card -->
+        <div class="portal-container" style="margin-top: 40px; opacity: 0.6; display: block;">
+            <div style="padding: 40px;">
+                <h3 style="margin-bottom: 30px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block;">Step 3: Review Application</h3>
+                <div class="review-grid">
+                    <div>
+                        <p class="review-item-label">Service</p>
+                        <p class="review-item-value">Radio Operator Certificate</p>
+                    </div>
+                    <div>
+                        <p class="review-item-label">Region</p>
+                        <p class="review-item-value">NCR - National Capital Region</p>
+                    </div>
+                    <div>
+                        <p class="review-item-label">Processing Mode</p>
+                        <p class="review-item-value">Regular Processing</p>
+                    </div>
+                    <div>
+                        <p class="review-item-label">Documents</p>
+                        <p class="review-item-value">2 files attached</p>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <input type="checkbox"> I hereby certify that the information provided is true and correct.
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit confirmation box -->
+        <div style="text-align: center; margin-top: 60px;">
+             <button class="btn btn-primary" style="padding: 15px 60px; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,46,93,0.3);">Submit Application</button>
+             <p style="margin-top: 15px; font-size: 0.85rem; color: #666;">By clicking Submit, you agree to the <a href="#" onclick="document.getElementById('terms-modal').style.display='flex'; return false;">Terms and Conditions</a> of the NTC EDGE Portal.</p>
+        </div>
     </div>
 </section>
+
+<!-- Terms and Conditions Modal -->
+<div id="terms-modal" class="modal-overlay">
+    <div class="modal-content" style="max-height: 80vh; overflow-y: auto;">
+        <button onclick="document.getElementById('terms-modal').style.display='none'" style="position: absolute; top: 20px; right: 20px; border: none; background: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+        <h2 style="margin-bottom: 20px; color: var(--primary-color);">Terms and Conditions</h2>
+        <div style="font-size: 0.9rem; line-height: 1.6; color: #555;">
+            <p style="margin-bottom: 15px;">Welcome to the NTC EDGE Portal. By using this service, you agree to comply with and be bound by the following terms and conditions:</p>
+            <h4 style="margin-top: 20px; color: #333;">1. Accuracy of Information</h4>
+            <p>You certify that all information provided in your application is true, accurate, and complete to the best of your knowledge.</p>
+            <h4 style="margin-top: 20px; color: #333;">2. Data Privacy</h4>
+            <p>The NTC collects and processes your personal data in accordance with the Data Privacy Act of 2012. Your information will be used solely for the purpose of processing your regulatory applications.</p>
+            <h4 style="margin-top: 20px; color: #333;">3. Processing Fees</h4>
+            <p>Submission of an application does not guarantee approval. Fees paid are generally non-refundable unless otherwise specified by NTC regulations.</p>
+        </div>
+        <div style="margin-top: 30px; text-align: right;">
+            <button class="btn btn-primary" onclick="document.getElementById('terms-modal').style.display='none'">I Accept</button>
+        </div>
+    </div>
+</div>
+
+<!-- Success Confirmation Modal (Hidden by default) -->
+<div id="success-modal" class="modal-overlay">
+    <div class="modal-content" style="text-align: center; max-width: 500px;">
+        <div style="font-size: 4rem; color: var(--success-color); margin-bottom: 20px;">✅</div>
+        <h2 style="margin-bottom: 10px;">Application Submitted!</h2>
+        <p style="color: #666; margin-bottom: 25px;">Your application has been successfully received by the system.</p>
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 4px; margin-bottom: 25px;">
+            <p style="font-size: 0.8rem; color: #888; text-transform: uppercase;">Your Reference Number</p>
+            <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color); letter-spacing: 2px;">ARN-2024-098765</p>
+        </div>
+        <p style="font-size: 0.9rem; margin-bottom: 30px;">An email confirmation with payment instructions has been sent to your registered email address.</p>
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <a href="/track" class="btn btn-primary">Track Application</a>
+            <a href="/" class="btn btn-outline" style="color: var(--primary-color); border-color: var(--primary-color);">Back to Home</a>
+        </div>
+    </div>
+</div>
 {{ end }}

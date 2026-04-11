@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ .Site.Params.description }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+    <meta property="og:description" content="{{ .Site.Params.description }}">
+    <meta property="og:image" content="{{ "images/og-image.jpg" | relURL }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ .Permalink }}">
+    <meta property="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+    <meta property="twitter:description" content="{{ .Site.Params.description }}">
+    <meta property="twitter:image" content="{{ "images/og-image.jpg" | relURL }}">
+
     {{ $style := resources.Get "css/main.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +30,7 @@
     {{ partial "alerts.html" . }}
     {{ partial "header.html" . }}
 
-    <main>
+    <main id="main-content" role="main">
         {{ if not .IsHome }}
             {{ partial "breadcrumbs.html" . }}
         {{ end }}
