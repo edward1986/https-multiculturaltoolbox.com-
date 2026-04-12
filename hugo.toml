@@ -1,9 +1,9 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
+baseURL = '/'
+languageCode = 'en-ph'
 title = 'NTC EDGE Portal'
 
 [params]
-  description = "National Telecommunications Commission - Electronic Data Governance and Evaluation System"
+  description = "National Telecommunications Commission - Electronic Data Governance and Evaluation (EDGE) System. Official digital service portal for regulatory and telecommunications-related services."
   government_name = "Republic of the Philippines"
   agency_name = "National Telecommunications Commission"
   agency_short_name = "NTC"
@@ -11,6 +11,8 @@ title = 'NTC EDGE Portal'
   contact_email = "support@ntc.gov.ph"
   contact_phone = "(02) 8924-4008"
   contact_address = "NTC Building, BIR Road, East Triangle, Diliman, Quezon City"
+  facebook_url = "https://www.facebook.com/ntc.philippines"
+  twitter_url = "https://twitter.com/ntc_ph"
 
 [[menu.main]]
   name = "Home"

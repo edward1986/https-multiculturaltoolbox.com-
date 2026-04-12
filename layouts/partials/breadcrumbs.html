@@ -1,9 +1,13 @@
-<div class="breadcrumb">
+<nav class="breadcrumb" aria-label="Breadcrumb">
     <div class="container">
-        <a href="/">Home</a>
-        {{ range .Ancestors.Reverse }}
-            <span>/</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <a href="{{ "/" | relURL }}">Home</a>
+        {{ $url := "" }}
+        {{ range (split .RelPermalink "/") }}
+            {{ if . }}
+                {{ $url = printf "%s/%s" $url . }}
+                <span>/</span>
+                <a href="{{ $url | relURL }}">{{ humanize . }}</a>
+            {{ end }}
         {{ end }}
-        <span>/</span> <strong>{{ .Title }}</strong>
     </div>
-</div>
+</nav>

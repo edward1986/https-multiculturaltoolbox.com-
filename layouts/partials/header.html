@@ -1,21 +1,23 @@
-<header>
+<header role="banner">
     <div class="gov-topbar">
         <div class="container">
-            <span>Republic of the Philippines</span>
+            <span>{{ .Site.Params.government_name }}</span>
         </div>
     </div>
     <div class="container">
         <div class="navbar">
             <div class="logo-area">
-                <div class="logo-text">
-                    <h1>{{ .Site.Params.agency_short_name }} <strong>{{ .Site.Params.portal_name }}</strong></h1>
-                    <p>{{ .Site.Params.agency_name }}</p>
-                </div>
+                <a href="{{ "/" | relURL }}" aria-label="NTC EDGE Portal Home">
+                    <div class="logo-text">
+                        <h1>{{ .Site.Params.agency_short_name }} <strong>{{ .Site.Params.portal_name }}</strong></h1>
+                        <p>{{ .Site.Params.agency_name }}</p>
+                    </div>
+                </a>
             </div>
-            <nav>
+            <nav role="navigation" aria-label="Main navigation">
                 <ul>
                     {{ range .Site.Menus.main }}
-                    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                    <li><a href="{{ .URL | relURL }}" {{ if eq $.RelPermalink .URL }}aria-current="page" class="active"{{ end }}>{{ .Name }}</a></li>
                     {{ end }}
                 </ul>
             </nav>

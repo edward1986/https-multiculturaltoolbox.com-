@@ -1,0 +1,11 @@
+<section class="hero">
+    <div class="container">
+        <h2>{{ .Site.Title }}</h2>
+        <p>{{ .Site.Params.description }}</p>
+        <div class="hero-btns">
+            <a href="{{ "/apply" | relURL }}" class="btn btn-primary">Apply Now</a>
+            <a href="{{ "/track" | relURL }}" class="btn btn-outline">Track Application</a>
+            <a href="{{ "/services" | relURL }}" class="btn btn-outline">View Services</a>
+        </div>
+    </div>
+</section>

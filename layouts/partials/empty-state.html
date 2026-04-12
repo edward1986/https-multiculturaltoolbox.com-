@@ -1,5 +1,8 @@
 <div class="empty-state">
-    <div class="empty-state-icon">📄</div>
+    <div class="empty-state-icon">📂</div>
     <h3>No records found</h3>
-    <p>Please check your reference number and try again.</p>
+    <p>{{ . | default "There are currently no items to display in this section." }}</p>
+    <div style="margin-top: 20px;">
+        <a href="{{ "/" | relURL }}" class="btn btn-outline" style="color: var(--primary-color); border-color: var(--primary-color);">Return to Home</a>
+    </div>
 </div>
