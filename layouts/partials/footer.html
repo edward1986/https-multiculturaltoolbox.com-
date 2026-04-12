@@ -1,23 +1,27 @@
-<footer>
+<footer role="contentinfo">
     <div class="container">
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>{{ .Site.Params.agency_short_name }} EDGE Portal</h4>
+                <h4>{{ .Site.Params.agency_short_name }} {{ .Site.Params.portal_name }}</h4>
                 <p>Ensuring efficient and transparent regulatory services for the telecommunications sector through digital innovation.</p>
+                <div class="social-links" style="margin-top: 20px;">
+                    {{ if .Site.Params.facebook_url }}<a href="{{ .Site.Params.facebook_url }}" target="_blank" rel="noopener" aria-label="Facebook">FB</a>{{ end }}
+                    {{ if .Site.Params.twitter_url }}<a href="{{ .Site.Params.twitter_url }}" target="_blank" rel="noopener" aria-label="Twitter" style="margin-left: 15px;">TW</a>{{ end }}
+                </div>
             </div>
             <div class="footer-col">
                 <h4>Contact Us</h4>
-                <ul>
-                    <li>Email: {{ .Site.Params.contact_email }}</li>
-                    <li>Phone: {{ .Site.Params.contact_phone }}</li>
-                    <li>Address: {{ .Site.Params.contact_address }}</li>
-                </ul>
+                <address style="font-style: normal; color: #bbb; font-size: 0.95rem;">
+                    <p>Email: <a href="mailto:{{ .Site.Params.contact_email }}" style="color: #bbb;">{{ .Site.Params.contact_email }}</a></p>
+                    <p>Phone: {{ .Site.Params.contact_phone }}</p>
+                    <p>Address: {{ .Site.Params.contact_address }}</p>
+                </address>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
                     {{ range .Site.Menus.main }}
-                    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                    <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
                     {{ end }}
                 </ul>
             </div>

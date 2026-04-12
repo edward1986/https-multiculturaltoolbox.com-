@@ -1,11 +1,14 @@
 {{ define "main" }}
 <section class="apply-portal" style="padding: 60px 0;">
     <div class="container">
-        <h1 class="section-title" style="margin-top: 0; text-align: left;">Application Portal</h1>
+        <header style="margin-bottom: 40px;">
+            <h1 class="section-title" style="margin-top: 0; text-align: left;">Application Portal</h1>
+            <p style="color: #666;">Apply for NTC regulatory services through our streamlined digital process.</p>
+        </header>
 
         <!-- Portal Stepper -->
-        <div class="stepper" style="margin-bottom: 60px; max-width: 900px; margin-left: auto; margin-right: auto;">
-            <div class="step active">
+        <div class="stepper" style="margin-bottom: 60px; max-width: 900px; margin-left: auto; margin-right: auto;" aria-label="Application progress">
+            <div class="step active" aria-current="step">
                 <div class="step-number">1</div>
                 <div class="step-label">Service selection</div>
             </div>
@@ -25,155 +28,158 @@
 
         <div class="portal-container">
             <!-- Sidebar -->
-            <div class="portal-sidebar">
+            <aside class="portal-sidebar">
                 <h4 style="margin-bottom: 20px; color: var(--primary-color);">Application Guide</h4>
-                <div style="font-size: 0.85rem; color: #555;">
-                    <p style="margin-bottom: 15px;">Ensure you have the following ready:</p>
+                <div style="font-size: 0.85rem; color: #555; line-height: 1.6;">
+                    <p style="margin-bottom: 15px;"><strong>Before you begin:</strong></p>
                     <ul style="list-style: disc; padding-left: 15px; margin-bottom: 20px;">
-                        <li>Valid Identification</li>
-                        <li>Digital copies of requirements (PDF/JPG)</li>
-                        <li>Stable internet connection</li>
+                        <li>Ensure you have a stable internet connection.</li>
+                        <li>Prepare digital copies of all requirements (PDF, JPG, or PNG).</li>
+                        <li>Maximum file size is 5MB per document.</li>
+                        <li>Applications with incomplete or blurred documents will be returned for correction.</li>
                     </ul>
-                    <p>Applications with incomplete requirements will be automatically returned.</p>
+                    <p>For technical assistance, please contact the NTC EDGE Helpdesk at support@ntc.gov.ph.</p>
                 </div>
-            </div>
+            </aside>
 
             <!-- Main Form Area (Step 1 - Current) -->
             <div class="portal-main">
                 <h3 style="margin-bottom: 30px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block;">Step 1: Select Service & Region</h3>
 
-                <div class="form-group">
-                    <label class="form-label">Select Regulatory Service</label>
-                    <select class="form-control">
-                        <option value="">-- Choose a service --</option>
-                        <option>Radio Operator Certificate (ROC)</option>
-                        <option>Radio Station License (RSL)</option>
-                        <option>Permit to Purchase / Possess</option>
-                        <option>Equipment Registration / Type Approval</option>
-                    </select>
-                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="service-select" class="form-label">Select Regulatory Service</label>
+                        <select id="service-select" class="form-control">
+                            <option value="">-- Choose a service --</option>
+                            {{ range (where .Site.RegularPages "Section" "services") }}
+                            <option>{{ .Title }}</option>
+                            {{ end }}
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-label">Select Regional Office</label>
-                    <p style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">Choose the NTC regional office that has jurisdiction over your location.</p>
-                    <select class="form-control">
-                        <option value="">-- Choose a region --</option>
-                        <option>NCR - National Capital Region</option>
-                        <option>Region I - Ilocos Region</option>
-                        <option>Region II - Cagayan Valley</option>
-                        <option>Region III - Central Luzon</option>
-                        <option>Region IV-A - CALABARZON</option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label for="region-select" class="form-label">Select Regional Office</label>
+                        <p style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">Choose the NTC regional office that has jurisdiction over your location or station.</p>
+                        <select id="region-select" class="form-control">
+                            <option value="">-- Choose a region --</option>
+                            <option>Central Office (Quezon City)</option>
+                            <option>NCR - National Capital Region</option>
+                            <option>Region I - Ilocos Region</option>
+                            <option>Region II - Cagayan Valley</option>
+                            <option>Region III - Central Luzon</option>
+                            <option>Region IV-A - CALABARZON</option>
+                            <option>Region IV-B - MIMAROPA</option>
+                            <option>Region V - Bicol Region</option>
+                        </select>
+                    </div>
 
-                <div class="form-group" style="margin-bottom: 40px;">
-                    <label class="form-label" style="margin-bottom: 15px;">Processing Mode</label>
-                    <div class="processing-modes">
-                        <div class="mode-card active">
-                            <input type="radio" name="mode" checked> <strong>Regular Processing</strong>
-                            <p style="font-size: 0.8rem; margin-top: 5px; margin-left: 20px;">Standard turnaround time as per Citizen's Charter.</p>
+                    <div class="form-group" style="margin-bottom: 40px;">
+                        <fieldset style="border: none;">
+                            <legend class="form-label" style="margin-bottom: 15px; float: left; width: 100%;">Processing Mode</legend>
+                            <div class="processing-modes">
+                                <label class="mode-card active">
+                                    <input type="radio" name="mode" checked aria-describedby="mode-regular-desc">
+                                    <strong>Regular Processing</strong>
+                                    <p id="mode-regular-desc" style="font-size: 0.8rem; margin-top: 5px; margin-left: 20px;">Standard turnaround time as per Citizen's Charter.</p>
+                                </label>
+                                <label class="mode-card" style="color: #666;">
+                                    <input type="radio" name="mode" aria-describedby="mode-express-desc">
+                                    <strong>Express Processing</strong>
+                                    <p id="mode-express-desc" style="font-size: 0.8rem; margin-top: 5px; margin-left: 20px;">Expedited processing for eligible transactions (subject to additional fees).</p>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div style="text-align: right; border-top: 1px solid #eee; padding-top: 30px;">
+                        <button type="button" class="btn btn-primary" style="padding: 12px 40px;" onclick="alert('This is a UI mockup. In a real system, this would lead to Step 2.')">Next Step &rarr;</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Mock Sections for visualization -->
+        <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed #ccc;">
+            <p style="text-align: center; color: #888; font-style: italic; margin-bottom: 40px;">Preview of subsequent steps:</p>
+
+            <!-- Mock Step 2 -->
+            <div class="portal-container" style="opacity: 0.5; margin-bottom: 40px;">
+                <div style="padding: 40px; width: 100%;">
+                    <h3 style="margin-bottom: 30px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block;">Step 2: Upload Documents</h3>
+                    <div class="upload-zone">
+                        <div style="font-size: 3rem; margin-bottom: 15px;">📤</div>
+                        <p style="font-size: 1.1rem;">Drag and drop requirements here or <a href="#" style="font-weight: 600; color: var(--secondary-color);">Browse Files</a></p>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">Accepted formats: PDF, JPG, PNG (Max 5MB per file)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mock Step 3 -->
+            <div class="portal-container" style="opacity: 0.5;">
+                <div style="padding: 40px; width: 100%;">
+                    <h3 style="margin-bottom: 30px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block;">Step 3: Review Application</h3>
+                    <div class="review-grid">
+                        <div>
+                            <p class="review-item-label">Selected Service</p>
+                            <p class="review-item-value">Radio Operator Certificate</p>
                         </div>
-                        <div class="mode-card" style="color: #666;">
-                            <input type="radio" name="mode"> <strong>Express Processing</strong>
-                            <p style="font-size: 0.8rem; margin-top: 5px; margin-left: 20px;">Expedited processing for eligible transactions.</p>
+                        <div>
+                            <p class="review-item-label">Target Office</p>
+                            <p class="review-item-value">NCR - National Capital Region</p>
+                        </div>
+                        <div>
+                            <p class="review-item-label">Processing Type</p>
+                            <p class="review-item-value">Regular Processing</p>
+                        </div>
+                        <div>
+                            <p class="review-item-label">Attachments</p>
+                            <p class="review-item-value">2 documents uploaded</p>
                         </div>
                     </div>
-                </div>
-
-                <div style="text-align: right; border-top: 1px solid #eee; padding-top: 30px;">
-                    <button class="btn btn-primary" style="padding: 12px 40px;">Next Step &rarr;</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mock Upload Section (For visual reference) -->
-        <div class="portal-container" style="margin-top: 40px; opacity: 0.6; display: block;">
-            <div style="padding: 40px;">
-                <h3 style="margin-bottom: 30px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block;">Step 2: Upload Documents</h3>
-                <div class="upload-zone">
-                    <p style="font-size: 1.5rem; margin-bottom: 10px;">📤</p>
-                    <p>Drag and drop files here or <a href="#" style="font-weight: 600;">Browse Files</a></p>
-                    <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">Supported formats: PDF, JPG, PNG (Max 5MB per file)</p>
-                </div>
-                <div style="margin-top: 20px;">
-                    <div style="display: flex; justify-content: space-between; padding: 10px; background: #f8f9fa; border-radius: 4px; margin-bottom: 10px; font-size: 0.9rem;">
-                        <span>identification_card.pdf</span>
-                        <span style="color: var(--success-color);">Ready to upload</span>
+                    <div style="margin-top: 30px; display: flex; align-items: flex-start; gap: 10px;">
+                        <input type="checkbox" id="certify" style="margin-top: 4px;">
+                        <label for="certify" style="font-size: 0.9rem;">I hereby certify that all information provided is true and correct, and the documents uploaded are authentic and valid. I understand that any false statement or fraudulent document will result in the denial of this application.</label>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Review Summary Card -->
-        <div class="portal-container" style="margin-top: 40px; opacity: 0.6; display: block;">
-            <div style="padding: 40px;">
-                <h3 style="margin-bottom: 30px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block;">Step 3: Review Application</h3>
-                <div class="review-grid">
-                    <div>
-                        <p class="review-item-label">Service</p>
-                        <p class="review-item-value">Radio Operator Certificate</p>
-                    </div>
-                    <div>
-                        <p class="review-item-label">Region</p>
-                        <p class="review-item-value">NCR - National Capital Region</p>
-                    </div>
-                    <div>
-                        <p class="review-item-label">Processing Mode</p>
-                        <p class="review-item-value">Regular Processing</p>
-                    </div>
-                    <div>
-                        <p class="review-item-label">Documents</p>
-                        <p class="review-item-value">2 files attached</p>
-                    </div>
-                </div>
-                <div style="margin-top: 20px;">
-                    <input type="checkbox"> I hereby certify that the information provided is true and correct.
-                </div>
-            </div>
-        </div>
-
-        <!-- Submit confirmation box -->
+        <!-- Submit Button Area -->
         <div style="text-align: center; margin-top: 60px;">
-             <button class="btn btn-primary" style="padding: 15px 60px; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,46,93,0.3);">Submit Application</button>
-             <p style="margin-top: 15px; font-size: 0.85rem; color: #666;">By clicking Submit, you agree to the <a href="#" onclick="document.getElementById('terms-modal').style.display='flex'; return false;">Terms and Conditions</a> of the NTC EDGE Portal.</p>
+             <button class="btn btn-primary" style="padding: 18px 80px; font-size: 1.2rem; box-shadow: 0 4px 20px rgba(0,46,93,0.4);" onclick="document.getElementById('success-modal').style.display='flex'">Submit Application</button>
+             <p style="margin-top: 20px; font-size: 0.85rem; color: #666;">By submitting this application, you agree to our <a href="#" onclick="document.getElementById('terms-modal').style.display='flex'; return false;" style="text-decoration: underline;">Terms and Conditions</a> and <a href="#" style="text-decoration: underline;">Privacy Policy</a>.</p>
         </div>
     </div>
 </section>
 
-<!-- Terms and Conditions Modal -->
-<div id="terms-modal" class="modal-overlay">
-    <div class="modal-content" style="max-height: 80vh; overflow-y: auto;">
-        <button onclick="document.getElementById('terms-modal').style.display='none'" style="position: absolute; top: 20px; right: 20px; border: none; background: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
-        <h2 style="margin-bottom: 20px; color: var(--primary-color);">Terms and Conditions</h2>
-        <div style="font-size: 0.9rem; line-height: 1.6; color: #555;">
-            <p style="margin-bottom: 15px;">Welcome to the NTC EDGE Portal. By using this service, you agree to comply with and be bound by the following terms and conditions:</p>
-            <h4 style="margin-top: 20px; color: #333;">1. Accuracy of Information</h4>
-            <p>You certify that all information provided in your application is true, accurate, and complete to the best of your knowledge.</p>
-            <h4 style="margin-top: 20px; color: #333;">2. Data Privacy</h4>
-            <p>The NTC collects and processes your personal data in accordance with the Data Privacy Act of 2012. Your information will be used solely for the purpose of processing your regulatory applications.</p>
-            <h4 style="margin-top: 20px; color: #333;">3. Processing Fees</h4>
-            <p>Submission of an application does not guarantee approval. Fees paid are generally non-refundable unless otherwise specified by NTC regulations.</p>
+<!-- Modals (Simplified for Mockup) -->
+<div id="terms-modal" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
+    <div class="modal-content">
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;">Terms and Conditions</h2>
+        <div style="max-height: 300px; overflow-y: auto; font-size: 0.9rem; color: #555; line-height: 1.6;">
+            <p><strong>1. Introduction:</strong> Use of the NTC EDGE Portal is subject to these terms...</p>
+            <p><strong>2. Data Privacy:</strong> We process your data according to the Data Privacy Act of 2012...</p>
+            <p><strong>3. User Responsibility:</strong> You are responsible for the accuracy of all submitted data...</p>
         </div>
         <div style="margin-top: 30px; text-align: right;">
-            <button class="btn btn-primary" onclick="document.getElementById('terms-modal').style.display='none'">I Accept</button>
+            <button class="btn btn-primary" onclick="document.getElementById('terms-modal').style.display='none'">Close</button>
         </div>
     </div>
 </div>
 
-<!-- Success Confirmation Modal (Hidden by default) -->
-<div id="success-modal" class="modal-overlay">
-    <div class="modal-content" style="text-align: center; max-width: 500px;">
+<div id="success-modal" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
+    <div class="modal-content" style="text-align: center;">
         <div style="font-size: 4rem; color: var(--success-color); margin-bottom: 20px;">✅</div>
-        <h2 style="margin-bottom: 10px;">Application Submitted!</h2>
-        <p style="color: #666; margin-bottom: 25px;">Your application has been successfully received by the system.</p>
-        <div style="background: #f8f9fa; padding: 20px; border-radius: 4px; margin-bottom: 25px;">
-            <p style="font-size: 0.8rem; color: #888; text-transform: uppercase;">Your Reference Number</p>
-            <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color); letter-spacing: 2px;">ARN-2024-098765</p>
+        <h2>Application Submitted!</h2>
+        <p style="color: #666; margin: 15px 0 25px;">Your application has been successfully queued for evaluation.</p>
+        <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--border-color);">
+            <p style="font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px;">Reference Number</p>
+            <p style="font-size: 1.8rem; font-weight: 700; color: var(--primary-color); font-family: monospace;">ARN-2024-098765</p>
         </div>
-        <p style="font-size: 0.9rem; margin-bottom: 30px;">An email confirmation with payment instructions has been sent to your registered email address.</p>
+        <p style="font-size: 0.9rem; margin-bottom: 30px;">Please check your email for the Order of Payment and further instructions.</p>
         <div style="display: flex; gap: 15px; justify-content: center;">
-            <a href="/track" class="btn btn-primary">Track Application</a>
-            <a href="/" class="btn btn-outline" style="color: var(--primary-color); border-color: var(--primary-color);">Back to Home</a>
+            <a href="{{ "/track" | relURL }}" class="btn btn-primary">Track Status</a>
+            <a href="{{ "/" | relURL }}" class="btn btn-outline" style="color: var(--primary-color); border-color: var(--primary-color);">Home</a>
         </div>
     </div>
 </div>
