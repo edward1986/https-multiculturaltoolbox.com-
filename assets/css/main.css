@@ -137,17 +137,20 @@ nav ul li a:hover {
 }
 
 .hero h2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    font-weight: 700;
     margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     margin-bottom: 40px;
-    max-width: 800px;
+    max-width: 850px;
     margin-left: auto;
     margin-right: auto;
-    opacity: 0.9;
+    opacity: 0.95;
+    font-weight: 400;
 }
 
 .btn {
@@ -534,14 +537,15 @@ footer {
     justify-content: space-between;
     margin-bottom: 50px;
     position: relative;
+    padding: 0;
 }
 
 .stepper::before {
     content: '';
     position: absolute;
-    top: 15px;
-    left: 0;
-    width: 100%;
+    top: 16px;
+    left: 10%;
+    width: 80%;
     height: 2px;
     background: #dee2e6;
     z-index: 0;
@@ -612,6 +616,28 @@ input:focus, select:focus, textarea:focus {
 }
 
 @media (max-width: 768px) {
+    .stepper::before {
+        display: none;
+    }
+
+    .stepper {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+        padding-left: 20px;
+    }
+
+    .step {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        text-align: left;
+    }
+
+    .step-number {
+        margin: 0;
+    }
+
     .navbar {
         flex-direction: column;
         padding: 20px 0;

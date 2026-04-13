@@ -6,7 +6,7 @@
             <p style="font-size: 1.1rem; color: #666; max-width: 800px;">Choose a service category to find the requirements and start your application. The NTC EDGE Portal provides digital access to various regulatory services.</p>
         </header>
 
-        {{ $categories := slice "Certificates" "Permits and Licenses" "Equipment / Registration Services" }}
+        {{ $categories := slice "Certificates" "Permits and Licenses" "Equipment / Registration Services" "Other public transactions" }}
         {{ range $categories }}
             <h2 style="color: var(--primary-color); margin: 40px 0 20px; border-left: 5px solid var(--accent-color); padding-left: 15px;">{{ . }}</h2>
             <div class="grid" style="margin-bottom: 60px;">
