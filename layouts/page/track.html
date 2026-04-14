@@ -13,88 +13,66 @@
                     <input type="text" id="arn-input" placeholder="e.g. ARN-2024-123456"
                         style="flex-grow: 1; padding: 15px; border: 2px solid var(--border-color); border-radius: 4px; font-size: 1.2rem; font-family: monospace;"
                         aria-describedby="arn-help">
-                    <button type="button" class="btn btn-primary" style="padding: 0 40px; font-size: 1rem;" onclick="document.getElementById('mock-result').style.display='block'">Track Status</button>
+                    <button type="button" class="btn btn-primary" style="padding: 0 40px; font-size: 1rem;" onclick="document.getElementById('mock-result-container').style.display='block'">Track Status</button>
                 </div>
                 <p id="arn-help" style="font-size: 0.85rem; color: #666;">Enter the unique reference number provided in your acknowledgement email or success confirmation screen.</p>
             </form>
         </div>
 
-        <!-- Mock Result (Hidden by default, shown for demo) -->
-        <div id="mock-result" class="result-card" style="background: white; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            <div style="background: var(--primary-color); color: white; padding: 25px 35px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-                <div>
-                    <span style="font-size: 0.75rem; text-transform: uppercase; opacity: 0.8; letter-spacing: 1px;">Application Reference Number</span>
-                    <h2 style="margin: 5px 0 0; font-family: monospace;">ARN-2024-051288</h2>
-                </div>
-                <div style="text-align: right;">
-                    <span class="status-badge" style="background: var(--accent-color); color: white; padding: 10px 20px; font-size: 0.9rem; border-radius: 4px;">UNDER EVALUATION</span>
-                    <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.9;">Last updated: Today at 02:45 PM</p>
-                </div>
-            </div>
-
-            <div style="padding: 40px;">
-                <div style="margin-bottom: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+        <div id="mock-result-container" style="display: none;">
+            {{ range .Site.Data.mock_tracking.applications }}
+            <div class="result-card" style="background: white; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 40px;">
+                <div style="background: var(--primary-color); color: white; padding: 25px 35px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
                     <div>
-                        <span style="font-size: 0.8rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px;">Regulatory Service</span>
-                        <strong style="color: var(--primary-color);">Radio Operator Certificate</strong>
+                        <span style="font-size: 0.75rem; text-transform: uppercase; opacity: 0.8; letter-spacing: 1px;">Application Reference Number</span>
+                        <h2 style="margin: 5px 0 0; font-family: monospace;">{{ .arn }}</h2>
                     </div>
-                    <div>
-                        <span style="font-size: 0.8rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px;">Date Submitted</span>
-                        <strong style="color: var(--primary-color);">May 12, 2024</strong>
-                    </div>
-                    <div>
-                        <span style="font-size: 0.8rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px;">Applicant Name</span>
-                        <strong style="color: var(--primary-color);">JUAN DELA CRUZ</strong>
-                    </div>
-                    <div>
-                        <span style="font-size: 0.8rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px;">Assigned Office</span>
-                        <strong style="color: var(--primary-color);">NCR - National Capital Region</strong>
+                    <div style="text-align: right;">
+                        <span class="status-badge {{ .status_class }}" style="padding: 10px 20px; font-size: 0.9rem; border-radius: 4px;">{{ .status }}</span>
+                        <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.9;">Last updated: {{ now.Format "January 2, 2006" }}</p>
                     </div>
                 </div>
 
-                <div style="border-top: 1px solid #eee; padding-top: 40px;">
-                    <h4 style="margin-bottom: 30px; color: var(--primary-color);">Application Progress Timeline</h4>
-                    <div class="timeline" style="border-left: 3px solid #f1f3f5; margin-left: 15px; padding-left: 40px; position: relative;">
-
-                        <div class="timeline-item" style="margin-bottom: 35px; position: relative;">
-                            <div style="width: 16px; height: 16px; background: var(--success-color); border-radius: 50%; position: absolute; left: -49.5px; top: 4px; border: 4px solid white; box-shadow: 0 0 0 2px var(--success-color);"></div>
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                                <strong style="font-size: 1.1rem;">Application Received</strong>
-                                <span style="font-size: 0.8rem; color: #888;">May 12, 2024</span>
-                            </div>
-                            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">System acknowledged submission and generated ARN.</p>
+                <div style="padding: 40px;">
+                    <div style="margin-bottom: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                        <div>
+                            <span style="font-size: 0.8rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px;">Regulatory Service</span>
+                            <strong style="color: var(--primary-color);">{{ .service }}</strong>
                         </div>
-
-                        <div class="timeline-item" style="margin-bottom: 35px; position: relative;">
-                            <div style="width: 16px; height: 16px; background: var(--success-color); border-radius: 50%; position: absolute; left: -49.5px; top: 4px; border: 4px solid white; box-shadow: 0 0 0 2px var(--success-color);"></div>
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                                <strong style="font-size: 1.1rem;">Document Verification</strong>
-                                <span style="font-size: 0.8rem; color: #888;">May 13, 2024</span>
-                            </div>
-                            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">All uploaded documentary requirements verified as complete and authentic.</p>
+                        <div>
+                            <span style="font-size: 0.8rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px;">Date Submitted</span>
+                            <strong style="color: var(--primary-color);">{{ .date_submitted }}</strong>
                         </div>
-
-                        <div class="timeline-item" style="position: relative;">
-                            <div style="width: 16px; height: 16px; background: var(--accent-color); border-radius: 50%; position: absolute; left: -49.5px; top: 4px; border: 4px solid white; box-shadow: 0 0 0 2px var(--accent-color);"></div>
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                                <strong style="font-size: 1.1rem; color: var(--accent-color);">Technical Evaluation</strong>
-                                <span style="font-size: 0.8rem; color: #888;">May 14, 2024</span>
-                            </div>
-                            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">Application is currently being reviewed by the technical department for compliance with regulatory standards.</p>
+                        <div>
+                            <span style="font-size: 0.8rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px;">Applicant Name</span>
+                            <strong style="color: var(--primary-color);">{{ .applicant }}</strong>
+                        </div>
+                        <div>
+                            <span style="font-size: 0.8rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px;">Assigned Office</span>
+                            <strong style="color: var(--primary-color);">{{ .office }}</strong>
                         </div>
                     </div>
-                </div>
 
-                <div style="margin-top: 50px; padding: 25px; background: #fff9db; border-radius: 8px; border-left: 5px solid var(--warning-color); display: flex; gap: 20px; align-items: center;">
-                    <div style="font-size: 1.5rem;">ℹ️</div>
-                    <div style="font-size: 0.95rem; color: #664d03; line-height: 1.5;">
-                        <strong>Next Step:</strong> Please wait for the <strong>Order of Payment</strong> to be sent to your registered email address. You will need this to settle the processing fees.
+                    <div style="border-top: 1px solid #eee; padding-top: 40px;">
+                        <h4 style="margin-bottom: 30px; color: var(--primary-color);">Application Progress Timeline</h4>
+                        <div class="timeline" style="border-left: 3px solid #f1f3f5; margin-left: 15px; padding-left: 40px; position: relative;">
+                            {{ range .timeline }}
+                            <div class="timeline-item" style="margin-bottom: 35px; position: relative;">
+                                <div style="width: 16px; height: 16px; background: {{ if .done }}var(--success-color){{ else if .active }}var(--accent-color){{ else }}#dee2e6{{ end }}; border-radius: 50%; position: absolute; left: -49.5px; top: 4px; border: 4px solid white; box-shadow: 0 0 0 2px {{ if .done }}var(--success-color){{ else if .active }}var(--accent-color){{ else }}#dee2e6{{ end }};"></div>
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                    <strong style="font-size: 1.1rem; {{ if .active }}color: var(--accent-color);{{ end }}">{{ .title }}</strong>
+                                    <span style="font-size: 0.8rem; color: #888;">{{ .date }}</span>
+                                </div>
+                                <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">{{ .desc }}</p>
+                            </div>
+                            {{ end }}
+                        </div>
                     </div>
                 </div>
             </div>
+            {{ end }}
         </div>
 
-        <!-- Helpful links for when no result is found -->
         <div style="margin-top: 60px; text-align: center; border-top: 1px solid #eee; padding-top: 40px;">
             <p style="color: #888; margin-bottom: 20px;">Having trouble finding your application?</p>
             <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">

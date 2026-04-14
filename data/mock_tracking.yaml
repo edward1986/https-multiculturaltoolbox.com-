@@ -1,0 +1,42 @@
+applications:
+  - arn: "ARN-2024-051288"
+    status: "UNDER EVALUATION"
+    status_class: "status-evaluation"
+    service: "Radio Operator Certificate"
+    date_submitted: "May 12, 2024"
+    applicant: "JUAN DELA CRUZ"
+    office: "NCR - National Capital Region"
+    timeline:
+      - title: "Application Received"
+        date: "May 12, 2024"
+        desc: "System acknowledged submission and generated ARN."
+        done: true
+      - title: "Document Verification"
+        date: "May 13, 2024"
+        desc: "All uploaded documentary requirements verified as complete and authentic."
+        done: true
+      - title: "Technical Evaluation"
+        date: "May 14, 2024"
+        desc: "Application is currently being reviewed by the technical department for compliance with regulatory standards."
+        done: false
+        active: true
+  - arn: "ARN-2024-049821"
+    status: "RELEASED / READY"
+    status_class: "status-released"
+    service: "Radio Station License"
+    date_submitted: "April 28, 2024"
+    applicant: "MARIA SANTOS"
+    office: "Central Office (Quezon City)"
+    timeline:
+      - title: "Application Received"
+        date: "April 28, 2024"
+        desc: "Submission confirmed."
+        done: true
+      - title: "Technical Evaluation"
+        date: "May 02, 2024"
+        desc: "Technical review complete."
+        done: true
+      - title: "Approved & Released"
+        date: "May 10, 2024"
+        desc: "Document ready for collection."
+        done: true
