@@ -326,6 +326,7 @@ footer {
 .status-payment { background: #d1ecf1; color: #0c5460; }
 .status-processing { background: #cfe2ff; color: #084298; }
 .status-approved { background: #d4edda; color: #155724; }
+.status-released { background: #e0cffc; color: #6610f2; }
 
 .breadcrumb {
     padding: 25px 0;
@@ -544,8 +545,8 @@ footer {
     content: '';
     position: absolute;
     top: 16px;
-    left: 10%;
-    width: 80%;
+    left: 5%;
+    width: 90%;
     height: 2px;
     background: #dee2e6;
     z-index: 0;
@@ -580,9 +581,11 @@ footer {
 }
 
 .step-label {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: #6c757d;
+    display: block;
+    margin-top: 5px;
 }
 
 .step.active .step-label {
