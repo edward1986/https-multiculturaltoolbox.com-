@@ -42,7 +42,7 @@
                 <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; border-left: 5px solid var(--accent-color);">
                     <h4 style="margin-bottom: 10px;">Regional Offices</h4>
                     <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">For transactions outside NCR, you may contact our regional offices directly.</p>
-                    <a href="#" class="btn btn-outline" style="font-size: 0.85rem; color: var(--primary-color); border-color: var(--primary-color);">View Regional Directory</a>
+                    <a href="javascript:void(0)" class="btn btn-outline" style="font-size: 0.85rem; color: var(--primary-color); border-color: var(--primary-color);" onclick="document.getElementById('directory-modal').style.display='flex'">View Regional Directory</a>
                 </div>
             </div>
 
@@ -74,7 +74,7 @@
                             <label class="form-label" for="message">Message</label>
                             <textarea id="message" class="form-control" rows="6" placeholder="Describe your inquiry in detail..."></textarea>
                         </div>
-                        <button type="button" class="btn btn-primary" style="width: 100%; padding: 15px;" onclick="alert('Inquiry mockup submitted.')">Submit Inquiry</button>
+                        <button type="button" id="submit-inquiry" class="btn btn-primary" style="width: 100%; padding: 15px;" onclick="this.textContent='Inquiry Sent Successfully'; this.style.background='var(--success-color)'; this.disabled=true;">Submit Inquiry</button>
                     </form>
                 </div>
 
@@ -88,4 +88,52 @@
         </div>
     </div>
 </section>
+
+<!-- Modals -->
+<div id="directory-modal" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
+    <div class="modal-content" style="max-width: 800px;">
+        <h2>Regional Office Directory</h2>
+        <div class="modal-body-scroll" style="max-height: 500px; padding: 0;">
+            <table class="directory-table">
+                <thead>
+                    <tr>
+                        <th>Region</th>
+                        <th>Address</th>
+                        <th>Contact Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>NCR</strong></td>
+                        <td>NTC Bldg., BIR Rd., East Triangle, Diliman, Quezon City</td>
+                        <td>(02) 8924-4010 / ncr@ntc.gov.ph</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Region I</strong></td>
+                        <td>Brgy. Sevilla, San Fernando City, La Union</td>
+                        <td>(072) 607-5654 / r1@ntc.gov.ph</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Region III</strong></td>
+                        <td>Diosdado Macapagal Govt. Center, Maimpis, San Fernando, Pampanga</td>
+                        <td>(045) 455-2260 / r3@ntc.gov.ph</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Region V</strong></td>
+                        <td>Govt. Center, Rawis, Legazpi City</td>
+                        <td>(052) 482-0164 / r5@ntc.gov.ph</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Region VII</strong></td>
+                        <td>Wireless, Mandaue City, Cebu</td>
+                        <td>(032) 346-0391 / r7@ntc.gov.ph</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer" style="margin-top: 30px;">
+            <button class="btn btn-primary" onclick="document.getElementById('directory-modal').style.display='none'">Close Directory</button>
+        </div>
+    </div>
+</div>
 {{ end }}
