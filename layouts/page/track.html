@@ -1,69 +1,67 @@
 {{ define "main" }}
-<section class="track-portal" style="padding: 60px 0;">
-    <div class="container" style="max-width: 900px;">
-        <header style="text-align: center; margin-bottom: 50px;">
-            <h1 class="section-title" style="margin-top: 0;">Track Application Status</h1>
-            <p style="color: #666; font-size: 1.1rem;">Check the real-time progress of your regulatory application.</p>
+<section class="track-portal section-padding-sm">
+    <div class="container track-container">
+        <header class="track-header">
+            <h1 class="section-title">Track Application Status</h1>
+            <p>Check the real-time progress of your regulatory application.</p>
         </header>
 
-        <div class="card" style="margin-bottom: 50px; padding: 40px; border-top: 5px solid var(--primary-color);">
-            <form style="display: flex; flex-direction: column; gap: 20px;">
-                <label for="arn-input" style="font-weight: 600; color: var(--primary-color);">Application Reference Number (ARN)</label>
-                <div style="display: flex; gap: 10px;">
-                    <input type="text" id="arn-input" placeholder="e.g. ARN-2024-123456"
-                        style="flex-grow: 1; padding: 15px; border: 2px solid var(--border-color); border-radius: 4px; font-size: 1.2rem; font-family: monospace;"
-                        aria-describedby="arn-help">
+        <div class="card track-form-card">
+            <form class="track-form">
+                <label for="arn-input">Application Reference Number (ARN)</label>
+                <div class="track-input-group">
+                    <input type="text" id="arn-input" class="track-input" placeholder="e.g. ARN-2024-123456" aria-describedby="arn-help">
                     <button type="button" class="btn btn-primary" style="padding: 0 40px; font-size: 1rem;" onclick="document.getElementById('mock-result-container').style.display='block'">Track Status</button>
                 </div>
-                <p id="arn-help" style="font-size: 0.85rem; color: #666;">Enter the unique reference number provided in your acknowledgement email or success confirmation screen.</p>
+                <p id="arn-help" class="track-help-text">Enter the unique reference number provided in your acknowledgement email or success confirmation screen.</p>
             </form>
         </div>
 
         <div id="mock-result-container" style="display: none;">
             {{ range .Site.Data.mock_tracking.applications }}
-            <div class="result-card" style="background: white; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 40px;">
-                <div style="background: var(--primary-color); color: white; padding: 25px 35px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div class="track-result-card">
+                <div class="track-result-header">
                     <div>
-                        <span style="font-size: 0.75rem; text-transform: uppercase; opacity: 0.8; letter-spacing: 1px;">Application Reference Number</span>
-                        <h2 style="margin: 5px 0 0; font-family: monospace;">{{ .arn }}</h2>
+                        <span class="track-meta">Application Reference Number</span>
+                        <h2>{{ .arn }}</h2>
                     </div>
-                    <div style="text-align: right;">
-                        <span class="status-badge {{ .status_class }}" style="padding: 10px 20px; font-size: 0.9rem; border-radius: 4px;">{{ .status }}</span>
-                        <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.9;">Last updated: {{ now.Format "January 2, 2006" }}</p>
+                    <div class="track-status-area">
+                        <span class="status-badge {{ .status_class }} track-status-badge">{{ .status }}</span>
+                        <p class="track-update-time">Last updated: {{ now.Format "January 2, 2006" }}</p>
                     </div>
                 </div>
 
-                <div style="padding: 40px;">
-                    <div style="margin-bottom: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
-                        <div>
-                            <span style="font-size: 0.8rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px;">Regulatory Service</span>
-                            <strong style="color: var(--primary-color);">{{ .service }}</strong>
+                <div class="track-result-body">
+                    <div class="track-info-grid">
+                        <div class="track-info-item">
+                            <span>Regulatory Service</span>
+                            <strong>{{ .service }}</strong>
                         </div>
-                        <div>
-                            <span style="font-size: 0.8rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px;">Date Submitted</span>
-                            <strong style="color: var(--primary-color);">{{ .date_submitted }}</strong>
+                        <div class="track-info-item">
+                            <span>Date Submitted</span>
+                            <strong>{{ .date_submitted }}</strong>
                         </div>
-                        <div>
-                            <span style="font-size: 0.8rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px;">Applicant Name</span>
-                            <strong style="color: var(--primary-color);">{{ .applicant }}</strong>
+                        <div class="track-info-item">
+                            <span>Applicant Name</span>
+                            <strong>{{ .applicant }}</strong>
                         </div>
-                        <div>
-                            <span style="font-size: 0.8rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px;">Assigned Office</span>
-                            <strong style="color: var(--primary-color);">{{ .office }}</strong>
+                        <div class="track-info-item">
+                            <span>Assigned Office</span>
+                            <strong>{{ .office }}</strong>
                         </div>
                     </div>
 
-                    <div style="border-top: 1px solid #eee; padding-top: 40px;">
-                        <h4 style="margin-bottom: 30px; color: var(--primary-color);">Application Progress Timeline</h4>
-                        <div class="timeline" style="border-left: 3px solid #f1f3f5; margin-left: 15px; padding-left: 40px; position: relative;">
+                    <div class="track-timeline-section">
+                        <h4>Application Progress Timeline</h4>
+                        <div class="timeline-v">
                             {{ range .timeline }}
-                            <div class="timeline-item" style="margin-bottom: 35px; position: relative;">
-                                <div style="width: 16px; height: 16px; background: {{ if .done }}var(--success-color){{ else if .active }}var(--accent-color){{ else }}#dee2e6{{ end }}; border-radius: 50%; position: absolute; left: -49.5px; top: 4px; border: 4px solid white; box-shadow: 0 0 0 2px {{ if .done }}var(--success-color){{ else if .active }}var(--accent-color){{ else }}#dee2e6{{ end }};"></div>
-                                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                                    <strong style="font-size: 1.1rem; {{ if .active }}color: var(--accent-color);{{ end }}">{{ .title }}</strong>
-                                    <span style="font-size: 0.8rem; color: #888;">{{ .date }}</span>
+                            <div class="timeline-v-item">
+                                <div class="timeline-v-dot {{ if .done }}done{{ else if .active }}active{{ else }}pending{{ end }}"></div>
+                                <div class="timeline-v-header">
+                                    <strong class="timeline-v-title {{ if .active }}active{{ end }}">{{ .title }}</strong>
+                                    <span class="timeline-v-date">{{ .date }}</span>
                                 </div>
-                                <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">{{ .desc }}</p>
+                                <p class="timeline-v-desc">{{ .desc }}</p>
                             </div>
                             {{ end }}
                         </div>
@@ -73,12 +71,12 @@
             {{ end }}
         </div>
 
-        <div style="margin-top: 60px; text-align: center; border-top: 1px solid #eee; padding-top: 40px;">
-            <p style="color: #888; margin-bottom: 20px;">Having trouble finding your application?</p>
-            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="{{ "/faq" | relURL }}" style="font-weight: 600; color: var(--secondary-color);">Check tracking FAQs</a>
-                <span style="color: #ddd;">|</span>
-                <a href="{{ "/contact" | relURL }}" style="font-weight: 600; color: var(--secondary-color);">Contact support desk</a>
+        <div class="track-footer">
+            <p>Having trouble finding your application?</p>
+            <div class="track-footer-links">
+                <a href="{{ "/faq" | relURL }}">Check tracking FAQs</a>
+                <span class="track-divider">|</span>
+                <a href="{{ "/contact" | relURL }}">Contact support desk</a>
             </div>
         </div>
     </div>

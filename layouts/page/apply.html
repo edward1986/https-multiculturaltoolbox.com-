@@ -1,13 +1,13 @@
 {{ define "main" }}
-<section class="apply-portal" style="padding: 60px 0;">
+<section class="apply-portal section-padding-sm">
     <div class="container">
-        <header style="margin-bottom: 40px;">
-            <h1 class="section-title" style="margin-top: 0; text-align: left;">Application Portal</h1>
-            <p style="color: #666;">Apply for NTC regulatory services through our streamlined digital process.</p>
+        <header class="portal-header">
+            <h1 class="section-title">Application Portal</h1>
+            <p>Apply for NTC regulatory services through our streamlined digital process.</p>
         </header>
 
         <!-- Portal Stepper -->
-        <div class="stepper" style="margin-bottom: 60px; max-width: 1100px; margin-left: auto; margin-right: auto;" aria-label="Application progress">
+        <div class="stepper max-w-1100 mx-auto" style="margin-bottom: 60px;" aria-label="Application progress">
             <div class="step active" aria-current="step">
                 <div class="step-number">1</div>
                 <div class="step-label">Select Service</div>
@@ -45,10 +45,10 @@
         <div class="portal-container">
             <!-- Sidebar -->
             <aside class="portal-sidebar">
-                <h4 style="margin-bottom: 20px; color: var(--primary-color);">Application Guide</h4>
-                <div style="font-size: 0.85rem; color: #555; line-height: 1.6;">
-                    <p style="margin-bottom: 15px;"><strong>Before you begin:</strong></p>
-                    <ul style="list-style: disc; padding-left: 15px; margin-bottom: 20px;">
+                <h4>Application Guide</h4>
+                <div class="sidebar-content">
+                    <p><strong>Before you begin:</strong></p>
+                    <ul>
                         <li>Ensure you have a stable internet connection.</li>
                         <li>Prepare digital copies of all requirements (PDF, JPG, or PNG).</li>
                         <li>Maximum file size is 5MB per document.</li>
@@ -61,7 +61,7 @@
             <!-- Main Form Area (Step 1-3) -->
             <div class="portal-main">
                 <div id="step-1-3">
-                    <h3 style="margin-bottom: 30px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block;">Step 1-3: Service, Region & Mode</h3>
+                    <h3 class="portal-section-title">Step 1-3: Service, Region & Mode</h3>
 
                     <form>
                         <div class="form-group">
@@ -76,7 +76,7 @@
 
                         <div class="form-group">
                             <label for="region-select" class="form-label">Select Regional Office</label>
-                            <p style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">Choose the NTC regional office that has jurisdiction over your location or station.</p>
+                            <p class="form-help-text">Choose the NTC regional office that has jurisdiction over your location or station.</p>
                             <select id="region-select" class="form-control">
                                 <option value="">-- Choose a region --</option>
                                 <option>Central Office (Quezon City)</option>
@@ -108,8 +108,8 @@
                             </fieldset>
                         </div>
 
-                        <div style="text-align: right; border-top: 1px solid #eee; padding-top: 30px;">
-                            <button type="button" class="btn btn-primary" style="padding: 12px 40px;" onclick="alert('Proceeding to Form...')">Next Step &rarr;</button>
+                        <div class="form-footer">
+                            <button type="button" class="btn btn-primary" style="padding: 12px 40px;" onclick="this.textContent='Form Loaded'; this.disabled=true;">Next Step &rarr;</button>
                         </div>
                     </form>
                 </div>
@@ -119,9 +119,9 @@
         <!-- Mock sections for steps 4-8 -->
         <div style="margin-top: 80px;">
             <!-- Step 4 Mock -->
-            <div class="portal-container" style="margin-bottom: 40px; border-style: dashed; opacity: 0.7;">
+            <div class="portal-container portal-mock-section">
                 <div class="portal-main" style="width: 100%;">
-                    <h3 style="margin-bottom: 20px; border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; display: inline-block;">Step 4: Application Form</h3>
+                    <h3 class="portal-section-title">Step 4: Application Form</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div class="form-group">
                             <label class="form-label">First Name</label>
@@ -137,9 +137,9 @@
             </div>
 
             <!-- Step 5 Mock -->
-            <div class="portal-container" style="margin-bottom: 40px; border-style: dashed; opacity: 0.7;">
+            <div class="portal-container portal-mock-section">
                 <div class="portal-main" style="width: 100%;">
-                    <h3 style="margin-bottom: 20px; border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; display: inline-block;">Step 5: Upload Requirements</h3>
+                    <h3 class="portal-section-title">Step 5: Upload Requirements</h3>
                     <div class="upload-zone">
                         <div style="font-size: 2rem; margin-bottom: 10px;">📤</div>
                         <p>Document Upload Section</p>
@@ -148,9 +148,9 @@
             </div>
 
             <!-- Step 6 Mock -->
-            <div class="portal-container" style="margin-bottom: 40px; border-style: dashed; opacity: 0.7;">
+            <div class="portal-container portal-mock-section">
                 <div class="portal-main" style="width: 100%;">
-                    <h3 style="margin-bottom: 20px; border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; display: inline-block;">Step 6: Review Application</h3>
+                    <h3 class="portal-section-title">Step 6: Review Application</h3>
                     <div class="review-grid">
                         <div><p class="review-item-label">Service</p><p class="review-item-value">Radio Operator Certificate</p></div>
                         <div><p class="review-item-label">Office</p><p class="review-item-value">NCR - National Capital Region</p></div>
@@ -159,9 +159,13 @@
             </div>
 
             <!-- Step 7 & 8 Actions -->
-            <div style="text-align: center; margin-top: 60px;">
-                <h3 style="margin-bottom: 20px;">Step 7: Final Submission</h3>
-                <button class="btn btn-primary" style="padding: 18px 80px; font-size: 1.2rem; box-shadow: 0 4px 20px rgba(0,46,93,0.4);" onclick="document.getElementById('success-modal').style.display='flex'">Submit Application</button>
+            <div class="portal-final-step">
+                <h3>Step 7: Final Submission</h3>
+                <div class="terms-agreement">
+                    <input type="checkbox" id="terms-checkbox" style="width: 20px; height: 20px;">
+                    <label for="terms-checkbox">I agree to the <a href="javascript:void(0)" onclick="document.getElementById('terms-modal').style.display='flex'">Terms and Conditions</a> and certify that all information provided is true and correct.</label>
+                </div>
+                <button class="btn btn-primary btn-xl" onclick="if(document.getElementById('terms-checkbox').checked) { document.getElementById('success-modal').style.display='flex' } else { alert('Please agree to the Terms and Conditions first.') }">Submit Application</button>
                 <p style="margin-top: 20px; font-size: 0.85rem; color: #666;">Step 8: Receive Confirmation (Upon Success)</p>
             </div>
         </div>
@@ -169,18 +173,37 @@
 </section>
 
 <!-- Modals -->
+<div id="terms-modal" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
+    <div class="modal-content">
+        <h2>Terms and Conditions</h2>
+        <div class="modal-body-scroll">
+            <p style="margin-bottom: 15px;"><strong>1. Data Privacy</strong></p>
+            <p style="margin-bottom: 15px;">By using the NTC EDGE Portal, you agree to the collection and processing of your personal and technical data in accordance with the Data Privacy Act of 2012. NTC shall use this information solely for regulatory purposes.</p>
+            <p style="margin-bottom: 15px;"><strong>2. Accuracy of Information</strong></p>
+            <p style="margin-bottom: 15px;">You certify that all information provided in your application and all uploaded documents are true, complete, and accurate. Any false statement or fraudulent document may be grounds for rejection of the application and legal action.</p>
+            <p style="margin-bottom: 15px;"><strong>3. Electronic Signature</strong></p>
+            <p style="margin-bottom: 15px;">Submission through this portal shall have the same legal effect as a manual signature under the Electronic Commerce Act (RA 8792).</p>
+            <p style="margin-bottom: 15px;"><strong>4. Fees and Payment</strong></p>
+            <p>Processing fees are non-refundable once evaluation has commenced. Ensure that you pay only through authorized NTC payment channels.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" onclick="document.getElementById('terms-modal').style.display='none'; document.getElementById('terms-checkbox').checked = true;">Accept & Close</button>
+        </div>
+    </div>
+</div>
+
 <div id="success-modal" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
-    <div class="modal-content" style="text-align: center;">
-        <div style="font-size: 4rem; color: var(--success-color); margin-bottom: 20px;">✅</div>
+    <div class="modal-content text-center">
+        <div class="success-icon">✅</div>
         <h2>Application Submitted!</h2>
         <p style="color: #666; margin: 15px 0 25px;">Your application has been successfully queued for evaluation.</p>
-        <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--border-color);">
-            <p style="font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px;">Reference Number</p>
-            <p style="font-size: 1.8rem; font-weight: 700; color: var(--primary-color); font-family: monospace;">ARN-2024-051288</p>
+        <div class="reference-box">
+            <p class="reference-label">Reference Number</p>
+            <p class="reference-number">ARN-2024-051288</p>
         </div>
-        <div style="display: flex; gap: 15px; justify-content: center;">
+        <div class="modal-btn-group">
             <a href="{{ "/track" | relURL }}" class="btn btn-primary">Track Status</a>
-            <a href="{{ "/" | relURL }}" class="btn btn-outline" style="color: var(--primary-color); border-color: var(--primary-color);">Home</a>
+            <a href="{{ "/" | relURL }}" class="btn btn-outline-primary">Home</a>
         </div>
     </div>
 </div>
