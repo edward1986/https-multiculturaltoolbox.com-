@@ -11,10 +11,14 @@
                 <label for="arn-input">Application Reference Number (ARN)</label>
                 <div class="track-input-group">
                     <input type="text" id="arn-input" class="track-input" placeholder="e.g. ARN-2024-123456" aria-describedby="arn-help">
-                    <button type="button" class="btn btn-primary" style="padding: 0 40px; font-size: 1rem;" onclick="document.getElementById('mock-result-container').style.display='block'">Track Status</button>
+                    <button type="button" id="track-btn" class="btn btn-primary" style="padding: 0 40px; font-size: 1rem;">Track Status</button>
                 </div>
                 <p id="arn-help" class="track-help-text">Enter the unique reference number provided in your acknowledgement email or success confirmation screen.</p>
             </form>
+        </div>
+
+        <div id="loading-container" style="display: none;">
+            {{ partial "loading-state.html" "Retrieving application records from NTC EDGE database..." }}
         </div>
 
         <div id="mock-result-container" style="display: none;">
@@ -70,6 +74,31 @@
             </div>
             {{ end }}
         </div>
+
+        <script>
+            document.getElementById('track-btn').addEventListener('click', function() {
+                const arn = document.getElementById('arn-input').value.trim();
+                if (!arn) {
+                    alert('Please enter a valid Application Reference Number (ARN).');
+                    return;
+                }
+
+                // Show loading state
+                document.getElementById('mock-result-container').style.display = 'none';
+                document.getElementById('loading-container').style.display = 'block';
+                this.disabled = true;
+
+                // Simulate API call delay
+                setTimeout(() => {
+                    document.getElementById('loading-container').style.display = 'none';
+                    document.getElementById('mock-result-container').style.display = 'block';
+                    this.disabled = false;
+
+                    // Smooth scroll to result
+                    document.getElementById('mock-result-container').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            });
+        </script>
 
         <div class="track-footer">
             <p>Having trouble finding your application?</p>
