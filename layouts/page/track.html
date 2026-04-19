@@ -70,6 +70,19 @@
                             {{ end }}
                         </div>
                     </div>
+
+                    {{ if .notes }}
+                    <div class="track-notes-section">
+                        <h4>Notes & Reminders</h4>
+                        <div class="notes-container">
+                            <ul class="notes-list">
+                                {{ range .notes }}
+                                <li>{{ . }}</li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                    </div>
+                    {{ end }}
                 </div>
             </div>
             {{ end }}
