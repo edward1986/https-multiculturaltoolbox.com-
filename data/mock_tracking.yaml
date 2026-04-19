@@ -6,6 +6,9 @@ applications:
     date_submitted: "May 12, 2024"
     applicant: "JUAN DELA CRUZ"
     office: "NCR - National Capital Region"
+    notes:
+      - "Please ensure that your original documents are available for verification if requested."
+      - "Payment will be enabled once technical evaluation is complete."
     timeline:
       - title: "Application Received"
         date: "May 12, 2024"
@@ -27,6 +30,9 @@ applications:
     date_submitted: "April 28, 2024"
     applicant: "MARIA SANTOS"
     office: "Central Office (Quezon City)"
+    notes:
+      - "Your license is now available for pickup at the Central Office."
+      - "Please bring a valid government-issued ID and the original official receipt."
     timeline:
       - title: "Application Received"
         date: "April 28, 2024"
