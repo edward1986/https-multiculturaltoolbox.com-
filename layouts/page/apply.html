@@ -207,4 +207,18 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Interactivity for Processing Mode Cards
+    document.querySelectorAll('.mode-card').forEach(card => {
+        card.addEventListener('click', function() {
+            document.querySelectorAll('.mode-card').forEach(c => {
+                c.classList.remove('active');
+                c.querySelector('input').checked = false;
+            });
+            this.classList.add('active');
+            this.querySelector('input').checked = true;
+        });
+    });
+</script>
 {{ end }}
