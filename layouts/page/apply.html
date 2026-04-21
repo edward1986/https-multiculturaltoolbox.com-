@@ -7,38 +7,38 @@
         </header>
 
         <!-- Portal Stepper -->
-        <div class="stepper max-w-1100 mx-auto" style="margin-bottom: 60px;" aria-label="Application progress">
-            <div class="step active" aria-current="step">
+        <div class="stepper max-w-1100 mx-auto" style="margin-bottom: 60px;" aria-label="Application progress" id="portal-stepper">
+            <div class="step active" data-step="1">
                 <div class="step-number">1</div>
-                <div class="step-label">Select Service</div>
+                <div class="step-label">Service</div>
             </div>
-            <div class="step">
+            <div class="step" data-step="2">
                 <div class="step-number">2</div>
-                <div class="step-label">Select Region</div>
+                <div class="step-label">Region</div>
             </div>
-            <div class="step">
+            <div class="step" data-step="3">
                 <div class="step-number">3</div>
-                <div class="step-label">Choose Mode</div>
+                <div class="step-label">Mode</div>
             </div>
-            <div class="step">
+            <div class="step" data-step="4">
                 <div class="step-number">4</div>
-                <div class="step-label">Fill Form</div>
+                <div class="step-label">Form</div>
             </div>
-            <div class="step">
+            <div class="step" data-step="5">
                 <div class="step-number">5</div>
-                <div class="step-label">Upload Docs</div>
+                <div class="step-label">Upload</div>
             </div>
-            <div class="step">
+            <div class="step" data-step="6">
                 <div class="step-number">6</div>
-                <div class="step-label">Review Details</div>
+                <div class="step-label">Review</div>
             </div>
-            <div class="step">
+            <div class="step" data-step="7">
                 <div class="step-number">7</div>
                 <div class="step-label">Submit</div>
             </div>
-            <div class="step">
+            <div class="step" data-step="8">
                 <div class="step-number">8</div>
-                <div class="step-label">Confirmation</div>
+                <div class="step-label">Done</div>
             </div>
         </div>
 
@@ -58,121 +58,189 @@
                 </div>
             </aside>
 
-            <!-- Main Form Area (Step 1-3) -->
-            <div class="portal-main">
-                <div id="step-1-3">
-                    <h3 class="portal-section-title">Step 1-3: Service, Region & Mode</h3>
-
-                    <form>
-                        <div class="form-group">
-                            <label for="service-select" class="form-label">Select Regulatory Service</label>
-                            <select id="service-select" class="form-control">
-                                <option value="">-- Choose a service --</option>
-                                {{ range (where .Site.RegularPages "Section" "services") }}
-                                <option>{{ .Title }}</option>
-                                {{ end }}
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="region-select" class="form-label">Select Regional Office</label>
-                            <p class="form-help-text">Choose the NTC regional office that has jurisdiction over your location or station.</p>
-                            <select id="region-select" class="form-control">
-                                <option value="">-- Choose a region --</option>
-                                <option>Central Office (Quezon City)</option>
-                                <option>NCR - National Capital Region</option>
-                                <option>Region I - Ilocos Region</option>
-                                <option>Region II - Cagayan Valley</option>
-                                <option>Region III - Central Luzon</option>
-                                <option>Region IV-A - CALABARZON</option>
-                                <option>Region IV-B - MIMAROPA</option>
-                                <option>Region V - Bicol Region</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 40px;">
-                            <fieldset style="border: none;">
-                                <legend class="form-label" style="margin-bottom: 15px; float: left; width: 100%;">Processing Mode</legend>
-                                <div class="processing-modes">
-                                    <label class="mode-card active">
-                                        <input type="radio" name="mode" checked aria-describedby="mode-regular-desc">
-                                        <strong>Regular Processing</strong>
-                                        <p id="mode-regular-desc" style="font-size: 0.8rem; margin-top: 5px; margin-left: 20px;">Standard turnaround time as per Citizen's Charter.</p>
-                                    </label>
-                                    <label class="mode-card" style="color: #666;">
-                                        <input type="radio" name="mode" aria-describedby="mode-express-desc">
-                                        <strong>Express Processing</strong>
-                                        <p id="mode-express-desc" style="font-size: 0.8rem; margin-top: 5px; margin-left: 20px;">Expedited processing for eligible transactions (subject to additional fees).</p>
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
-
-                        <div class="form-footer">
-                            <button type="button" class="btn btn-primary" style="padding: 12px 40px;" onclick="this.textContent='Form Loaded'; this.disabled=true;">Next Step &rarr;</button>
-                        </div>
-                    </form>
+            <!-- Main Portal Area -->
+            <div class="portal-main" id="portal-main-content">
+                <!-- Step 1: Select Service -->
+                <div class="portal-step-content active" id="step-1">
+                    <h3 class="portal-section-title">Step 1: Select Service</h3>
+                    <div class="form-group">
+                        <label for="service-select" class="form-label">Select Regulatory Service</label>
+                        <select id="service-select" class="form-control">
+                            <option value="">-- Choose a service --</option>
+                            {{ range (where .Site.RegularPages "Section" "services") }}
+                            <option value="{{ .Title }}">{{ .Title }}</option>
+                            {{ end }}
+                        </select>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" class="btn btn-primary next-step">Next Step &rarr;</button>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Mock sections for steps 4-8 -->
-        <div style="margin-top: 80px;">
-            <!-- Step 4 Mock -->
-            <div class="portal-container portal-mock-section">
-                <div class="portal-main" style="width: 100%;">
-                    <h3 class="portal-section-title">Step 4: Application Form</h3>
+                <!-- Step 2: Select Region -->
+                <div class="portal-step-content" id="step-2" style="display:none;">
+                    <h3 class="portal-section-title">Step 2: Select Region</h3>
+                    <div class="form-group">
+                        <label for="region-select" class="form-label">Select Regional Office</label>
+                        <p class="form-help-text">Choose the NTC regional office that has jurisdiction over your location or station.</p>
+                        <select id="region-select" class="form-control">
+                            <option value="">-- Choose a region --</option>
+                            <option>Central Office (Quezon City)</option>
+                            <option>NCR - National Capital Region</option>
+                            <option>Region I - Ilocos Region</option>
+                            <option>Region II - Cagayan Valley</option>
+                            <option>Region III - Central Luzon</option>
+                            <option>Region IV-A - CALABARZON</option>
+                            <option>Region IV-B - MIMAROPA</option>
+                            <option>Region V - Bicol Region</option>
+                        </select>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" class="btn btn-outline-primary prev-step">&larr; Back</button>
+                        <button type="button" class="btn btn-primary next-step">Next Step &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Processing Mode -->
+                <div class="portal-step-content" id="step-3" style="display:none;">
+                    <h3 class="portal-section-title">Step 3: Processing Mode</h3>
+                    <div class="form-group">
+                        <label class="form-label">Choose Processing Mode</label>
+                        <div class="processing-modes">
+                            <label class="mode-card active">
+                                <input type="radio" name="mode" value="Regular" checked>
+                                <strong>Regular Processing</strong>
+                                <p style="font-size: 0.8rem; margin-top: 5px;">Standard turnaround time as per Citizen's Charter.</p>
+                            </label>
+                            <label class="mode-card">
+                                <input type="radio" name="mode" value="Express">
+                                <strong>Express Processing</strong>
+                                <p style="font-size: 0.8rem; margin-top: 5px;">Expedited processing for eligible transactions.</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" class="btn btn-outline-primary prev-step">&larr; Back</button>
+                        <button type="button" class="btn btn-primary next-step">Next Step &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Application Form -->
+                <div class="portal-step-content" id="step-4" style="display:none;">
+                    <h3 class="portal-section-title">Step 4: Application Details</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div class="form-group">
                             <label class="form-label">First Name</label>
-                            <input type="text" class="form-control" disabled value="Juan">
+                            <input type="text" class="form-control" id="fname" placeholder="e.g. Juan">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Last Name</label>
-                            <input type="text" class="form-control" disabled value="Dela Cruz">
+                            <input type="text" class="form-control" id="lname" placeholder="e.g. Dela Cruz">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="e.g. juan@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Contact Number</label>
+                            <input type="text" class="form-control" id="contact" placeholder="e.g. 09171234567">
                         </div>
                     </div>
-                    <p style="text-align: right; color: #888; font-size: 0.8rem;">[Fields disabled in mockup]</p>
-                </div>
-            </div>
-
-            <!-- Step 5 Mock -->
-            <div class="portal-container portal-mock-section">
-                <div class="portal-main" style="width: 100%;">
-                    <h3 class="portal-section-title">Step 5: Upload Requirements</h3>
-                    <div class="upload-zone">
-                        <div style="font-size: 2rem; margin-bottom: 10px;">📤</div>
-                        <p>Document Upload Section</p>
+                    <div class="form-footer">
+                        <button type="button" class="btn btn-outline-primary prev-step">&larr; Back</button>
+                        <button type="button" class="btn btn-primary next-step">Next Step &rarr;</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Step 6 Mock -->
-            <div class="portal-container portal-mock-section">
-                <div class="portal-main" style="width: 100%;">
+                <!-- Step 5: Upload Requirements -->
+                <div class="portal-step-content" id="step-5" style="display:none;">
+                    <h3 class="portal-section-title">Step 5: Upload Requirements</h3>
+                    <p class="form-help-text">Please upload clear, digital copies of the required documents.</p>
+                    <div class="upload-zone">
+                        <div style="font-size: 2.5rem; margin-bottom: 15px;">📤</div>
+                        <p>Drag and drop files here or <a href="javascript:void(0)" style="font-weight: 700;">Browse Files</a></p>
+                        <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">Supported formats: PDF, JPG, PNG (Max 5MB)</p>
+                    </div>
+                    <div id="mock-upload-list" style="margin-top: 20px;">
+                         <div style="padding: 10px; border: 1px solid #eee; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span>ID_PHOTO.jpg</span>
+                            <span style="color: var(--success-color); font-weight: bold;">Ready</span>
+                         </div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" class="btn btn-outline-primary prev-step">&larr; Back</button>
+                        <button type="button" class="btn btn-primary next-step">Next Step &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Step 6: Review Application -->
+                <div class="portal-step-content" id="step-6" style="display:none;">
                     <h3 class="portal-section-title">Step 6: Review Application</h3>
                     <div class="review-grid">
-                        <div><p class="review-item-label">Service</p><p class="review-item-value">Radio Operator Certificate</p></div>
-                        <div><p class="review-item-label">Office</p><p class="review-item-value">NCR - National Capital Region</p></div>
+                        <div>
+                            <p class="review-item-label">Service</p>
+                            <p class="review-item-value" id="rev-service">---</p>
+                        </div>
+                        <div>
+                            <p class="review-item-label">Office</p>
+                            <p class="review-item-value" id="rev-region">---</p>
+                        </div>
+                        <div>
+                            <p class="review-item-label">Applicant</p>
+                            <p class="review-item-value" id="rev-name">---</p>
+                        </div>
+                        <div>
+                            <p class="review-item-label">Mode</p>
+                            <p class="review-item-value" id="rev-mode">---</p>
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" class="btn btn-outline-primary prev-step">&larr; Back</button>
+                        <button type="button" class="btn btn-primary next-step">Confirm Details &rarr;</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Step 7 & 8 Actions -->
-            <div class="portal-final-step">
-                <h3>Step 7: Final Submission</h3>
-                <div class="terms-agreement">
-                    <input type="checkbox" id="terms-checkbox" style="width: 20px; height: 20px;">
-                    <label for="terms-checkbox">I agree to the <a href="javascript:void(0)" onclick="document.getElementById('terms-modal').style.display='flex'">Terms and Conditions</a> and certify that all information provided is true and correct.</label>
+                <!-- Step 7: Submit Application -->
+                <div class="portal-step-content" id="step-7" style="display:none;">
+                    <h3 class="portal-section-title">Step 7: Final Submission</h3>
+                    <div style="background: #fff8e1; padding: 25px; border-radius: 8px; border-left: 5px solid var(--warning-color); margin-bottom: 30px;">
+                        <p style="margin-bottom: 15px;"><strong>Declaration of Truth:</strong></p>
+                        <p style="font-size: 0.95rem;">I hereby certify that all information provided in this application is true and correct, and the uploaded documents are authentic. I understand that any false information may result in the disapproval of my application and potential legal action.</p>
+                    </div>
+                    <div class="terms-agreement" style="justify-content: flex-start; margin: 0 0 30px 0;">
+                        <input type="checkbox" id="terms-checkbox-final" style="width: 20px; height: 20px;">
+                        <label for="terms-checkbox-final">I agree to the <a href="javascript:void(0)" onclick="document.getElementById('terms-modal').style.display='flex'">Terms and Conditions</a> and Data Privacy Policy.</label>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" class="btn btn-outline-primary prev-step">&larr; Back</button>
+                        <button type="button" class="btn btn-primary btn-xl" id="final-submit-btn">Submit Application</button>
+                    </div>
                 </div>
-                <button class="btn btn-primary btn-xl" onclick="if(document.getElementById('terms-checkbox').checked) { document.getElementById('success-modal').style.display='flex' } else { alert('Please agree to the Terms and Conditions first.') }">Submit Application</button>
-                <p style="margin-top: 20px; font-size: 0.85rem; color: #666;">Step 8: Receive Confirmation (Upon Success)</p>
+
+                <!-- Step 8: Receive Confirmation (Success State) -->
+                <div class="portal-step-content" id="step-8" style="display:none; text-align: center;">
+                    <div class="success-icon" style="font-size: 5rem; margin-bottom: 20px;">✅</div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 10px;">Application Submitted!</h2>
+                    <p style="color: #666; margin-bottom: 30px;">Your application has been successfully queued for evaluation.</p>
+
+                    <div class="reference-box" style="display: inline-block; min-width: 300px;">
+                        <p class="reference-label">Reference Number</p>
+                        <p class="reference-number" id="final-arn">ARN-2024-051288</p>
+                    </div>
+
+                    <p style="margin: 30px 0; font-size: 0.9rem; color: #555;">An acknowledgement email with payment instructions has been sent to your email address.</p>
+
+                    <div class="modal-btn-group">
+                        <a href="{{ "/track" | relURL }}" class="btn btn-primary">Track Status</a>
+                        <a href="{{ "/" | relURL }}" class="btn btn-outline-primary">Return Home</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Modals -->
+<!-- Terms and Conditions Modal -->
 <div id="terms-modal" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
     <div class="modal-content">
         <h2>Terms and Conditions</h2>
@@ -187,38 +255,131 @@
             <p>Processing fees are non-refundable once evaluation has commenced. Ensure that you pay only through authorized NTC payment channels.</p>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" onclick="document.getElementById('terms-modal').style.display='none'; document.getElementById('terms-checkbox').checked = true;">Accept & Close</button>
-        </div>
-    </div>
-</div>
-
-<div id="success-modal" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
-    <div class="modal-content text-center">
-        <div class="success-icon">✅</div>
-        <h2>Application Submitted!</h2>
-        <p style="color: #666; margin: 15px 0 25px;">Your application has been successfully queued for evaluation.</p>
-        <div class="reference-box">
-            <p class="reference-label">Reference Number</p>
-            <p class="reference-number">ARN-2024-051288</p>
-        </div>
-        <div class="modal-btn-group">
-            <a href="{{ "/track" | relURL }}" class="btn btn-primary">Track Status</a>
-            <a href="{{ "/" | relURL }}" class="btn btn-outline-primary">Home</a>
+            <button class="btn btn-primary" onclick="document.getElementById('terms-modal').style.display='none'; document.getElementById('terms-checkbox-final').checked = true;">Accept & Close</button>
         </div>
     </div>
 </div>
 
 <script>
-    // Interactivity for Processing Mode Cards
-    document.querySelectorAll('.mode-card').forEach(card => {
-        card.addEventListener('click', function() {
-            document.querySelectorAll('.mode-card').forEach(c => {
-                c.classList.remove('active');
-                c.querySelector('input').checked = false;
+    document.addEventListener('DOMContentLoaded', function() {
+        let currentStep = 1;
+        const totalSteps = 8;
+
+        const nextBtns = document.querySelectorAll('.next-step');
+        const prevBtns = document.querySelectorAll('.prev-step');
+        const submitBtn = document.getElementById('final-submit-btn');
+
+        function updateStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.portal-step-content').forEach(el => el.style.display = 'none');
+            // Show current step
+            document.getElementById('step-' + step).style.display = 'block';
+
+            // Update Stepper
+            document.querySelectorAll('#portal-stepper .step').forEach(el => {
+                const s = parseInt(el.getAttribute('data-step'));
+                if (s === step) {
+                    el.classList.add('active');
+                } else if (s < step) {
+                    el.classList.add('done'); // We can add a .done style in CSS
+                    el.classList.remove('active');
+                } else {
+                    el.classList.remove('active');
+                    el.classList.remove('done');
+                }
             });
-            this.classList.add('active');
-            this.querySelector('input').checked = true;
+
+            // Update Review Page
+            if (step === 6) {
+                document.getElementById('rev-service').textContent = document.getElementById('service-select').value || 'Not selected';
+                document.getElementById('rev-region').textContent = document.getElementById('region-select').value || 'Not selected';
+                document.getElementById('rev-name').textContent = (document.getElementById('fname').value + ' ' + document.getElementById('lname').value).trim() || 'Not provided';
+                document.getElementById('rev-mode').textContent = document.querySelector('input[name="mode"]:checked').value;
+            }
+
+            // Scroll to top of portal
+            document.querySelector('.apply-portal').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        nextBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Basic validation
+                if (currentStep === 1 && !document.getElementById('service-select').value) {
+                    alert('Please select a service.');
+                    return;
+                }
+                if (currentStep === 2 && !document.getElementById('region-select').value) {
+                    alert('Please select a regional office.');
+                    return;
+                }
+
+                if (currentStep < totalSteps - 1) {
+                    currentStep++;
+                    updateStep(currentStep);
+                }
+            });
+        });
+
+        prevBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    currentStep--;
+                    updateStep(currentStep);
+                }
+            });
+        });
+
+        submitBtn.addEventListener('click', () => {
+            if (!document.getElementById('terms-checkbox-final').checked) {
+                alert('Please agree to the Terms and Conditions first.');
+                return;
+            }
+
+            // Show success step
+            currentStep = 8;
+            updateStep(8);
+        });
+
+        // Mode card interaction
+        document.querySelectorAll('.mode-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                this.querySelector('input').checked = true;
+            });
         });
     });
 </script>
+
+<style>
+    /* Additional Styles for the interactive portal */
+    .portal-step-content {
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step.done .step-number {
+        background: var(--success-color);
+        border-color: var(--success-color);
+        color: white;
+    }
+
+    .step.done .step-number::after {
+        content: '✓';
+        font-size: 0.8rem;
+    }
+
+    .step.done .step-number {
+        font-size: 0; /* Hide number when done */
+    }
+
+    .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+</style>
 {{ end }}

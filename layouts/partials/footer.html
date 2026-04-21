@@ -4,17 +4,17 @@
             <div class="footer-col">
                 <h4>{{ .Site.Params.agency_short_name }} {{ .Site.Params.portal_name }}</h4>
                 <p>Ensuring efficient and transparent regulatory services for the telecommunications sector through digital innovation.</p>
-                <div class="social-links" style="margin-top: 20px;">
-                    {{ if .Site.Params.facebook_url }}<a href="{{ .Site.Params.facebook_url }}" target="_blank" rel="noopener" aria-label="Facebook">FB</a>{{ end }}
-                    {{ if .Site.Params.twitter_url }}<a href="{{ .Site.Params.twitter_url }}" target="_blank" rel="noopener" aria-label="Twitter" style="margin-left: 15px;">TW</a>{{ end }}
+                <div style="margin-top: 30px; border: 1px solid #444; padding: 15px; border-radius: 4px; display: inline-block;">
+                    <p style="font-size: 0.75rem; color: #888; margin-bottom: 5px; text-transform: uppercase;">Transparency Seal</p>
+                    <div style="width: 60px; height: 60px; background: #fff; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; border-radius: 4px;">TS</div>
                 </div>
             </div>
             <div class="footer-col">
                 <h4>Contact Us</h4>
                 <address style="font-style: normal; color: #bbb; font-size: 0.95rem;">
-                    <p>Email: <a href="mailto:{{ .Site.Params.contact_email }}" style="color: #bbb;">{{ .Site.Params.contact_email }}</a></p>
-                    <p>Phone: {{ .Site.Params.contact_phone }}</p>
-                    <p>Address: {{ .Site.Params.contact_address }}</p>
+                    <p style="margin-bottom: 10px;"><strong>Email:</strong> <a href="mailto:{{ .Site.Params.contact_email }}" style="color: #bbb;">{{ .Site.Params.contact_email }}</a></p>
+                    <p style="margin-bottom: 10px;"><strong>Phone:</strong> {{ .Site.Params.contact_phone }}</p>
+                    <p><strong>Address:</strong> {{ .Site.Params.contact_address }}</p>
                 </address>
             </div>
             <div class="footer-col">
@@ -26,17 +26,19 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Legal</h4>
+                <h4>Gov Links</h4>
                 <ul>
+                    <li><a href="https://www.gov.ph" target="_blank" rel="noopener">GOV.PH</a></li>
+                    <li><a href="https://data.gov.ph" target="_blank" rel="noopener">Open Data Philippines</a></li>
+                    <li><a href="https://officialgazette.gov.ph" target="_blank" rel="noopener">Official Gazette</a></li>
                     <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Data Privacy Manual</a></li>
+                    <li><a href="#">Terms of Use</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; {{ now.Format "2006" }} {{ .Site.Params.agency_name }}. All rights reserved.</p>
-            <p>Official Digital Service Portal of the Republic of the Philippines</p>
+            <p style="margin-top: 5px;">Official Digital Service Portal of the Republic of the Philippines</p>
         </div>
     </div>
 </footer>
