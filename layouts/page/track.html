@@ -7,109 +7,124 @@
         </header>
 
         <div class="card track-form-card">
-            <form class="track-form">
+            <form class="track-form" id="tracking-form-main">
                 <label for="arn-input">Application Reference Number (ARN)</label>
                 <div class="track-input-group">
-                    <input type="text" id="arn-input" class="track-input" placeholder="e.g. ARN-2024-123456" aria-describedby="arn-help">
-                    <button type="button" id="track-btn" class="btn btn-primary" style="padding: 0 40px; font-size: 1rem;">Track Status</button>
+                    <input type="text" id="arn-input" class="track-input" placeholder="e.g. ARN-2024-051288" aria-describedby="arn-help">
+                    <button type="submit" id="track-btn" class="btn btn-primary" style="padding: 0 40px; font-size: 1rem;">Track Status</button>
                 </div>
                 <p id="arn-help" class="track-help-text">Enter the unique reference number provided in your acknowledgement email or success confirmation screen.</p>
             </form>
         </div>
 
         <div id="loading-container" style="display: none;">
-            {{ partial "loading-state.html" "Retrieving application records from NTC EDGE database..." }}
+            {{ partial "loading-state.html" "Searching NTC EDGE records..." }}
         </div>
 
-        <div id="mock-result-container" style="display: none;">
-            {{ range .Site.Data.mock_tracking.applications }}
-            <div class="track-result-card">
-                <div class="track-result-header">
-                    <div>
-                        <span class="track-meta">Application Reference Number</span>
-                        <h2>{{ .arn }}</h2>
-                    </div>
-                    <div class="track-status-area">
-                        <span class="status-badge {{ .status_class }} track-status-badge">{{ .status }}</span>
-                        <p class="track-update-time">Last updated: {{ now.Format "January 2, 2006" }}</p>
-                    </div>
-                </div>
-
-                <div class="track-result-body">
-                    <div class="track-info-grid">
-                        <div class="track-info-item">
-                            <span>Regulatory Service</span>
-                            <strong>{{ .service }}</strong>
-                        </div>
-                        <div class="track-info-item">
-                            <span>Date Submitted</span>
-                            <strong>{{ .date_submitted }}</strong>
-                        </div>
-                        <div class="track-info-item">
-                            <span>Applicant Name</span>
-                            <strong>{{ .applicant }}</strong>
-                        </div>
-                        <div class="track-info-item">
-                            <span>Assigned Office</span>
-                            <strong>{{ .office }}</strong>
-                        </div>
-                    </div>
-
-                    <div class="track-timeline-section">
-                        <h4>Application Progress Timeline</h4>
-                        <div class="timeline-v">
-                            {{ range .timeline }}
-                            <div class="timeline-v-item">
-                                <div class="timeline-v-dot {{ if .done }}done{{ else if .active }}active{{ else }}pending{{ end }}"></div>
-                                <div class="timeline-v-header">
-                                    <strong class="timeline-v-title {{ if .active }}active{{ end }}">{{ .title }}</strong>
-                                    <span class="timeline-v-date">{{ .date }}</span>
-                                </div>
-                                <p class="timeline-v-desc">{{ .desc }}</p>
-                            </div>
-                            {{ end }}
-                        </div>
-                    </div>
-
-                    {{ if .notes }}
-                    <div class="track-notes-section">
-                        <h4>Notes & Reminders</h4>
-                        <div class="notes-container">
-                            <ul class="notes-list">
-                                {{ range .notes }}
-                                <li>{{ . }}</li>
-                                {{ end }}
-                            </ul>
-                        </div>
-                    </div>
-                    {{ end }}
-                </div>
+        <div id="results-area">
+            <div id="no-results-container" style="display: none;">
+                {{ partial "empty-state.html" "No application found with the provided Reference Number. Please double-check the ARN and try again." }}
             </div>
-            {{ end }}
+
+            <div id="mock-result-container">
+                {{ range .Site.Data.mock_tracking.applications }}
+                <div class="track-result-card arn-result" data-arn="{{ .arn }}" style="display: none;">
+                    <div class="track-result-header">
+                        <div>
+                            <span class="track-meta">Application Reference Number</span>
+                            <h2>{{ .arn }}</h2>
+                        </div>
+                        <div class="track-status-area">
+                            <span class="status-badge {{ .status_class }} track-status-badge">{{ .status }}</span>
+                            <p class="track-update-time">Last updated: {{ now.Format "January 2, 2006" }}</p>
+                        </div>
+                    </div>
+
+                    <div class="track-result-body">
+                        <div class="track-info-grid">
+                            <div class="track-info-item">
+                                <span>Regulatory Service</span>
+                                <strong>{{ .service }}</strong>
+                            </div>
+                            <div class="track-info-item">
+                                <span>Date Submitted</span>
+                                <strong>{{ .date_submitted }}</strong>
+                            </div>
+                            <div class="track-info-item">
+                                <span>Applicant Name</span>
+                                <strong>{{ .applicant }}</strong>
+                            </div>
+                            <div class="track-info-item">
+                                <span>Assigned Office</span>
+                                <strong>{{ .office }}</strong>
+                            </div>
+                        </div>
+
+                        <div class="track-timeline-section">
+                            <h4>Application Progress Timeline</h4>
+                            <div class="timeline-v">
+                                {{ range .timeline }}
+                                <div class="timeline-v-item">
+                                    <div class="timeline-v-dot {{ if .done }}done{{ else if .active }}active{{ else }}pending{{ end }}"></div>
+                                    <div class="timeline-v-header">
+                                        <strong class="timeline-v-title {{ if .active }}active{{ end }}">{{ .title }}</strong>
+                                        <span class="timeline-v-date">{{ .date }}</span>
+                                    </div>
+                                    <p class="timeline-v-desc">{{ .desc }}</p>
+                                </div>
+                                {{ end }}
+                            </div>
+                        </div>
+
+                        {{ if .notes }}
+                        <div class="track-notes-section">
+                            <h4>Notes & Reminders</h4>
+                            <div class="notes-container">
+                                <ul class="notes-list">
+                                    {{ range .notes }}
+                                    <li>{{ . }}</li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
         </div>
 
         <script>
-            document.getElementById('track-btn').addEventListener('click', function() {
-                const arn = document.getElementById('arn-input').value.trim();
+            document.getElementById('tracking-form-main').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const arn = document.getElementById('arn-input').value.trim().toUpperCase();
+                const trackBtn = document.getElementById('track-btn');
+
                 if (!arn) {
                     alert('Please enter a valid Application Reference Number (ARN).');
                     return;
                 }
 
-                // Show loading state
-                document.getElementById('mock-result-container').style.display = 'none';
+                // UI Reset
+                document.querySelectorAll('.arn-result').forEach(el => el.style.display = 'none');
+                document.getElementById('no-results-container').style.display = 'none';
                 document.getElementById('loading-container').style.display = 'block';
-                this.disabled = true;
+                trackBtn.disabled = true;
 
                 // Simulate API call delay
                 setTimeout(() => {
                     document.getElementById('loading-container').style.display = 'none';
-                    document.getElementById('mock-result-container').style.display = 'block';
-                    this.disabled = false;
+                    trackBtn.disabled = false;
 
-                    // Smooth scroll to result
-                    document.getElementById('mock-result-container').scrollIntoView({ behavior: 'smooth' });
-                }, 1000);
+                    const matchingResult = document.querySelector(`.arn-result[data-arn="${arn}"]`);
+
+                    if (matchingResult) {
+                        matchingResult.style.display = 'block';
+                        matchingResult.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        document.getElementById('no-results-container').style.display = 'block';
+                    }
+                }, 800);
             });
         </script>
 
