@@ -1,8 +1,16 @@
-{{ $alerts := where .Site.RegularPages "Section" "announcements" }}
-{{ range first 1 (where $alerts "Params.important" true) }}
+{{ if .Site.Params.banner.enabled }}
 <div class="alert-banner">
     <div class="container alert-content">
-        <span><strong>ADVISORY:</strong> {{ .Title }} - <a href="{{ .RelPermalink }}">Read more</a></span>
+        <span><strong>ADVISORY:</strong> {{ .Site.Params.banner.message }} {{ if .Site.Params.banner.link }}- <a href="{{ .Site.Params.banner.link | relURL }}">Read more</a>{{ end }}</span>
     </div>
 </div>
+{{ else }}
+    {{ $alerts := where .Site.RegularPages "Section" "announcements" }}
+    {{ range first 1 (where $alerts "Params.important" true) }}
+    <div class="alert-banner">
+        <div class="container alert-content">
+            <span><strong>ADVISORY:</strong> {{ .Title }} - <a href="{{ .RelPermalink }}">Read more</a></span>
+        </div>
+    </div>
+    {{ end }}
 {{ end }}

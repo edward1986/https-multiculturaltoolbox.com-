@@ -35,7 +35,7 @@
             {{ end }}
         </div>
         <div class="text-center mt-40">
-            <a href="{{ "/services" | relURL }}" class="btn btn-outline" style="color: var(--primary-color); border-color: var(--primary-color);">View All Services</a>
+            <a href="{{ "/services" | relURL }}" class="btn btn-outline-primary">View All Services</a>
         </div>
     </div>
 </section>
@@ -47,18 +47,22 @@
             <div class="step active">
                 <div class="step-number">1</div>
                 <div class="step-label">Select Service</div>
+                <p class="step-description">Browse through our available regulatory services and select the one that fits your needs.</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
                 <div class="step-label">Fill Form</div>
+                <p class="step-description">Complete the digital application form with accurate technical and personal information.</p>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-label">Upload Files</div>
+                <p class="step-description">Securely upload digital copies of all documentary requirements for evaluation.</p>
             </div>
             <div class="step">
                 <div class="step-number">4</div>
                 <div class="step-label">Submit & Track</div>
+                <p class="step-description">Submit your application, receive an ARN, and track real-time progress through the portal.</p>
             </div>
         </div>
     </div>
@@ -129,17 +133,17 @@
 
 <section class="news-announcements section-padding bg-white">
     <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 2px solid var(--primary-color); padding-bottom: 15px;">
-            <h2 style="color: var(--primary-color); margin: 0;">Latest Announcements</h2>
-            <a href="{{ "/announcements" | relURL }}" style="font-weight: 600; color: var(--secondary-color);">View All Announcements &rarr;</a>
+        <div class="section-header-flex">
+            <h2 class="section-header-title">Latest Announcements</h2>
+            <a href="{{ "/announcements" | relURL }}" class="section-header-link">View All Announcements &rarr;</a>
         </div>
         <div class="grid">
             {{ range first 2 (where .Site.RegularPages "Section" "announcements") }}
-            <div class="card" style="display: flex; flex-direction: column;">
-                <span style="font-size: 0.8rem; color: #666; margin-bottom: 10px;">{{ .Date.Format "January 2, 2006" }}</span>
-                <h3 style="font-size: 1.2rem; margin-bottom: 15px;">{{ .Title }}</h3>
-                <p style="font-size: 0.95rem; flex-grow: 1; color: #555;">{{ .Summary | truncate 150 }}</p>
-                <a href="{{ .RelPermalink }}" style="margin-top: 20px; font-weight: 600; color: var(--primary-color);">Read Full Advisory</a>
+            <div class="card announcement-grid-card">
+                <span class="announcement-grid-date">{{ .Date.Format "January 2, 2006" }}</span>
+                <h3 class="announcement-grid-title">{{ .Title }}</h3>
+                <p class="announcement-grid-summary">{{ .Summary | truncate 150 }}</p>
+                <a href="{{ .RelPermalink }}" class="announcement-grid-link">Read Full Advisory</a>
             </div>
             {{ end }}
         </div>

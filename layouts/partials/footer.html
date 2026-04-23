@@ -4,16 +4,16 @@
             <div class="footer-col">
                 <h4>{{ .Site.Params.agency_short_name }} {{ .Site.Params.portal_name }}</h4>
                 <p>Ensuring efficient and transparent regulatory services for the telecommunications sector through digital innovation.</p>
-                <div style="margin-top: 30px; border: 1px solid #444; padding: 15px; border-radius: 4px; display: inline-block;">
-                    <p style="font-size: 0.75rem; color: #888; margin-bottom: 5px; text-transform: uppercase;">Transparency Seal</p>
-                    <div style="width: 60px; height: 60px; background: #fff; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; border-radius: 4px;">TS</div>
+                <div class="footer-transparency-seal">
+                    <p class="transparency-seal-label">Transparency Seal</p>
+                    <div class="transparency-seal-box">TS</div>
                 </div>
             </div>
             <div class="footer-col">
                 <h4>Contact Us</h4>
                 <address style="font-style: normal; color: #bbb; font-size: 0.95rem;">
-                    <p style="margin-bottom: 10px;"><strong>Email:</strong> <a href="mailto:{{ .Site.Params.contact_email }}" style="color: #bbb;">{{ .Site.Params.contact_email }}</a></p>
-                    <p style="margin-bottom: 10px;"><strong>Phone:</strong> {{ .Site.Params.contact_phone }}</p>
+                    <p class="mb-10"><strong>Email:</strong> <a href="mailto:{{ .Site.Params.contact_email }}" style="color: #bbb;">{{ .Site.Params.contact_email }}</a></p>
+                    <p class="mb-10"><strong>Phone:</strong> {{ .Site.Params.contact_phone }}</p>
                     <p><strong>Address:</strong> {{ .Site.Params.contact_address }}</p>
                 </address>
             </div>
