@@ -3,8 +3,8 @@
     <div class="container">
         <div class="service-detail-grid">
             <div class="service-content">
-                <h1 style="color: var(--primary-color); margin-bottom: 20px;">{{ .Title }}</h1>
-                <p class="lead" style="margin-bottom: 30px; color: #555;">{{ .Description }}</p>
+                <h1 class="service-title-main">{{ .Title }}</h1>
+                <p class="service-description-lead lead">{{ .Description }}</p>
 
                 <div class="content-box">
                     <h3 class="section-box-title">Who may apply</h3>
@@ -13,18 +13,18 @@
 
                 <div class="content-box">
                     <h3 class="section-box-title">Documentary Requirements</h3>
-                    <ul style="list-style: disc; padding-left: 20px;">
+                    <ul class="service-req-list" style="list-style: disc; padding-left: 20px;">
                         {{ range .Params.requirements }}
-                        <li style="margin-bottom: 10px;">{{ . }}</li>
+                        <li>{{ . }}</li>
                         {{ end }}
                     </ul>
                 </div>
 
                 <div class="content-box">
                     <h3 class="section-box-title">Processing Steps</h3>
-                    <ol style="padding-left: 20px;">
+                    <ol class="service-steps-list" style="padding-left: 20px;">
                         {{ range $index, $step := .Params.steps }}
-                        <li style="margin-bottom: 15px;">
+                        <li>
                             <strong>Step {{ add $index 1 }}:</strong> {{ $step }}
                         </li>
                         {{ end }}
@@ -34,16 +34,16 @@
 
             <div class="service-sidebar">
                 <div class="card service-sidebar-card">
-                    <h3 style="margin-bottom: 20px;">Apply for this service</h3>
+                    <h3 class="mb-20">Apply for this service</h3>
                     <p style="font-size: 0.9rem; margin-bottom: 20px; color: #666;">Ready to start your application? Ensure you have all requirements in digital format.</p>
-                    <a href="{{ "/apply" | relURL }}" class="btn btn-primary" style="display: block; text-align: center; margin-bottom: 15px;">Apply Online Now</a>
+                    <a href="{{ "/apply" | relURL }}" class="btn btn-primary service-sidebar-btn">Apply Online Now</a>
 
                     {{ if .Params.forms }}
                         {{ range .Params.forms }}
-                        <a href="{{ .url }}" class="btn btn-outline" style="display: block; text-align: center; color: var(--primary-color); border-color: var(--primary-color); margin-bottom: 10px;">Download: {{ .name }} (PDF)</a>
+                        <a href="{{ .url }}" class="btn btn-outline service-sidebar-download">Download: {{ .name }} (PDF)</a>
                         {{ end }}
                     {{ else }}
-                    <a href="#" class="btn btn-outline" style="display: block; text-align: center; color: var(--primary-color); border-color: var(--primary-color);">Download Form (PDF)</a>
+                    <a href="#" class="btn btn-outline service-sidebar-download">Download Form (PDF)</a>
                     {{ end }}
 
                     <div class="service-meta-info">

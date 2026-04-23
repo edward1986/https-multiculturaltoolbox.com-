@@ -7,7 +7,7 @@
         </header>
 
         <!-- Portal Stepper -->
-        <div class="stepper max-w-1100 mx-auto" style="margin-bottom: 60px;" aria-label="Application progress" id="portal-stepper">
+        <div class="stepper max-w-1100 mx-auto mb-40" aria-label="Application progress" id="portal-stepper">
             <div class="step active" data-step="1">
                 <div class="step-number">1</div>
                 <div class="step-label">Service</div>
@@ -203,8 +203,8 @@
                 <!-- Step 7: Submit Application -->
                 <div class="portal-step-content" id="step-7" style="display:none;">
                     <h3 class="portal-section-title">Step 7: Final Submission</h3>
-                    <div style="background: #fff8e1; padding: 25px; border-radius: 8px; border-left: 5px solid var(--warning-color); margin-bottom: 30px;">
-                        <p style="margin-bottom: 15px;"><strong>Declaration of Truth:</strong></p>
+                    <div class="notes-container mb-40">
+                        <p class="mb-20"><strong>Declaration of Truth:</strong></p>
                         <p style="font-size: 0.95rem;">I hereby certify that all information provided in this application is true and correct, and the uploaded documents are authentic. I understand that any false information may result in the disapproval of my application and potential legal action.</p>
                     </div>
                     <div class="terms-agreement" style="justify-content: flex-start; margin: 0 0 30px 0;">
@@ -245,13 +245,13 @@
     <div class="modal-content">
         <h2>Terms and Conditions</h2>
         <div class="modal-body-scroll">
-            <p style="margin-bottom: 15px;"><strong>1. Data Privacy</strong></p>
-            <p style="margin-bottom: 15px;">By using the NTC EDGE Portal, you agree to the collection and processing of your personal and technical data in accordance with the Data Privacy Act of 2012. NTC shall use this information solely for regulatory purposes.</p>
-            <p style="margin-bottom: 15px;"><strong>2. Accuracy of Information</strong></p>
-            <p style="margin-bottom: 15px;">You certify that all information provided in your application and all uploaded documents are true, complete, and accurate. Any false statement or fraudulent document may be grounds for rejection of the application and legal action.</p>
-            <p style="margin-bottom: 15px;"><strong>3. Electronic Signature</strong></p>
-            <p style="margin-bottom: 15px;">Submission through this portal shall have the same legal effect as a manual signature under the Electronic Commerce Act (RA 8792).</p>
-            <p style="margin-bottom: 15px;"><strong>4. Fees and Payment</strong></p>
+            <p class="mb-20"><strong>1. Data Privacy</strong></p>
+            <p class="mb-20">By using the NTC EDGE Portal, you agree to the collection and processing of your personal and technical data in accordance with the Data Privacy Act of 2012. NTC shall use this information solely for regulatory purposes.</p>
+            <p class="mb-20"><strong>2. Accuracy of Information</strong></p>
+            <p class="mb-20">You certify that all information provided in your application and all uploaded documents are true, complete, and accurate. Any false statement or fraudulent document may be grounds for rejection of the application and legal action.</p>
+            <p class="mb-20"><strong>3. Electronic Signature</strong></p>
+            <p class="mb-20">Submission through this portal shall have the same legal effect as a manual signature under the Electronic Commerce Act (RA 8792).</p>
+            <p class="mb-20"><strong>4. Fees and Payment</strong></p>
             <p>Processing fees are non-refundable once evaluation has commenced. Ensure that you pay only through authorized NTC payment channels.</p>
         </div>
         <div class="modal-footer">
@@ -281,7 +281,7 @@
                 if (s === step) {
                     el.classList.add('active');
                 } else if (s < step) {
-                    el.classList.add('done'); // We can add a .done style in CSS
+                    el.classList.add('done');
                     el.classList.remove('active');
                 } else {
                     el.classList.remove('active');
@@ -350,36 +350,4 @@
         });
     });
 </script>
-
-<style>
-    /* Additional Styles for the interactive portal */
-    .portal-step-content {
-        animation: fadeIn 0.3s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .step.done .step-number {
-        background: var(--success-color);
-        border-color: var(--success-color);
-        color: white;
-    }
-
-    .step.done .step-number::after {
-        content: '✓';
-        font-size: 0.8rem;
-    }
-
-    .step.done .step-number {
-        font-size: 0; /* Hide number when done */
-    }
-
-    .btn:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
-</style>
 {{ end }}
