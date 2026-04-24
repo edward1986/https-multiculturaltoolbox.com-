@@ -240,6 +240,22 @@
     </div>
 </section>
 
+<!-- Success Confirmation Modal -->
+<div id="success-modal" class="modal-overlay">
+    <div class="modal-content modal-content-center">
+        <div class="success-icon-large">✅</div>
+        <h2 class="modal-title">Submission Successful</h2>
+        <p class="modal-description">Your application has been received and is now being processed.</p>
+        <div class="reference-box mb-30">
+            <p class="reference-label">Your Reference Number</p>
+            <p class="reference-number">ARN-2024-051288</p>
+        </div>
+        <div class="modal-btn-group">
+            <button class="btn btn-primary" onclick="document.getElementById('success-modal').style.display='none'">Close & View Summary</button>
+        </div>
+    </div>
+</div>
+
 <!-- Terms and Conditions Modal -->
 <div id="terms-modal" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
     <div class="modal-content">
@@ -335,9 +351,13 @@
                 return;
             }
 
-            // Show success step
-            currentStep = 8;
-            updateStep(8);
+            // Show success modal then success step
+            document.getElementById('success-modal').style.display = 'flex';
+
+            setTimeout(() => {
+                currentStep = 8;
+                updateStep(8);
+            }, 500);
         });
 
         // Mode card interaction
