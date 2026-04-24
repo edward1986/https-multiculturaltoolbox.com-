@@ -800,6 +800,26 @@ footer {
     margin-bottom: 20px;
 }
 
+.modal-content-center {
+    text-align: center;
+}
+
+.success-icon-large {
+    font-size: 4rem;
+    color: var(--success-color);
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.modal-description {
+    color: #666;
+    margin-bottom: 30px;
+}
+
 .reference-box {
     background: #f8f9fa;
     padding: 25px;
