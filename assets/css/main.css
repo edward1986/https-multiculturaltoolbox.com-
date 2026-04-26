@@ -1833,3 +1833,10 @@ input:focus, select:focus, textarea:focus {
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+/* Additional Status Badges */
+.status-returned {
+    background: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
