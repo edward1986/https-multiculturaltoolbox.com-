@@ -46,3 +46,71 @@ applications:
         date: "May 10, 2024"
         desc: "Document ready for collection."
         done: true
+  - arn: "ARN-2024-051300"
+    status: "RETURNED FOR CORRECTION"
+    status_class: "status-returned"
+    service: "Equipment Registration"
+    date_submitted: "May 15, 2024"
+    applicant: "TECH SOLUTIONS INC."
+    office: "NCR - National Capital Region"
+    notes:
+      - "The technical specifications document is blurred and unreadable."
+      - "Please re-upload a clear digital copy of the equipment manual."
+    timeline:
+      - title: "Application Received"
+        date: "May 15, 2024"
+        desc: "Submission acknowledged."
+        done: true
+      - title: "Initial Screening"
+        date: "May 16, 2024"
+        desc: "Application documents reviewed for completeness."
+        done: true
+      - title: "Returned for Correction"
+        date: "May 17, 2024"
+        desc: "Application requires action from the applicant due to unreadable documents."
+        done: false
+        active: true
+  - arn: "ARN-2024-031500"
+    status: "APPROVED / FOR RELEASE"
+    status_class: "status-approved"
+    service: "Radio Operator Certificate"
+    date_submitted: "March 15, 2024"
+    applicant: "JUAN DELA CRUZ"
+    office: "NCR - National Capital Region"
+    notes:
+      - "Your application has been approved."
+      - "The certificate is being prepared for release."
+    timeline:
+      - title: "Application Received"
+        date: "March 15, 2024"
+        done: true
+      - title: "Technical Evaluation"
+        date: "March 20, 2024"
+        done: true
+      - title: "Approved"
+        date: "March 25, 2024"
+        desc: "Application approved by the Commissioner."
+        done: true
+        active: false
+  - arn: "ARN-2024-051450"
+    status: "FOR PAYMENT"
+    status_class: "status-payment"
+    service: "Permits and Licenses"
+    date_submitted: "May 10, 2024"
+    applicant: "GLOBE TELECOM"
+    office: "Central Office (Quezon City)"
+    notes:
+      - "Technical evaluation complete."
+      - "Please pay the prescribed fee of PHP 2,500.00 at any authorized payment center."
+    timeline:
+      - title: "Application Received"
+        date: "May 10, 2024"
+        done: true
+      - title: "Technical Evaluation"
+        date: "May 12, 2024"
+        done: true
+      - title: "For Payment"
+        date: "May 13, 2024"
+        desc: "Order of Payment issued. Awaiting payment confirmation."
+        done: false
+        active: true

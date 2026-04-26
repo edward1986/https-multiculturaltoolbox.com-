@@ -134,11 +134,11 @@
 <section class="news-announcements section-padding bg-white">
     <div class="container">
         <div class="section-header-flex">
-            <h2 class="section-header-title">Latest Announcements</h2>
+            <h2 class="section-header-title">Latest News & Advisories</h2>
             <a href="{{ "/announcements" | relURL }}" class="section-header-link">View All Announcements &rarr;</a>
         </div>
         <div class="grid">
-            {{ range first 2 (where .Site.RegularPages "Section" "announcements") }}
+            {{ range first 3 (where .Site.RegularPages "Section" "announcements") }}
             <div class="card announcement-grid-card">
                 <span class="announcement-grid-date">{{ .Date.Format "January 2, 2006" }}</span>
                 <h3 class="announcement-grid-title">{{ .Title }}</h3>
@@ -146,6 +146,33 @@
                 <a href="{{ .RelPermalink }}" class="announcement-grid-link">Read Full Advisory</a>
             </div>
             {{ end }}
+        </div>
+    </div>
+</section>
+
+<section class="help-support section-padding">
+    <div class="container">
+        <h2 class="section-title">Help & Support</h2>
+        <p class="text-center mb-40">Need assistance? Our support team is here to help you navigate the NTC EDGE Portal.</p>
+        <div class="grid">
+            <div class="card card-center">
+                <div class="card-icon">❓</div>
+                <h3>FAQs</h3>
+                <p>Answers to common questions about applications and tracking.</p>
+                <a href="{{ "/faq" | relURL }}" class="btn btn-outline-primary btn-sm">View FAQs</a>
+            </div>
+            <div class="card card-center">
+                <div class="card-icon">📧</div>
+                <h3>Email Support</h3>
+                <p>Send us an email for technical issues or inquiries.</p>
+                <a href="mailto:{{ .Site.Params.contact_email }}" class="btn btn-outline-primary btn-sm">Email Us</a>
+            </div>
+            <div class="card card-center">
+                <div class="card-icon">📞</div>
+                <h3>Hotline</h3>
+                <p>Call our customer support for immediate assistance.</p>
+                <a href="tel:{{ .Site.Params.consumer_hotline }}" class="btn btn-outline-primary btn-sm">Call {{ .Site.Params.consumer_hotline }}</a>
+            </div>
         </div>
     </div>
 </section>
