@@ -60,6 +60,11 @@
 
             <!-- Main Portal Area -->
             <div class="portal-main" id="portal-main-content">
+                <!-- Client-side Error Message Container -->
+                <div id="portal-error-container" style="display: none; background: #f8d7da; color: #842029; padding: 15px; border-radius: 4px; margin-bottom: 25px; border: 1px solid #f5c2c7; font-size: 0.9rem;">
+                    <strong>Notice:</strong> <span id="portal-error-message"></span>
+                </div>
+
                 <!-- Step 1: Select Service -->
                 <div class="portal-step-content active" id="step-1">
                     <h3 class="portal-section-title">Step 1: Select Service</h3>
@@ -285,7 +290,20 @@
         const prevBtns = document.querySelectorAll('.prev-step');
         const submitBtn = document.getElementById('final-submit-btn');
 
+        function showError(message) {
+            const container = document.getElementById('portal-error-container');
+            const msgSpan = document.getElementById('portal-error-message');
+            msgSpan.textContent = message;
+            container.style.display = 'block';
+            container.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+
+        function hideError() {
+            document.getElementById('portal-error-container').style.display = 'none';
+        }
+
         function updateStep(step) {
+            hideError();
             // Hide all steps
             document.querySelectorAll('.portal-step-content').forEach(el => el.style.display = 'none');
             // Show current step
@@ -319,19 +337,50 @@
 
         nextBtns.forEach(btn => {
             btn.addEventListener('click', () => {
+                hideError();
                 // Basic validation
                 if (currentStep === 1 && !document.getElementById('service-select').value) {
-                    alert('Please select a service.');
+                    showError('Please select a regulatory service to proceed.');
                     return;
                 }
                 if (currentStep === 2 && !document.getElementById('region-select').value) {
-                    alert('Please select a regional office.');
+                    showError('Please select a regional office for your application.');
                     return;
+                }
+                if (currentStep === 4) {
+                    const fname = document.getElementById('fname').value.trim();
+                    const lname = document.getElementById('lname').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const contact = document.getElementById('contact').value.trim();
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    if (!fname || !lname || !email || !contact) {
+                        showError('All personal details are required. Please ensure no fields are left empty.');
+                        return;
+                    }
+                    if (!emailRegex.test(email)) {
+                        showError('The email address provided appears invalid. Please check the format.');
+                        return;
+                    }
                 }
 
                 if (currentStep < totalSteps - 1) {
                     currentStep++;
                     updateStep(currentStep);
+
+                    // Simulated upload feedback for Step 5
+                    if (currentStep === 5) {
+                        const uploadStatus = document.querySelector('#mock-upload-list span:last-child');
+                        if (uploadStatus) {
+                            uploadStatus.textContent = 'Uploading...';
+                            uploadStatus.style.color = 'var(--accent-color)';
+
+                            setTimeout(() => {
+                                uploadStatus.textContent = 'Ready';
+                                uploadStatus.style.color = 'var(--success-color)';
+                            }, 1000);
+                        }
+                    }
                 }
             });
         });
@@ -346,8 +395,9 @@
         });
 
         submitBtn.addEventListener('click', () => {
+            hideError();
             if (!document.getElementById('terms-checkbox-final').checked) {
-                alert('Please agree to the Terms and Conditions first.');
+                showError('You must read and agree to the Terms and Conditions before submitting your application.');
                 return;
             }
 
