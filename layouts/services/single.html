@@ -40,10 +40,10 @@
 
                     {{ if .Params.forms }}
                         {{ range .Params.forms }}
-                        <a href="{{ .url }}" class="btn btn-outline service-sidebar-download">Download: {{ .name }} (PDF)</a>
+                        <a href="{{ .url | relURL }}" class="btn btn-outline service-sidebar-download">Download: {{ .name }} (PDF)</a>
                         {{ end }}
                     {{ else }}
-                    <a href="#" class="btn btn-outline service-sidebar-download">Download Form (PDF)</a>
+                    <a href="javascript:void(0)" class="btn btn-outline service-sidebar-download">No Downloadable Forms Required</a>
                     {{ end }}
 
                     <div class="service-meta-info">
