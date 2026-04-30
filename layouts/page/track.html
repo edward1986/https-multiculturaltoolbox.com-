@@ -7,6 +7,11 @@
         </header>
 
         <div class="card track-form-card">
+            <!-- Client-side Error Message Container -->
+            <div id="track-error-container" style="display: none; background: #f8d7da; color: #842029; padding: 15px; border-radius: 4px; margin-bottom: 25px; border: 1px solid #f5c2c7; font-size: 0.9rem;">
+                <strong>Notice:</strong> <span id="track-error-message"></span>
+            </div>
+
             <form class="track-form" id="tracking-form-main">
                 <label for="arn-input">Application Reference Number (ARN)</label>
                 <div class="track-input-group">
@@ -95,13 +100,26 @@
         </div>
 
         <script>
+            function showTrackError(message) {
+                const container = document.getElementById('track-error-container');
+                const msgSpan = document.getElementById('track-error-message');
+                msgSpan.textContent = message;
+                container.style.display = 'block';
+            }
+
+            function hideTrackError() {
+                document.getElementById('track-error-container').style.display = 'none';
+            }
+
             document.getElementById('tracking-form-main').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const arn = document.getElementById('arn-input').value.trim().toUpperCase();
                 const trackBtn = document.getElementById('track-btn');
 
+                hideTrackError();
+
                 if (!arn) {
-                    alert('Please enter a valid Application Reference Number (ARN).');
+                    showTrackError('Please enter a valid Application Reference Number (ARN).');
                     return;
                 }
 

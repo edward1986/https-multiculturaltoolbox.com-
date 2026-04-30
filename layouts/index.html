@@ -140,7 +140,14 @@
         <div class="grid">
             {{ range first 3 (where .Site.RegularPages "Section" "announcements") }}
             <div class="card announcement-grid-card">
-                <span class="announcement-grid-date">{{ .Date.Format "January 2, 2006" }}</span>
+                <div class="announcement-card-header">
+                    <span class="announcement-grid-date">{{ .Date.Format "January 2, 2006" }}</span>
+                    {{ if .Params.important }}
+                    <span class="status-badge status-evaluation badge-sm">IMPORTANT</span>
+                    {{ else }}
+                    <span class="status-badge status-received badge-sm">NEWS</span>
+                    {{ end }}
+                </div>
                 <h3 class="announcement-grid-title">{{ .Title }}</h3>
                 <p class="announcement-grid-summary">{{ .Summary | truncate 150 }}</p>
                 <a href="{{ .RelPermalink }}" class="announcement-grid-link">Read Full Advisory</a>
