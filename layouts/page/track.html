@@ -8,7 +8,7 @@
 
         <div class="card track-form-card">
             <!-- Client-side Error Message Container -->
-            <div id="track-error-container" style="display: none; background: #f8d7da; color: #842029; padding: 15px; border-radius: 4px; margin-bottom: 25px; border: 1px solid #f5c2c7; font-size: 0.9rem;">
+            <div id="track-error-container" class="error-container" style="display: none;">
                 <strong>Notice:</strong> <span id="track-error-message"></span>
             </div>
 
@@ -16,7 +16,7 @@
                 <label for="arn-input">Application Reference Number (ARN)</label>
                 <div class="track-input-group">
                     <input type="text" id="arn-input" class="track-input" placeholder="e.g. ARN-2024-051288" aria-describedby="arn-help">
-                    <button type="submit" id="track-btn" class="btn btn-primary" style="padding: 0 40px; font-size: 1rem;">Track Status</button>
+                    <button type="submit" id="track-btn" class="btn btn-primary track-btn-submit">Track Status</button>
                 </div>
                 <p id="arn-help" class="track-help-text">Enter the unique reference number provided in your acknowledgement email or success confirmation screen.</p>
             </form>

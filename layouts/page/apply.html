@@ -61,7 +61,7 @@
             <!-- Main Portal Area -->
             <div class="portal-main" id="portal-main-content">
                 <!-- Client-side Error Message Container -->
-                <div id="portal-error-container" style="display: none; background: #f8d7da; color: #842029; padding: 15px; border-radius: 4px; margin-bottom: 25px; border: 1px solid #f5c2c7; font-size: 0.9rem;">
+                <div id="portal-error-container" class="error-container" style="display: none;">
                     <strong>Notice:</strong> <span id="portal-error-message"></span>
                 </div>
 
@@ -115,12 +115,12 @@
                             <label class="mode-card active">
                                 <input type="radio" name="mode" value="Regular" checked>
                                 <strong>Regular Processing</strong>
-                                <p style="font-size: 0.8rem; margin-top: 5px;">Standard turnaround time as per Citizen's Charter.</p>
+                                <p class="processing-mode-help">Standard turnaround time as per Citizen's Charter.</p>
                             </label>
                             <label class="mode-card">
                                 <input type="radio" name="mode" value="Express">
                                 <strong>Express Processing</strong>
-                                <p style="font-size: 0.8rem; margin-top: 5px;">Expedited processing for eligible transactions.</p>
+                                <p class="processing-mode-help">Expedited processing for eligible transactions.</p>
                             </label>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
                 <!-- Step 4: Application Form -->
                 <div class="portal-step-content" id="step-4" style="display:none;">
                     <h3 class="portal-section-title">Step 4: Application Details</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-grid-2col">
                         <div class="form-group">
                             <label class="form-label">First Name</label>
                             <input type="text" class="form-control" id="fname" placeholder="e.g. Juan">
@@ -162,14 +162,14 @@
                     <h3 class="portal-section-title">Step 5: Upload Requirements</h3>
                     <p class="form-help-text">Please upload clear, digital copies of the required documents.</p>
                     <div class="upload-zone">
-                        <div style="font-size: 2.5rem; margin-bottom: 15px;">📤</div>
+                        <div class="upload-icon-large">📤</div>
                         <p>Drag and drop files here or <a href="javascript:void(0)" style="font-weight: 700;">Browse Files</a></p>
-                        <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">Supported formats: PDF, JPG, PNG (Max 5MB)</p>
+                        <p class="upload-help-sub">Supported formats: PDF, JPG, PNG (Max 5MB)</p>
                     </div>
                     <div id="mock-upload-list" style="margin-top: 20px;">
-                         <div style="padding: 10px; border: 1px solid #eee; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                         <div class="mock-upload-item">
                             <span>ID_PHOTO.jpg</span>
-                            <span style="color: var(--success-color); font-weight: bold;">Ready</span>
+                            <span class="upload-status-ready">Ready</span>
                          </div>
                     </div>
                     <div class="form-footer">
@@ -210,10 +210,10 @@
                     <h3 class="portal-section-title">Step 7: Final Submission</h3>
                     <div class="notes-container mb-40">
                         <p class="mb-20"><strong>Declaration of Truth:</strong></p>
-                        <p style="font-size: 0.95rem;">I hereby certify that all information provided in this application is true and correct, and the uploaded documents are authentic. I understand that any false information may result in the disapproval of my application and potential legal action.</p>
+                        <p class="declaration-text">I hereby certify that all information provided in this application is true and correct, and the uploaded documents are authentic. I understand that any false information may result in the disapproval of my application and potential legal action.</p>
                     </div>
-                    <div class="terms-agreement" style="justify-content: flex-start; margin: 0 0 30px 0;">
-                        <input type="checkbox" id="terms-checkbox-final" style="width: 20px; height: 20px;">
+                    <div class="terms-agreement terms-check-container">
+                        <input type="checkbox" id="terms-checkbox-final" class="terms-checkbox">
                         <label for="terms-checkbox-final">I agree to the <a href="javascript:void(0)" onclick="document.getElementById('terms-modal').style.display='flex'">Terms and Conditions</a> and Data Privacy Policy.</label>
                     </div>
                     <div class="form-footer">
@@ -223,17 +223,17 @@
                 </div>
 
                 <!-- Step 8: Receive Confirmation (Success State) -->
-                <div class="portal-step-content" id="step-8" style="display:none; text-align: center;">
-                    <div class="success-icon" style="font-size: 5rem; margin-bottom: 20px;">✅</div>
-                    <h2 style="color: var(--primary-color); margin-bottom: 10px;">Application Submitted!</h2>
-                    <p style="color: #666; margin-bottom: 30px;">Your application has been successfully queued for evaluation.</p>
+                <div class="portal-step-content success-step-container" id="step-8" style="display:none;">
+                    <div class="success-icon-main">✅</div>
+                    <h2 class="success-title">Application Submitted!</h2>
+                    <p class="success-msg">Your application has been successfully queued for evaluation.</p>
 
-                    <div class="reference-box" style="display: inline-block; min-width: 300px;">
+                    <div class="reference-box reference-box-wide">
                         <p class="reference-label">Reference Number</p>
                         <p class="reference-number" id="final-arn">ARN-2024-051288</p>
                     </div>
 
-                    <p style="margin: 30px 0; font-size: 0.9rem; color: #555;">An acknowledgement email with payment instructions has been sent to your email address.</p>
+                    <p class="success-footer-note">An acknowledgement email with payment instructions has been sent to your email address.</p>
 
                     <div class="modal-btn-group">
                         <a href="{{ "/track" | relURL }}" class="btn btn-primary">Track Status</a>

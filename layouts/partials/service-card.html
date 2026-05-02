@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header-meta">
         <span class="status-badge status-processing badge-sm">{{ .Params.category }}</span>
-        <span class="card-category-icon" aria-hidden="true" style="font-size: 1.5rem;">
+        <span class="card-category-icon" aria-hidden="true">
             {{ if eq .Params.category "Certificates" }}📜
             {{ else if eq .Params.category "Permits and Licenses" }}📡
             {{ else if eq .Params.category "Equipment / Registration Services" }}⚙️

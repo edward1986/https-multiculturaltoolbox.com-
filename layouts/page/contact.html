@@ -13,10 +13,9 @@
                     <h3 class="icon-heading">
                         <span>📍</span> Central Office
                     </h3>
-                    <p style="color: #555; line-height: 1.6;">
-                        <strong>National Telecommunications Commission</strong><br>
-                        NTC Building, BIR Road, East Triangle,<br>
-                        Diliman, Quezon City, Philippines
+                    <p class="contact-detail-p">
+                        <strong>{{ .Site.Params.agency_name }}</strong><br>
+                        {{ .Site.Params.contact_address }}
                     </p>
                 </div>
 
@@ -24,11 +23,11 @@
                     <h3 class="icon-heading">
                         <span>📞</span> Hotlines & Email
                     </h3>
-                    <ul style="list-style: none; padding: 0; color: #555;">
-                        <li class="mb-10"><strong>General Inquiries:</strong> (02) 8924-4008</li>
-                        <li class="mb-10"><strong>Consumer Hotline:</strong> 1682</li>
-                        <li class="mb-10"><strong>Technical Support:</strong> <a href="mailto:support@ntc.gov.ph" style="color: var(--secondary-color);">support@ntc.gov.ph</a></li>
-                        <li><strong>Public Information:</strong> <a href="mailto:info@ntc.gov.ph" style="color: var(--secondary-color);">info@ntc.gov.ph</a></li>
+                    <ul class="contact-list-plain">
+                        <li class="mb-10"><strong>General Inquiries:</strong> {{ .Site.Params.contact_phone }}</li>
+                        <li class="mb-10"><strong>Consumer Hotline:</strong> {{ .Site.Params.consumer_hotline }}</li>
+                        <li class="mb-10"><strong>Technical Support:</strong> <a href="mailto:{{ .Site.Params.contact_email }}" style="color: var(--secondary-color);">{{ .Site.Params.contact_email }}</a></li>
+                        <li><strong>Public Information:</strong> <a href="mailto:{{ .Site.Params.help_email }}" style="color: var(--secondary-color);">{{ .Site.Params.help_email }}</a></li>
                     </ul>
                 </div>
 
@@ -36,13 +35,13 @@
                     <h3 class="icon-heading">
                         <span>⏰</span> Office Hours
                     </h3>
-                    <p style="color: #555;">Monday to Friday<br>8:00 AM – 5:00 PM<br><small>(Closed on weekends and public holidays)</small></p>
+                    <p class="contact-office-hours">Monday to Friday<br>8:00 AM – 5:00 PM<br><small>(Closed on weekends and public holidays)</small></p>
                 </div>
 
                 <div class="content-box accent-border-left">
                     <h4 class="mb-10">Regional Offices</h4>
-                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">For transactions outside NCR, you may contact our regional offices directly.</p>
-                    <button type="button" class="btn btn-outline-primary" style="font-size: 0.85rem; width: 100%;" onclick="document.getElementById('directory-modal').style.display='flex'">View Regional Directory</button>
+                    <p class="contact-reg-office-help">For transactions outside NCR, you may contact our regional offices directly.</p>
+                    <button type="button" class="btn btn-outline-primary btn-full-width" style="font-size: 0.85rem;" onclick="document.getElementById('directory-modal').style.display='flex'">View Regional Directory</button>
                 </div>
             </div>
 
@@ -74,13 +73,13 @@
                             <label class="form-label" for="message">Message</label>
                             <textarea id="message" class="form-control" rows="6" placeholder="Describe your inquiry in detail..." required></textarea>
                         </div>
-                        <button type="submit" id="submit-inquiry" class="btn btn-primary" style="width: 100%; padding: 15px;">Submit Inquiry</button>
+                        <button type="submit" id="submit-inquiry" class="btn btn-primary contact-submit-btn">Submit Inquiry</button>
                     </form>
                 </div>
 
                 <div class="map-placeholder">
-                    <div style="text-align: center; color: #888;">
-                        <p style="font-size: 2rem;">🗺️</p>
+                    <div class="map-placeholder-content">
+                        <p class="map-icon">🗺️</p>
                         <p>Map Placeholder - NTC Central Office</p>
                     </div>
                 </div>
@@ -91,12 +90,12 @@
 
 <!-- Modals -->
 <div id="directory-modal" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
-    <div class="modal-content" style="max-width: 800px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <div class="modal-content modal-content-large">
+        <div class="modal-header-flex">
             <h2 style="margin: 0;">Regional Office Directory</h2>
-            <button type="button" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;" onclick="document.getElementById('directory-modal').style.display='none'">&times;</button>
+            <button type="button" class="modal-close-btn" onclick="document.getElementById('directory-modal').style.display='none'">&times;</button>
         </div>
-        <div class="modal-body-scroll" style="max-height: 500px; padding: 0;">
+        <div class="modal-body-scroll modal-body-no-padding">
             <table class="directory-table">
                 <thead>
                     <tr>

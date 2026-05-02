@@ -11,8 +11,8 @@
             </div>
             <div class="footer-col">
                 <h4>Contact Us</h4>
-                <address style="font-style: normal; color: #bbb; font-size: 0.95rem;">
-                    <p class="mb-10"><strong>Email:</strong> <a href="mailto:{{ .Site.Params.contact_email }}" style="color: #bbb;">{{ .Site.Params.contact_email }}</a></p>
+                <address class="footer-address">
+                    <p class="mb-10"><strong>Email:</strong> <a href="mailto:{{ .Site.Params.contact_email }}" class="footer-link-gray">{{ .Site.Params.contact_email }}</a></p>
                     <p class="mb-10"><strong>Phone:</strong> {{ .Site.Params.contact_phone }}</p>
                     <p><strong>Address:</strong> {{ .Site.Params.contact_address }}</p>
                 </address>
@@ -38,7 +38,7 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; {{ now.Format "2006" }} {{ .Site.Params.agency_name }}. All rights reserved.</p>
-            <p style="margin-top: 5px;">Official Digital Service Portal of the Republic of the Philippines</p>
+            <p class="footer-copyright-sub">Official Digital Service Portal of the Republic of the Philippines</p>
         </div>
     </div>
 </footer>
