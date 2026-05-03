@@ -92,6 +92,11 @@ header {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-shrink: 0;
+}
+
+.header-actions {
+    margin-left: 20px;
 }
 
 .logo-text h1 {
