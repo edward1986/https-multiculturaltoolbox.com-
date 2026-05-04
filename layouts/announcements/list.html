@@ -15,9 +15,9 @@
                     <span class="status-badge status-evaluation">IMPORTANT</span>
                     {{ end }}
                 </div>
-                <h3 style="margin-bottom: 15px;"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                <h3 style="margin-bottom: 15px;"><a href="{{ .RelPermalink | relURL }}">{{ .Title }}</a></h3>
                 <p style="margin-bottom: 20px;">{{ .Summary }}</p>
-                <a href="{{ .RelPermalink }}" style="font-weight: 600;">Read Full Advisory &rarr;</a>
+                <a href="{{ .RelPermalink | relURL }}" style="font-weight: 600;">Read Full Advisory &rarr;</a>
             </div>
             {{ end }}
         </div>

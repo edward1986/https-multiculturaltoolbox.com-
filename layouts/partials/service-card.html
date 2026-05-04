@@ -10,9 +10,22 @@
         </span>
     </div>
     <h3>{{ .Title }}</h3>
-    <p>{{ .Description | truncate 120 }}</p>
+    <p class="card-desc">{{ .Description | truncate 100 }}</p>
+
+    <div class="card-details">
+        <div class="card-detail-item">
+            <strong>Eligibility:</strong> {{ .Params.eligibility | default "Open to all qualified applicants" | truncate 80 }}
+        </div>
+        <div class="card-detail-item">
+            <strong>Requirements:</strong> {{ if .Params.requirements }}{{ index .Params.requirements 0 }}{{ if gt (len .Params.requirements) 1 }}, plus {{ sub (len .Params.requirements) 1 }} more{{ end }}{{ else }}Refer to service details{{ end }}
+        </div>
+        <div class="card-detail-item">
+            <strong>Process:</strong> {{ .Params.processing_time | default "Standard Processing" }} • {{ if .Params.steps }}{{ len .Params.steps }} steps{{ else }}Online{{ end }}
+        </div>
+    </div>
+
     <div class="card-actions">
-        <a href="{{ .RelPermalink }}" class="btn btn-outline-primary btn-sm">Learn More</a>
+        <a href="{{ .RelPermalink | relURL }}" class="btn btn-outline-primary btn-sm">Learn More</a>
         <a href="{{ "/apply" | relURL }}" class="btn btn-primary btn-sm">Apply Now</a>
     </div>
 </div>
