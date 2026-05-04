@@ -7,7 +7,7 @@
                 {{ partial "service-card.html" . }}
             {{ else }}
                 <div class="card">
-                    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                    <h3><a href="{{ .RelPermalink | relURL }}">{{ .Title }}</a></h3>
                     <p>{{ .Summary }}</p>
                 </div>
             {{ end }}

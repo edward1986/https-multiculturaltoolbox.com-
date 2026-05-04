@@ -9,7 +9,7 @@
     {{ range first 1 (where $alerts "Params.important" true) }}
     <div class="alert-banner">
         <div class="container alert-content">
-            <span><strong>ADVISORY:</strong> {{ .Title }} - <a href="{{ .RelPermalink }}">Read more</a></span>
+            <span><strong>ADVISORY:</strong> {{ .Title }} - <a href="{{ .RelPermalink | relURL }}">Read more</a></span>
         </div>
     </div>
     {{ end }}

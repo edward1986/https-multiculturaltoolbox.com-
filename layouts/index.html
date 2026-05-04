@@ -150,7 +150,7 @@
                 </div>
                 <h3 class="announcement-grid-title">{{ .Title }}</h3>
                 <p class="announcement-grid-summary">{{ .Summary | truncate 150 }}</p>
-                <a href="{{ .RelPermalink }}" class="announcement-grid-link">Read Full Advisory</a>
+                <a href="{{ .RelPermalink | relURL }}" class="announcement-grid-link">Read Full Advisory</a>
             </div>
             {{ end }}
         </div>
