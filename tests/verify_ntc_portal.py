@@ -5,16 +5,16 @@ def run_cuj(page):
     # Navigate to home
     page.goto("http://localhost:1313")
     page.wait_for_timeout(1000)
-    page.screenshot(path="/home/jules/verification/screenshots/home.png")
+    page.screenshot(path="tests/screenshots/home.png")
 
     # CUJ 1: Navigate to Services and click a service
     page.get_by_label("Main navigation").get_by_role("link", name="Services", exact=True).click()
     page.wait_for_timeout(1000)
-    page.screenshot(path="/home/jules/verification/screenshots/services.png")
+    page.screenshot(path="tests/screenshots/services.png")
 
     page.get_by_text("Radio Operator Certificate").first.click()
     page.wait_for_timeout(1000)
-    page.screenshot(path="/home/jules/verification/screenshots/service_detail.png")
+    page.screenshot(path="tests/screenshots/service_detail.png")
 
     # CUJ 2: Complete an application flow
     page.get_by_label("Main navigation").get_by_role("link", name="Apply", exact=True).click()
@@ -60,10 +60,10 @@ def run_cuj(page):
     page.wait_for_timeout(1000)
 
     # Success Modal should be visible
-    page.screenshot(path="/home/jules/verification/screenshots/apply_success_modal.png")
+    page.screenshot(path="tests/screenshots/apply_success_modal.png")
     page.get_by_role("button", name="Close & View Summary").click()
     page.wait_for_timeout(1000)
-    page.screenshot(path="/home/jules/verification/screenshots/apply_final.png")
+    page.screenshot(path="tests/screenshots/apply_final.png")
 
     # CUJ 3: Track Application
     page.get_by_role("link", name="Track Status").click()
@@ -71,13 +71,13 @@ def run_cuj(page):
     page.locator("#arn-input").fill("ARN-2024-051288")
     page.get_by_role("button", name="Track Status").click()
     page.wait_for_timeout(1500)
-    page.screenshot(path="/home/jules/verification/screenshots/track_result.png")
+    page.screenshot(path="tests/screenshots/track_result.png")
 
 if __name__ == "__main__":
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         context = browser.new_context(
-            record_video_dir="/home/jules/verification/videos"
+            record_video_dir="tests/videos"
         )
         page = context.new_page()
         try:

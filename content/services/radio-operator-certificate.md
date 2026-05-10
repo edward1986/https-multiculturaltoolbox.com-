@@ -23,3 +23,17 @@ forms:
   - name: "Application for Radio Operator Certificate"
     url: "#"
 ---
+
+The issuance of a **Radio Operator Certificate** is a critical regulatory function of the National Telecommunications Commission. This certification ensures that individuals operating radio stations possess the necessary technical knowledge and proficiency to maintain the integrity of the country's radio spectrum.
+
+### Scope of Certification
+This service covers various classes of radio operator certificates, including:
+- **Commercial Radio Operator:** For those seeking employment in commercial radio stations or maritime/aeronautical services.
+- **Amateur Radio Operator:** For hobbyists and enthusiasts participating in the amateur radio service.
+- **Government Radio Operator:** For personnel operating radio stations owned and operated by government agencies.
+
+### Validity and Renewal
+Standard Radio Operator Certificates are typically valid for a period of **three (3) to five (5) years**, depending on the class of certificate. Renewal applications should be filed at least two (2) months before the expiration date to avoid surcharges and potential interruption of operating privileges.
+
+### Examination Requirements
+New applicants must have successfully passed the government examination conducted by the NTC. The Report of Rating or Examination Result is a mandatory requirement for the initial issuance of the certificate.

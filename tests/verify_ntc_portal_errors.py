@@ -5,7 +5,7 @@ def run_cuj(page):
     # Navigate to home
     page.goto("http://localhost:1313")
     page.wait_for_timeout(1000)
-    page.screenshot(path="/home/jules/verification/screenshots/home.png")
+    page.screenshot(path="tests/screenshots/home.png")
 
     # CUJ: Test Track Application Errors
     page.get_by_label("Main navigation").get_by_role("link", name="Track Application", exact=True).click()
@@ -13,19 +13,19 @@ def run_cuj(page):
     # Empty track
     page.get_by_role("button", name="Track Status").click()
     page.wait_for_timeout(500)
-    page.screenshot(path="/home/jules/verification/screenshots/track_error_empty.png")
+    page.screenshot(path="tests/screenshots/track_error_empty.png")
 
     # Invalid ARN
     page.locator("#arn-input").fill("INVALID-ARN")
     page.get_by_role("button", name="Track Status").click()
     page.wait_for_timeout(1500)
-    page.screenshot(path="/home/jules/verification/screenshots/track_error_notfound.png")
+    page.screenshot(path="tests/screenshots/track_error_notfound.png")
 
     # Valid ARN
     page.locator("#arn-input").fill("ARN-2024-051288")
     page.get_by_role("button", name="Track Status").click()
     page.wait_for_timeout(1500)
-    page.screenshot(path="/home/jules/verification/screenshots/track_result.png")
+    page.screenshot(path="tests/screenshots/track_result.png")
 
     # CUJ: Test Apply Errors
     page.get_by_label("Main navigation").get_by_role("link", name="Apply", exact=True).click()
@@ -33,7 +33,7 @@ def run_cuj(page):
     # Step 1 error
     page.get_by_role("button", name="Next Step →").click()
     page.wait_for_timeout(500)
-    page.screenshot(path="/home/jules/verification/screenshots/apply_error_step1.png")
+    page.screenshot(path="tests/screenshots/apply_error_step1.png")
 
     # Complete flow
     page.locator("#service-select").select_option(label="Radio Operator Certificate")
@@ -50,7 +50,7 @@ def run_cuj(page):
     # Step 4 error
     page.get_by_role("button", name="Next Step →").click()
     page.wait_for_timeout(500)
-    page.screenshot(path="/home/jules/verification/screenshots/apply_error_step4.png")
+    page.screenshot(path="tests/screenshots/apply_error_step4.png")
 
     page.locator("#fname").fill("Juan")
     page.locator("#lname").fill("Dela Cruz")
@@ -68,14 +68,14 @@ def run_cuj(page):
     # Step 7 error (terms)
     page.get_by_role("button", name="Submit Application").click()
     page.wait_for_timeout(500)
-    page.screenshot(path="/home/jules/verification/screenshots/apply_error_terms.png")
+    page.screenshot(path="tests/screenshots/apply_error_terms.png")
 
     page.get_by_label("I agree to the Terms and Conditions and Data Privacy Policy.").check()
     page.get_by_role("button", name="Submit Application").click()
     page.wait_for_timeout(1000)
     page.get_by_role("button", name="Close & View Summary").click()
     page.wait_for_timeout(500)
-    page.screenshot(path="/home/jules/verification/screenshots/apply_final.png")
+    page.screenshot(path="tests/screenshots/apply_final.png")
 
 if __name__ == "__main__":
     with sync_playwright() as p:

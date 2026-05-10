@@ -6,6 +6,11 @@
                 <h1 class="service-title-main">{{ .Title }}</h1>
                 <p class="service-description-lead lead">{{ .Description }}</p>
 
+                <div class="content-box content">
+                    <h3 class="section-box-title">Overview</h3>
+                    {{ .Content }}
+                </div>
+
                 <div class="content-box">
                     <h3 class="section-box-title">Who may apply</h3>
                     <p>{{ .Params.eligibility }}</p>
