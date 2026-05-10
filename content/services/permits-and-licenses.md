@@ -24,3 +24,16 @@ forms:
   - name: "Application for Radio Station License"
     url: "#"
 ---
+
+The NTC regulates the purchase, possession, and operation of radio communication equipment through a comprehensive **Permits and Licenses** system. This ensures that all radio stations in the Philippines operate within their assigned frequencies and comply with national and international technical standards.
+
+### Regulatory Framework
+All radio stations, whether fixed, mobile, maritime, or aeronautical, are required by law (RA 3846) to obtain a valid Radio Station License (RSL) before operation. The process involves several stages, starting from the authorization to purchase the equipment down to the final license to operate.
+
+### Types of Authorizations
+1. **Permit to Purchase:** Required before an individual or entity can buy radio equipment from a licensed dealer.
+2. **Permit to Possess:** Required for the storage or transport of radio equipment that is not yet installed for operation.
+3. **Radio Station License (RSL):** The final authority granted by the NTC to operate a radio station at a specific location or within a specific service area.
+
+### Technical Evaluation
+Every application for a new station or a modification of an existing one undergoes a rigorous technical evaluation. NTC engineers review the proposed frequency, power output, antenna height, and location to prevent harmful interference with other existing radio services.

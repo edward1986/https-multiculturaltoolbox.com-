@@ -8,16 +8,16 @@ def run_mobile_verification(page):
     # Home page
     page.goto("http://localhost:1313")
     page.wait_for_timeout(1000)
-    page.screenshot(path="/home/jules/verification/screenshots/mobile_home.png")
+    page.screenshot(path="tests/screenshots/mobile_home.png")
 
     # Apply page
     page.goto("http://localhost:1313/apply")
     page.wait_for_timeout(1000)
-    page.screenshot(path="/home/jules/verification/screenshots/mobile_apply.png")
+    page.screenshot(path="tests/screenshots/mobile_apply.png")
 
     # Test menu toggle if any (though currently it's a simple list)
     # Actually, check if the menu items wrap correctly
-    page.screenshot(path="/home/jules/verification/screenshots/mobile_nav.png")
+    page.screenshot(path="tests/screenshots/mobile_nav.png")
 
 if __name__ == "__main__":
     with sync_playwright() as p:
