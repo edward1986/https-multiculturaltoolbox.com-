@@ -105,91 +105,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{ range .Site.Data.regions.regions }}
                     <tr>
-                        <td><strong>NCR</strong></td>
-                        <td>NTC Bldg., BIR Rd., East Triangle, Diliman, Quezon City</td>
-                        <td>(02) 8924-4010 / ncr@ntc.gov.ph</td>
+                        <td><strong>{{ .name }}</strong></td>
+                        <td>{{ .address }}</td>
+                        <td>{{ .phone }} / {{ .email }}</td>
                     </tr>
-                    <tr>
-                        <td><strong>Region I</strong></td>
-                        <td>Brgy. Sevilla, San Fernando City, La Union</td>
-                        <td>(072) 607-5654 / r1@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region II</strong></td>
-                        <td>Carig Sur, Tuguegarao City, Cagayan</td>
-                        <td>(078) 304-1628 / r2@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region III</strong></td>
-                        <td>Diosdado Macapagal Govt. Center, Maimpis, San Fernando, Pampanga</td>
-                        <td>(045) 455-2260 / r3@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region IV-A</strong></td>
-                        <td>Brgy. Pag-asa, Tayabas City, Quezon</td>
-                        <td>(042) 713-0300 / r4a@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region IV-B</strong></td>
-                        <td>NTC Bldg., BIR Rd., East Triangle, Diliman, Quezon City</td>
-                        <td>(02) 8924-4010 / r4b@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region V</strong></td>
-                        <td>Govt. Center, Rawis, Legazpi City</td>
-                        <td>(052) 482-0164 / r5@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region VI</strong></td>
-                        <td>Quintin Salas, Jaro, Iloilo City</td>
-                        <td>(033) 320-2251 / r6@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region VII</strong></td>
-                        <td>Wireless, Mandaue City, Cebu</td>
-                        <td>(032) 346-0391 / r7@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region VIII</strong></td>
-                        <td>Brgy. Kawayan, Tacloban City</td>
-                        <td>(053) 325-5151 / r8@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region IX</strong></td>
-                        <td>Cabuay, Zamboanga City</td>
-                        <td>(062) 991-2401 / r9@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region X</strong></td>
-                        <td>Carmen, Cagayan de Oro City</td>
-                        <td>(088) 858-8881 / r10@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region XI</strong></td>
-                        <td>Davao City</td>
-                        <td>(082) 297-3333 / r11@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region XII</strong></td>
-                        <td>Koronadal City, South Cotabato</td>
-                        <td>(083) 228-2962 / r12@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Region XIII</strong></td>
-                        <td>Butuan City</td>
-                        <td>(085) 342-5100 / r13@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>CAR</strong></td>
-                        <td>Pacdal, Baguio City</td>
-                        <td>(074) 442-9344 / car@ntc.gov.ph</td>
-                    </tr>
-                    <tr>
-                        <td><strong>BARMM</strong></td>
-                        <td>ORG Compound, Cotabato City</td>
-                        <td>(064) 421-7234 / barmm@ntc.gov.ph</td>
-                    </tr>
+                    {{ end }}
                 </tbody>
             </table>
         </div>

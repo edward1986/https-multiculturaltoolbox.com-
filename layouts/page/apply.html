@@ -90,24 +90,9 @@
                         <p class="form-help-text">Choose the NTC regional office that has jurisdiction over your location or station.</p>
                         <select id="region-select" class="form-control">
                             <option value="">-- Choose a region --</option>
-                            <option>Central Office (Quezon City)</option>
-                            <option>NCR - National Capital Region</option>
-                            <option>Region I - Ilocos Region</option>
-                            <option>Region II - Cagayan Valley</option>
-                            <option>Region III - Central Luzon</option>
-                            <option>Region IV-A - CALABARZON</option>
-                            <option>Region IV-B - MIMAROPA</option>
-                            <option>Region V - Bicol Region</option>
-                            <option>Region VI - Western Visayas</option>
-                            <option>Region VII - Central Visayas</option>
-                            <option>Region VIII - Eastern Visayas</option>
-                            <option>Region IX - Zamboanga Peninsula</option>
-                            <option>Region X - Northern Mindanao</option>
-                            <option>Region XI - Davao Region</option>
-                            <option>Region XII - SOCCSKSARGEN</option>
-                            <option>Region XIII - Caraga</option>
-                            <option>CAR - Cordillera Administrative Region</option>
-                            <option>BARMM - Bangsamoro Autonomous Region in Muslim Mindanao</option>
+                            {{ range .Site.Data.regions.regions }}
+                            <option>{{ .name }}</option>
+                            {{ end }}
                         </select>
                     </div>
                     <div class="form-footer">
