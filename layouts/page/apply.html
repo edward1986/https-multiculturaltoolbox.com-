@@ -226,6 +226,7 @@
                     <div class="reference-box reference-box-wide">
                         <p class="reference-label">Reference Number</p>
                         <p class="reference-number" id="final-arn">ARN-2024-051288</p>
+                        <button type="button" class="copy-btn" id="copy-arn-btn">Copy to Clipboard</button>
                     </div>
 
                     <p class="success-footer-note">An acknowledgement email with payment instructions has been sent to your email address.</p>
@@ -403,6 +404,19 @@
                 currentStep = 8;
                 updateStep(8);
             }, 500);
+        });
+
+        // Copy ARN function
+        document.getElementById('copy-arn-btn').addEventListener('click', function() {
+            const arnText = document.getElementById('final-arn').textContent;
+            navigator.clipboard.writeText(arnText).then(() => {
+                this.textContent = 'Copied!';
+                this.classList.add('copied');
+                setTimeout(() => {
+                    this.textContent = 'Copy to Clipboard';
+                    this.classList.remove('copied');
+                }, 2000);
+            });
         });
 
         // Mode card interaction

@@ -2125,3 +2125,79 @@ input:focus, select:focus, textarea:focus {
     padding: 0 40px;
     font-size: 1rem;
 }
+
+.copy-btn {
+    background: #e9ecef;
+    border: 1px solid #ced4da;
+    color: #495057;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+
+.copy-btn:hover {
+    background: #dee2e6;
+}
+
+.copy-btn.copied {
+    background: var(--success-color);
+    color: white;
+    border-color: var(--success-color);
+}
+
+/* Print Styles */
+@media print {
+    header, footer, .alert-banner, .breadcrumb, .service-sidebar, .btn, .header-actions, .portal-sidebar, .form-footer, .stepper, .modal-overlay {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .container {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .service-detail-grid {
+        display: block;
+    }
+
+    .content-box {
+        border: none;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    .section-box-title {
+        border-bottom: 2px solid #000;
+        margin-top: 40px;
+    }
+
+    h1 {
+        font-size: 24pt;
+        color: black !important;
+    }
+
+    .service-title-main {
+        border-bottom: 3px solid #000;
+        padding-bottom: 10px;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8rem;
+    }
+}
