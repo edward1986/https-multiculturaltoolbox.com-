@@ -42,6 +42,7 @@
                     <h3 class="mb-20">Apply for this service</h3>
                     <p class="service-sidebar-p">Ready to start your application? Ensure you have all requirements in digital format.</p>
                     <a href="{{ "/apply" | relURL }}" class="btn btn-primary service-sidebar-btn">Apply Online Now</a>
+                    <button type="button" class="btn btn-outline-primary service-sidebar-btn btn-full-width" onclick="window.print()">Print Requirements</button>
 
                     {{ if .Params.forms }}
                         {{ range .Params.forms }}
