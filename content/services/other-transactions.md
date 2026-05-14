@@ -4,7 +4,7 @@ description: "Licensing and registration of radio communication equipment dealer
 category: "Other public transactions"
 eligibility: "Business entities intending to engage in the sale, repair, or manufacture of radio communication equipment."
 processing_time: "5-10 Working Days"
-fees: "Refer to MC No. 19-12-2002"
+fees: "PHP 2,000.00 - PHP 5,000.00 (MC No. 19-12-2002)"
 requirements:
   - Duly accomplished application form
   - SEC Registration or DTI Business Name
