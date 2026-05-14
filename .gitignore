@@ -4,3 +4,5 @@ resources/_gen/
 hugo_server.log
 *.log
 bin/
+__pycache__/
+tests/videos/

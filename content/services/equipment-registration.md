@@ -4,7 +4,7 @@ description: "Type Approval and Type Acceptance of radio communications equipmen
 category: "Equipment / Registration Services"
 eligibility: "Manufacturers, suppliers, or dealers of telecommunications equipment intending to sell or distribute in the Philippines."
 processing_time: "7-10 Working Days"
-fees: "Refer to Type Approval Fee Schedule"
+fees: "Refer to Type Approval Fee Schedule (MC No. 19-12-2002)"
 requirements:
   - Technical Specifications / User Manual
   - Test Reports from recognized laboratories
