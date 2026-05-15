@@ -7,8 +7,8 @@
         </header>
 
         <!-- Portal Stepper -->
-        <div class="stepper max-w-1100 mx-auto mb-40" aria-label="Application progress" id="portal-stepper">
-            <div class="step active" data-step="1">
+        <nav class="stepper max-w-1100 mx-auto mb-40" aria-label="Application progress" id="portal-stepper">
+            <div class="step active" data-step="1" aria-current="step">
                 <div class="step-number">1</div>
                 <div class="step-label">Service</div>
             </div>
@@ -40,7 +40,7 @@
                 <div class="step-number">8</div>
                 <div class="step-label">Done</div>
             </div>
-        </div>
+        </nav>
 
         <div class="portal-container">
             <!-- Sidebar -->
@@ -61,7 +61,7 @@
             <!-- Main Portal Area -->
             <div class="portal-main" id="portal-main-content">
                 <!-- Client-side Error Message Container -->
-                <div id="portal-error-container" class="error-container" style="display: none;">
+                <div id="portal-error-container" class="error-container" style="display: none;" role="alert" aria-live="assertive">
                     <strong>Notice:</strong> <span id="portal-error-message"></span>
                 </div>
 
@@ -70,7 +70,7 @@
                     <h3 class="portal-section-title">Step 1: Select Service</h3>
                     <div class="form-group">
                         <label for="service-select" class="form-label">Select Regulatory Service</label>
-                        <select id="service-select" class="form-control">
+                        <select id="service-select" class="form-control" aria-required="true">
                             <option value="">-- Choose a service --</option>
                             {{ range (where .Site.RegularPages "Section" "services") }}
                             <option value="{{ .Title }}">{{ .Title }}</option>
@@ -78,7 +78,7 @@
                         </select>
                     </div>
                     <div class="form-footer">
-                        <button type="button" class="btn btn-primary next-step">Next Step &rarr;</button>
+                        <button type="button" class="btn btn-primary next-step" aria-label="Go to next step: Select Region">Next Step &rarr;</button>
                     </div>
                 </div>
 
@@ -87,8 +87,8 @@
                     <h3 class="portal-section-title">Step 2: Select Region</h3>
                     <div class="form-group">
                         <label for="region-select" class="form-label">Select Regional Office</label>
-                        <p class="form-help-text">Choose the NTC regional office that has jurisdiction over your location or station.</p>
-                        <select id="region-select" class="form-control">
+                        <p class="form-help-text" id="region-help">Choose the NTC regional office that has jurisdiction over your location or station.</p>
+                        <select id="region-select" class="form-control" aria-describedby="region-help" aria-required="true">
                             <option value="">-- Choose a region --</option>
                             {{ range .Site.Data.regions.regions }}
                             <option>{{ .name }}</option>
@@ -96,8 +96,8 @@
                         </select>
                     </div>
                     <div class="form-footer">
-                        <button type="button" class="btn btn-outline-primary prev-step">&larr; Back</button>
-                        <button type="button" class="btn btn-primary next-step">Next Step &rarr;</button>
+                        <button type="button" class="btn btn-outline-primary prev-step" aria-label="Back to Step 1: Select Service">&larr; Back</button>
+                        <button type="button" class="btn btn-primary next-step" aria-label="Go to next step: Choose Processing Mode">Next Step &rarr;</button>
                     </div>
                 </div>
 
@@ -105,23 +105,25 @@
                 <div class="portal-step-content" id="step-3" style="display:none;">
                     <h3 class="portal-section-title">Step 3: Processing Mode</h3>
                     <div class="form-group">
-                        <label class="form-label">Choose Processing Mode</label>
-                        <div class="processing-modes">
-                            <label class="mode-card active">
-                                <input type="radio" name="mode" value="Regular" checked>
-                                <strong>Regular Processing</strong>
-                                <p class="processing-mode-help">Standard turnaround time as per Citizen's Charter.</p>
-                            </label>
-                            <label class="mode-card">
-                                <input type="radio" name="mode" value="Express">
-                                <strong>Express Processing</strong>
-                                <p class="processing-mode-help">Expedited processing for eligible transactions.</p>
-                            </label>
-                        </div>
+                        <fieldset>
+                            <legend class="form-label">Choose Processing Mode</legend>
+                            <div class="processing-modes">
+                                <label class="mode-card active">
+                                    <input type="radio" name="mode" value="Regular" checked>
+                                    <strong>Regular Processing</strong>
+                                    <p class="processing-mode-help">Standard turnaround time as per Citizen's Charter.</p>
+                                </label>
+                                <label class="mode-card">
+                                    <input type="radio" name="mode" value="Express">
+                                    <strong>Express Processing</strong>
+                                    <p class="processing-mode-help">Expedited processing for eligible transactions.</p>
+                                </label>
+                            </div>
+                        </fieldset>
                     </div>
                     <div class="form-footer">
-                        <button type="button" class="btn btn-outline-primary prev-step">&larr; Back</button>
-                        <button type="button" class="btn btn-primary next-step">Next Step &rarr;</button>
+                        <button type="button" class="btn btn-outline-primary prev-step" aria-label="Back to Step 2: Select Region">&larr; Back</button>
+                        <button type="button" class="btn btn-primary next-step" aria-label="Go to next step: Complete Application Form">Next Step &rarr;</button>
                     </div>
                 </div>
 
@@ -131,24 +133,24 @@
                     <div class="form-grid-2col">
                         <div class="form-group">
                             <label class="form-label" for="fname">First Name</label>
-                            <input type="text" class="form-control" id="fname" placeholder="e.g. Juan">
+                            <input type="text" class="form-control" id="fname" placeholder="e.g. Juan" required aria-required="true">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="lname">Last Name</label>
-                            <input type="text" class="form-control" id="lname" placeholder="e.g. Dela Cruz">
+                            <input type="text" class="form-control" id="lname" placeholder="e.g. Dela Cruz" required aria-required="true">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="email">Email Address</label>
-                            <input type="email" class="form-control" id="email" placeholder="e.g. juan@example.com">
+                            <input type="email" class="form-control" id="email" placeholder="e.g. juan@example.com" required aria-required="true">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="contact">Contact Number</label>
-                            <input type="text" class="form-control" id="contact" placeholder="e.g. 09171234567">
+                            <input type="text" class="form-control" id="contact" placeholder="e.g. 09171234567" required aria-required="true">
                         </div>
                     </div>
                     <div class="form-footer">
-                        <button type="button" class="btn btn-outline-primary prev-step">&larr; Back</button>
-                        <button type="button" class="btn btn-primary next-step">Next Step &rarr;</button>
+                        <button type="button" class="btn btn-outline-primary prev-step" aria-label="Back to Step 3: Processing Mode">&larr; Back</button>
+                        <button type="button" class="btn btn-primary next-step" aria-label="Go to next step: Upload Requirements">Next Step &rarr;</button>
                     </div>
                 </div>
 
@@ -168,8 +170,8 @@
                          </div>
                     </div>
                     <div class="form-footer">
-                        <button type="button" class="btn btn-outline-primary prev-step">&larr; Back</button>
-                        <button type="button" class="btn btn-primary next-step">Next Step &rarr;</button>
+                        <button type="button" class="btn btn-outline-primary prev-step" aria-label="Back to Step 4: Application Details">&larr; Back</button>
+                        <button type="button" class="btn btn-primary next-step" aria-label="Go to next step: Review Application">Next Step &rarr;</button>
                     </div>
                 </div>
 
@@ -195,8 +197,8 @@
                         </div>
                     </div>
                     <div class="form-footer">
-                        <button type="button" class="btn btn-outline-primary prev-step">&larr; Back</button>
-                        <button type="button" class="btn btn-primary next-step">Confirm Details &rarr;</button>
+                        <button type="button" class="btn btn-outline-primary prev-step" aria-label="Back to Step 5: Upload Requirements">&larr; Back</button>
+                        <button type="button" class="btn btn-primary next-step" aria-label="Confirm Details and go to Final Submission">Confirm Details &rarr;</button>
                     </div>
                 </div>
 
@@ -212,8 +214,8 @@
                         <label for="terms-checkbox-final">I agree to the <a href="javascript:void(0)" onclick="document.getElementById('terms-modal').style.display='flex'">Terms and Conditions</a> and Data Privacy Policy.</label>
                     </div>
                     <div class="form-footer">
-                        <button type="button" class="btn btn-outline-primary prev-step">&larr; Back</button>
-                        <button type="button" class="btn btn-primary btn-xl" id="final-submit-btn">Submit Application</button>
+                        <button type="button" class="btn btn-outline-primary prev-step" aria-label="Back to Step 6: Review Details">&larr; Back</button>
+                        <button type="button" class="btn btn-primary btn-xl" id="final-submit-btn" aria-label="Submit Application and Receive Confirmation">Submit Application</button>
                     </div>
                 </div>
 
@@ -242,10 +244,10 @@
 </section>
 
 <!-- Success Confirmation Modal -->
-<div id="success-modal" class="modal-overlay">
+<div id="success-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="success-modal-title">
     <div class="modal-content modal-content-center">
-        <div class="success-icon-large">✅</div>
-        <h2 class="modal-title">Submission Successful</h2>
+        <div class="success-icon-large" aria-hidden="true">✅</div>
+        <h2 class="modal-title" id="success-modal-title">Submission Successful</h2>
         <p class="modal-description">Your application has been received and is now being processed.</p>
         <div class="reference-box mb-30">
             <p class="reference-label">Your Reference Number</p>
@@ -258,9 +260,9 @@
 </div>
 
 <!-- Terms and Conditions Modal -->
-<div id="terms-modal" class="modal-overlay" onclick="if(event.target == this) this.style.display='none'">
+<div id="terms-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title" onclick="if(event.target == this) this.style.display='none'">
     <div class="modal-content">
-        <h2>Terms and Conditions</h2>
+        <h2 id="terms-modal-title">Terms and Conditions</h2>
         <div class="modal-body-scroll">
             <p class="mb-20"><strong>1. Data Privacy</strong></p>
             <p class="mb-20">By using the NTC EDGE Portal, you agree to the collection and processing of your personal and technical data in accordance with the Data Privacy Act of 2012. NTC shall use this information solely for regulatory purposes.</p>
@@ -310,12 +312,15 @@
                 const s = parseInt(el.getAttribute('data-step'));
                 if (s === step) {
                     el.classList.add('active');
+                    el.setAttribute('aria-current', 'step');
                 } else if (s < step) {
                     el.classList.add('done');
                     el.classList.remove('active');
+                    el.removeAttribute('aria-current');
                 } else {
                     el.classList.remove('active');
                     el.classList.remove('done');
+                    el.removeAttribute('aria-current');
                 }
             });
 

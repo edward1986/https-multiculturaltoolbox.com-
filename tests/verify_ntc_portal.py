@@ -23,17 +23,17 @@ def run_cuj(page):
     # Step 1: Select Service
     page.locator("#service-select").select_option(label="Radio Operator Certificate")
     page.wait_for_timeout(500)
-    page.get_by_role("button", name="Next Step →").click()
+    page.get_by_role("button", name="Go to next step: Select Region").click()
     page.wait_for_timeout(500)
 
     # Step 2: Select Region
     page.locator("#region-select").select_option(label="NCR - National Capital Region")
     page.wait_for_timeout(500)
-    page.get_by_role("button", name="Next Step →").click()
+    page.get_by_role("button", name="Go to next step: Choose Processing Mode").click()
     page.wait_for_timeout(500)
 
     # Step 3: Mode
-    page.get_by_role("button", name="Next Step →").click()
+    page.get_by_role("button", name="Go to next step: Complete Application Form").click()
     page.wait_for_timeout(500)
 
     # Step 4: Form
@@ -42,15 +42,15 @@ def run_cuj(page):
     page.locator("#email").fill("juan@example.com")
     page.locator("#contact").fill("09171234567")
     page.wait_for_timeout(500)
-    page.get_by_role("button", name="Next Step →").click()
+    page.get_by_role("button", name="Go to next step: Upload Requirements").click()
     page.wait_for_timeout(500)
 
     # Step 5: Upload
-    page.get_by_role("button", name="Next Step →").click()
+    page.get_by_role("button", name="Go to next step: Review Application").click()
     page.wait_for_timeout(500)
 
     # Step 6: Review
-    page.get_by_role("button", name="Confirm Details →").click()
+    page.get_by_role("button", name="Confirm Details and go to Final Submission").click()
     page.wait_for_timeout(500)
 
     # Step 7: Submit
@@ -69,7 +69,7 @@ def run_cuj(page):
     page.get_by_role("link", name="Track Status").click()
     page.wait_for_timeout(1000)
     page.locator("#arn-input").fill("ARN-2024-051288")
-    page.get_by_role("button", name="Track Status").click()
+    page.get_by_role("button", name="Search for application status").click()
     page.wait_for_timeout(1500)
     page.screenshot(path="tests/screenshots/track_result.png")
 
