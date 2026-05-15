@@ -8,25 +8,25 @@
 
         <div class="card track-form-card">
             <!-- Client-side Error Message Container -->
-            <div id="track-error-container" class="error-container" style="display: none;">
+            <div id="track-error-container" class="error-container" style="display: none;" role="alert" aria-live="assertive">
                 <strong>Notice:</strong> <span id="track-error-message"></span>
             </div>
 
             <form class="track-form" id="tracking-form-main">
                 <label for="arn-input">Application Reference Number (ARN)</label>
                 <div class="track-input-group">
-                    <input type="text" id="arn-input" class="track-input" placeholder="e.g. ARN-2024-051288" aria-describedby="arn-help">
-                    <button type="submit" id="track-btn" class="btn btn-primary track-btn-submit">Track Status</button>
+                    <input type="text" id="arn-input" class="track-input" placeholder="e.g. ARN-2024-051288" aria-describedby="arn-help" required aria-required="true">
+                    <button type="submit" id="track-btn" class="btn btn-primary track-btn-submit" aria-label="Search for application status">Track Status</button>
                 </div>
                 <p id="arn-help" class="track-help-text">Enter the unique reference number provided in your acknowledgement email or success confirmation screen.</p>
             </form>
         </div>
 
-        <div id="loading-container" style="display: none;">
+        <div id="loading-container" style="display: none;" role="status" aria-live="polite">
             {{ partial "loading-state.html" "Searching NTC EDGE records..." }}
         </div>
 
-        <div id="results-area">
+        <div id="results-area" aria-live="polite">
             <div id="no-results-container" style="display: none;">
                 {{ partial "empty-state.html" "No application found with the provided Reference Number. Please double-check the ARN and try again." }}
             </div>
