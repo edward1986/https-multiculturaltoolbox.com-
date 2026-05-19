@@ -1,0 +1,41 @@
+{{ define "main" }}
+<section class="login-page section-padding">
+    <div class="container">
+        <div class="login-container max-w-500 mx-auto">
+            <div class="card login-card">
+                <div class="login-header">
+                    <div class="login-logo">
+                        <span class="logo-symbol">⚖️</span>
+                        <h2>NTC <strong>EDGE</strong></h2>
+                        <p>Portal Login</p>
+                    </div>
+                </div>
+                <form class="login-form">
+                    <div class="form-group">
+                        <label for="username" class="form-label">Username or Email</label>
+                        <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
+                    </div>
+                    <div class="form-group mb-20">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    <div class="login-options mb-20">
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full-width">Login to Portal</button>
+                </form>
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="{{ "/apply" | relURL }}">Register here</a></p>
+                </div>
+            </div>
+
+            <div class="login-help-box mt-30">
+                <p><strong>Security Notice:</strong> Always ensure you are on the official <code>ntc.gov.ph</code> domain before entering your credentials.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
