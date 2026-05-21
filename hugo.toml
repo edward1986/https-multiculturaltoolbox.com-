@@ -16,6 +16,8 @@ title = 'NTC EDGE Portal'
   office_hours = "Monday to Friday, 8:00 AM – 5:00 PM"
   consumer_hotline = "1682"
   help_email = "info@ntc.gov.ph"
+  instagram_url = "https://www.instagram.com/ntc_ph"
+  youtube_url = "https://www.youtube.com/@ntc_philippines"
 
 [[menu.main]]
   name = "Home"
