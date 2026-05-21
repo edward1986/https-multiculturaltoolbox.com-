@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-    <meta name="description" content="{{ .Site.Params.description }}">
+    <title>{{ if .IsHome }}{{ .Site.Title }} - {{ .Site.Params.agency_name }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ .Description | default .Site.Params.description }}">
     <meta name="author" content="{{ .Site.Params.agency_name }}">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
-    <meta property="og:description" content="{{ .Site.Params.description }}">
+    <meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
     <meta property="og:image" content="{{ "images/og-image.jpg" | relURL }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ .Permalink }}">
     <meta property="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
-    <meta property="twitter:description" content="{{ .Site.Params.description }}">
+    <meta property="twitter:description" content="{{ .Description | default .Site.Params.description }}">
     <meta property="twitter:image" content="{{ "images/og-image.jpg" | relURL }}">
 
     {{ $style := resources.Get "css/main.css" | minify | fingerprint }}

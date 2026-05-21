@@ -98,7 +98,7 @@
                     </div>
                 </div>
                 <div class="recent-applications">
-                    <h4>Queue: Technical Evaluation</h4>
+                    <h4>Queue: Technical Evaluation (Recent)</h4>
                     <div class="table-responsive">
                         <table class="dashboard-table">
                             <thead>
@@ -110,18 +110,14 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {{ range first 3 .Site.Data.mock_tracking.applications }}
                                 <tr>
-                                    <td>ARN-2024-051288</td>
-                                    <td>JUAN DELA CRUZ</td>
-                                    <td>Radio Operator</td>
-                                    <td><span class="status-badge status-processing">Evaluating</span></td>
+                                    <td>{{ .arn }}</td>
+                                    <td>{{ .applicant }}</td>
+                                    <td>{{ .service }}</td>
+                                    <td><span class="status-badge {{ .status_class }}">{{ .status }}</span></td>
                                 </tr>
-                                <tr>
-                                    <td>ARN-2024-051290</td>
-                                    <td>MARIA SANTOS</td>
-                                    <td>Permit to Possess</td>
-                                    <td><span class="status-badge status-evaluation">Pending</span></td>
-                                </tr>
+                                {{ end }}
                             </tbody>
                         </table>
                     </div>
@@ -131,27 +127,53 @@
     </div>
 </section>
 
-<section class="news-announcements section-padding bg-white">
+<section class="public-advisories section-padding bg-white">
     <div class="container">
         <div class="section-header-flex">
-            <h2 class="section-header-title">Latest News & Advisories</h2>
-            <a href="{{ "/announcements" | relURL }}" class="section-header-link">View All Announcements &rarr;</a>
+            <h2 class="section-header-title">Public Advisories</h2>
+            <a href="{{ "/announcements" | relURL }}" class="section-header-link">View All Advisories &rarr;</a>
         </div>
         <div class="grid">
-            {{ range first 3 (where .Site.RegularPages "Section" "announcements") }}
-            <div class="card announcement-grid-card">
+            {{ $advisories := where (where .Site.RegularPages "Section" "announcements") "Params.important" true }}
+            {{ range first 3 $advisories }}
+            <div class="card announcement-grid-card" style="border-top: 4px solid var(--warning-color);">
                 <div class="announcement-card-header">
                     <span class="announcement-grid-date">{{ .Date.Format "January 2, 2006" }}</span>
-                    {{ if .Params.important }}
                     <span class="status-badge status-evaluation badge-sm">IMPORTANT</span>
-                    {{ else }}
-                    <span class="status-badge status-received badge-sm">NEWS</span>
-                    {{ end }}
                 </div>
                 <h3 class="announcement-grid-title">{{ .Title }}</h3>
                 <p class="announcement-grid-summary">{{ .Summary | truncate 150 }}</p>
                 <a href="{{ .RelPermalink | relURL }}" class="announcement-grid-link">Read Full Advisory</a>
             </div>
+            {{ end }}
+            {{ if not $advisories }}
+                <p>No active public advisories at this time.</p>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<section class="news-updates section-padding">
+    <div class="container">
+        <div class="section-header-flex">
+            <h2 class="section-header-title">Latest News & Updates</h2>
+            <a href="{{ "/announcements" | relURL }}" class="section-header-link">View All News &rarr;</a>
+        </div>
+        <div class="grid">
+            {{ $news := where (where .Site.RegularPages "Section" "announcements") "Params.important" "!=" true }}
+            {{ range first 3 $news }}
+            <div class="card announcement-grid-card">
+                <div class="announcement-card-header">
+                    <span class="announcement-grid-date">{{ .Date.Format "January 2, 2006" }}</span>
+                    <span class="status-badge status-received badge-sm">NEWS</span>
+                </div>
+                <h3 class="announcement-grid-title">{{ .Title }}</h3>
+                <p class="announcement-grid-summary">{{ .Summary | truncate 150 }}</p>
+                <a href="{{ .RelPermalink | relURL }}" class="announcement-grid-link">Read More</a>
+            </div>
+            {{ end }}
+            {{ if not $news }}
+                <p>No news updates available at this time.</p>
             {{ end }}
         </div>
     </div>
