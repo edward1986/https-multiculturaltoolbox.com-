@@ -114,3 +114,24 @@ applications:
         desc: "Order of Payment issued. Awaiting payment confirmation."
         done: false
         active: true
+  - arn: "ARN-2024-051500"
+    status: "PROCESSING"
+    status_class: "status-processing"
+    service: "Radio Station License"
+    date_submitted: "May 18, 2024"
+    applicant: "SMART COMMUNICATIONS"
+    office: "Central Office (Quezon City)"
+    notes:
+      - "Payment confirmed. Application is now in final processing."
+    timeline:
+      - title: "Application Received"
+        date: "May 18, 2024"
+        done: true
+      - title: "For Payment"
+        date: "May 19, 2024"
+        done: true
+      - title: "Processing"
+        date: "May 20, 2024"
+        desc: "Document preparation and final signature routing."
+        done: false
+        active: true
