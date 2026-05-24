@@ -373,6 +373,32 @@ footer {
     color: white;
 }
 
+.footer-social-links {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+
+.social-link:hover {
+    background: var(--accent-color);
+    text-decoration: none;
+    color: white;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 30px;
@@ -1831,6 +1857,27 @@ input:focus, select:focus, textarea:focus {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     margin-bottom: 20px;
+}
+
+.service-search-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#service-search {
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Service Search Animation */
+.service-cat-grid .card.hidden {
+    display: none;
+}
+
+.service-cat-title.hidden, .service-cat-grid.hidden {
+    display: none;
 }
 
 /* Footers and Icons */

@@ -42,6 +42,7 @@
                         <div class="track-status-area">
                             <span class="status-badge {{ .status_class }} track-status-badge">{{ .status }}</span>
                             <p class="track-update-time">Last updated: {{ now.Format "January 2, 2006" }}</p>
+                            <button type="button" class="btn btn-outline btn-sm mt-10 no-print" onclick="window.print()" style="border-color: rgba(255,255,255,0.5); color: white;">Print Status</button>
                         </div>
                     </div>
 
