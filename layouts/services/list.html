@@ -4,6 +4,10 @@
         <header class="page-header-block">
             <h1 class="section-title">Government Services</h1>
             <p class="page-description">Choose a service category to find the requirements and start your application. The NTC EDGE Portal provides digital access to various regulatory services.</p>
+
+            <div class="service-search-container mt-30">
+                <input type="text" id="service-search" class="form-control" placeholder="Search for a service (e.g. Radio Operator, Permit...)" aria-label="Search services">
+            </div>
         </header>
 
         {{ $categories := slice "Certificates" "Permits and Licenses" "Equipment / Registration Services" "Other public transactions" }}
@@ -26,4 +30,5 @@
         </div>
     </div>
 </section>
+
 {{ end }}
