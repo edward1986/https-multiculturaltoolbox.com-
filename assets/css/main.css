@@ -81,6 +81,29 @@ header {
     color: #444;
 }
 
+.topbar-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: #555;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--success-color);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
