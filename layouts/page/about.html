@@ -30,19 +30,19 @@
                     <h3 class="icon-heading about-mission-heading">
                         <span>🎯</span> Mission
                     </h3>
-                    <p class="about-card-p">To maintain a responsive regulatory environment for an effective telecommunications and information infrastructure through the exercise of its quasi-judicial and quasi-legislative powers.</p>
+                    <p class="about-card-p">{{ .Params.mission }}</p>
                 </div>
                 <div class="about-card">
                     <h3 class="icon-heading about-vision-heading">
                         <span>🌟</span> Vision
                     </h3>
-                    <p class="about-card-p">By 2025, the NTC shall be a world-class regulatory agency providing an environment for a digitally-empowered Philippines.</p>
+                    <p class="about-card-p">{{ .Params.vision }}</p>
                 </div>
             </div>
 
             <div class="about-core-values">
                 <h3 class="mb-20">Core Values</h3>
-                <p class="about-values-text">Integrity • Professionalism • Accountability • Innovation</p>
+                <p class="about-values-text">{{ .Params.core_values }}</p>
             </div>
         </div>
     </div>
