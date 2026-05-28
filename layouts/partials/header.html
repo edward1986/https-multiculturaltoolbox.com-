@@ -2,10 +2,7 @@
     <div class="gov-topbar">
         <div class="container topbar-flex">
             <span>{{ .Site.Params.government_name }}</span>
-            <div class="system-status">
-                <span class="status-dot"></span>
-                System Operational
-            </div>
+            {{ partial "system-status.html" . }}
         </div>
     </div>
     <div class="container">
