@@ -29,12 +29,7 @@
             </div>
             <div class="footer-col">
                 <h4>Connect With Us</h4>
-                <div class="footer-social-links">
-                    {{ if .Site.Params.facebook_url }}<a href="{{ .Site.Params.facebook_url }}" class="social-link" aria-label="Facebook">FB</a>{{ end }}
-                    {{ if .Site.Params.twitter_url }}<a href="{{ .Site.Params.twitter_url }}" class="social-link" aria-label="Twitter">TW</a>{{ end }}
-                    {{ if .Site.Params.instagram_url }}<a href="{{ .Site.Params.instagram_url }}" class="social-link" aria-label="Instagram">IG</a>{{ end }}
-                    {{ if .Site.Params.youtube_url }}<a href="{{ .Site.Params.youtube_url }}" class="social-link" aria-label="YouTube">YT</a>{{ end }}
-                </div>
+                {{ partial "social-links.html" . }}
                 <h4 class="mt-20">Gov Links</h4>
                 <ul>
                     <li><a href="https://www.gov.ph" target="_blank" rel="noopener">GOV.PH</a></li>

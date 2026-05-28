@@ -1,5 +1,5 @@
 {{ define "main" }}
-<section class="page-content section-padding-sm">
+<section class="page-single section-padding-sm">
     <div class="container max-w-900">
         <header class="page-header-block">
             <h1 class="section-title">{{ .Title }}</h1>
@@ -8,8 +8,12 @@
             {{ end }}
         </header>
 
-        <div class="content">
+        <div class="content-box content">
             {{ .Content }}
+        </div>
+
+        <div class="mt-40 text-center no-print">
+            <a href="{{ "/" | relURL }}" class="btn btn-outline-primary">&larr; Return to Home</a>
         </div>
     </div>
 </section>
