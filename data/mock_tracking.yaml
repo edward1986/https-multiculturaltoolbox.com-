@@ -135,3 +135,18 @@ applications:
         desc: "Document preparation and final signature routing."
         done: false
         active: true
+  - arn: "ARN-2024-051600"
+    status: "RECEIVED"
+    status_class: "status-received"
+    service: "Equipment Registration"
+    date_submitted: "May 20, 2024"
+    applicant: "PATEROS TECH CORP"
+    office: "NCR - National Capital Region"
+    notes:
+      - "Your application is currently queued for initial screening."
+    timeline:
+      - title: "Application Received"
+        date: "May 20, 2024"
+        desc: "System acknowledged submission and generated ARN."
+        done: true
+        active: true
