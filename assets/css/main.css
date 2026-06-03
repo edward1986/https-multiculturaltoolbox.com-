@@ -143,6 +143,7 @@ header {
 nav ul {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 nav ul li a {
@@ -1294,7 +1295,11 @@ input:focus, select:focus, textarea:focus {
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 10px 20px;
+    }
+
+    nav ul li {
+        margin-bottom: 5px;
     }
 
     .hero h2 {
