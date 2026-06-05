@@ -60,6 +60,8 @@
                 document.getElementById('rev-service').textContent = document.getElementById('service-select').value || 'Not selected';
                 document.getElementById('rev-region').textContent = document.getElementById('region-select').value || 'Not selected';
                 document.getElementById('rev-name').textContent = (document.getElementById('fname').value + ' ' + document.getElementById('lname').value).trim() || 'Not provided';
+                document.getElementById('rev-email').textContent = document.getElementById('email').value || 'Not provided';
+                document.getElementById('rev-contact').textContent = document.getElementById('contact').value || 'Not provided';
                 document.getElementById('rev-mode').textContent = document.querySelector('input[name="mode"]:checked').value;
             }
 
