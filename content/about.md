@@ -20,9 +20,18 @@ The system aims to:
 - Facilitate faster decision-making through automated workflows.
 - Enhance the accountability of both applicants and evaluators.
 
+## Citizen's Charter Compliance
+
+The NTC is dedicated to fulfilling its mandate with the highest degree of efficiency and transparency. In strict compliance with **Republic Act No. 11032**, also known as the *Ease of Doing Business and Efficient Government Service Delivery Act of 2018*, the EDGE Portal serves as our primary mechanism for delivering standardized services.
+
+Our digital processes are aligned with the **NTC Citizen's Charter**, ensuring that:
+- **Service Standards** are clearly defined for every regulatory transaction.
+- **Processing Times** are minimized through automated workflows and electronic document routing.
+- **Feedback Mechanisms** are integrated to allow for continuous improvement of our digital services.
+
 ## Digital Transformation & E-Governance
 
-In line with the Philippine government's push for **E-Governance** and the **Ease of Doing Business (RA 11032)**, the NTC EDGE Portal represents a paradigm shift in how regulatory services are rendered. By removing physical barriers and reducing the need for face-to-face transactions, we are fostering a more inclusive digital economy where regulatory compliance is no longer a burden but a seamless part of operations.
+In line with the Philippine government's push for **E-Governance**, the NTC EDGE Portal represents a paradigm shift in how regulatory services are rendered. By removing physical barriers and reducing the need for face-to-face transactions, we are fostering a more inclusive digital economy where regulatory compliance is no longer a burden but a seamless part of operations.
 
 This digital transformation ensures that the NTC remains a world-class regulatory agency, capable of meeting the demands of a rapidly evolving telecommunications landscape while maintaining the highest standards of public service.
 

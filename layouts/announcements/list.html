@@ -21,6 +21,8 @@
                 <p style="margin-bottom: 20px;">{{ .Summary }}</p>
                 <a href="{{ .RelPermalink | relURL }}" style="font-weight: 600;">Read Full Advisory &rarr;</a>
             </div>
+            {{ else }}
+                {{ partial "empty-state.html" "No active announcements or advisories at this time." }}
             {{ end }}
         </div>
     </div>
