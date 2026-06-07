@@ -210,6 +210,13 @@ nav ul li a.active::after {
     letter-spacing: 0.5px;
 }
 
+.btn:focus-visible,
+.form-control:focus-visible,
+nav[role="navigation"] a:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
 .btn-primary {
     background: var(--accent-color);
     color: white;
@@ -220,6 +227,7 @@ nav ul li a.active::after {
     text-decoration: none;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    color: white;
 }
 
 .btn-outline {
@@ -244,7 +252,7 @@ nav ul li a.active::after {
 }
 
 .section-padding-sm {
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
 .bg-white {
@@ -509,6 +517,9 @@ footer {
 .btn-outline-primary:hover {
     background: var(--primary-color);
     color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .breadcrumb {
@@ -1031,7 +1042,7 @@ footer {
 .track-result-header {
     background: var(--primary-color);
     color: white;
-    padding: 25px 35px;
+    padding: 35px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1074,7 +1085,7 @@ footer {
 .track-info-grid {
     margin-bottom: 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
@@ -1308,13 +1319,30 @@ input:focus, select:focus, textarea:focus {
     }
 
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        background: #f1f3f5;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
     }
 
     nav ul li {
-        margin-bottom: 5px;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 8px;
+        border-radius: 4px;
+    }
+
+    nav ul li a.active {
+        background: var(--primary-color);
+        color: white;
     }
 
     .hero h2 {
@@ -1940,8 +1968,8 @@ input:focus, select:focus, textarea:focus {
 }
 
 .transparency-seal-box {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     background: #fff;
     display: flex;
     align-items: center;
@@ -1949,6 +1977,9 @@ input:focus, select:focus, textarea:focus {
     color: #000;
     font-weight: bold;
     border-radius: 4px;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid var(--border-color);
 }
 
 .step-description {
