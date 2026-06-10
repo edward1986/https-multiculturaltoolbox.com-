@@ -128,12 +128,26 @@
             });
         });
 
+        function generateARN() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const random = Math.floor(100000 + Math.random() * 900000);
+            return `ARN-${year}-${random}`;
+        }
+
         submitBtn.addEventListener('click', () => {
             hideError();
             if (!document.getElementById('terms-checkbox-final').checked) {
                 showError('You must read and agree to the Terms and Conditions before submitting your application.');
                 return;
             }
+
+            const newARN = generateARN();
+
+            // Update ARN placeholders
+            document.querySelectorAll('.reference-number').forEach(el => {
+                el.textContent = newARN;
+            });
 
             // Show success modal then success step
             document.getElementById('success-modal').style.display = 'flex';

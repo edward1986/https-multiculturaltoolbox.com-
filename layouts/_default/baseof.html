@@ -29,6 +29,8 @@
 
     {{ $search := resources.Get "js/search.js" | minify | fingerprint }}
     <script src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}" defer></script>
+    {{ $pst := resources.Get "js/pst.js" | minify | fingerprint }}
+    <script src="{{ $pst.RelPermalink }}" integrity="{{ $pst.Data.Integrity }}" defer></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
