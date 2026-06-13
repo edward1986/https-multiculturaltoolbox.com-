@@ -1,11 +1,11 @@
 ---
 title: "Deadline for Renewal of Radio Operator Certificates"
-date: 2024-05-10T10:00:00+08:00
+date: 2026-05-10T10:00:00+08:00
 important: false
-summary: "Reminder for all certificate holders whose credentials expire in the second quarter of 2024."
+summary: "Reminder for all certificate holders whose credentials expire in the second quarter of 2026."
 ---
 
-The National Telecommunications Commission (NTC) reminds all Radio Operator Certificate (ROC) holders whose credentials are set to expire between **April 1 and June 30, 2024**, to file for renewal early to avoid penalties and service interruptions.
+The National Telecommunications Commission (NTC) reminds all Radio Operator Certificate (ROC) holders whose credentials are set to expire between **April 1 and June 30, 2026**, to file for renewal early to avoid penalties and service interruptions.
 
 **Renewal Process:**
 1. Log in to the NTC EDGE Portal.

@@ -1,6 +1,6 @@
 ---
 title: "Guide: Getting Started with the NTC EDGE Portal"
-date: 2024-05-15T09:00:00+08:00
+date: 2026-05-15T09:00:00+08:00
 important: false
 summary: "A step-by-step guide for new users on how to navigate and use the Electronic Data Governance and Evaluation System."
 ---

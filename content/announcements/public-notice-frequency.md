@@ -1,6 +1,6 @@
 ---
 title: "Public Notice: New Frequency Allocation"
-date: 2024-05-10
+date: 2026-05-10
 important: false
 summary: "The NTC announces the new frequency allocation for terrestrial broadcasting services to improve signal quality."
 ---

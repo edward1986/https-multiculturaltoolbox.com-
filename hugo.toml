@@ -61,5 +61,5 @@ title = 'NTC EDGE Portal'
 
 [params.banner]
   enabled = true
-  message = "System Maintenance: The NTC EDGE Portal will be undergoing scheduled maintenance on Saturday, July 20, 2024, from 11:00 PM to 4:00 AM (PHT)."
+  message = "System Maintenance: The NTC EDGE Portal will be undergoing scheduled maintenance on Saturday, June 20, 2026, from 11:00 PM to 4:00 AM (PHT)."
   link = "/announcements/system-maintenance"

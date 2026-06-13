@@ -1,6 +1,6 @@
 ---
 title: "Emergency Advisory: Typhoon Preparedness"
-date: 2024-05-18T10:00:00+08:00
+date: 2026-05-18T10:00:00+08:00
 important: true
 summary: "NTC directs all telecommunications entities to ensure network resilience and personnel safety ahead of the upcoming typhoon."
 ---
