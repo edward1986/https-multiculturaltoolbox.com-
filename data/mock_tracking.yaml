@@ -1,9 +1,9 @@
 applications:
-  - arn: "ARN-2024-051288"
+  - arn: "ARN-2026-051288"
     status: "UNDER EVALUATION"
     status_class: "status-evaluation"
     service: "Radio Operator Certificate"
-    date_submitted: "May 12, 2024"
+    date_submitted: "May 12, 2026"
     applicant: "JUAN DELA CRUZ"
     office: "NCR - National Capital Region"
     notes:
@@ -11,23 +11,23 @@ applications:
       - "Payment will be enabled once technical evaluation is complete."
     timeline:
       - title: "Application Received"
-        date: "May 12, 2024"
+        date: "May 12, 2026"
         desc: "System acknowledged submission and generated ARN."
         done: true
       - title: "Document Verification"
-        date: "May 13, 2024"
+        date: "May 13, 2026"
         desc: "All uploaded documentary requirements verified as complete and authentic."
         done: true
       - title: "Technical Evaluation"
-        date: "May 14, 2024"
+        date: "May 14, 2026"
         desc: "Application is currently being reviewed by the technical department for compliance with regulatory standards."
         done: false
         active: true
-  - arn: "ARN-2024-049821"
+  - arn: "ARN-2026-049821"
     status: "RELEASED / READY"
     status_class: "status-released"
     service: "Radio Station License"
-    date_submitted: "April 28, 2024"
+    date_submitted: "April 28, 2026"
     applicant: "MARIA SANTOS"
     office: "Central Office (Quezon City)"
     notes:
@@ -35,22 +35,22 @@ applications:
       - "Please bring a valid government-issued ID and the original official receipt."
     timeline:
       - title: "Application Received"
-        date: "April 28, 2024"
+        date: "April 28, 2026"
         desc: "Submission confirmed."
         done: true
       - title: "Technical Evaluation"
-        date: "May 02, 2024"
+        date: "May 02, 2026"
         desc: "Technical review complete."
         done: true
       - title: "Approved & Released"
-        date: "May 10, 2024"
+        date: "May 10, 2026"
         desc: "Document ready for collection."
         done: true
-  - arn: "ARN-2024-051300"
+  - arn: "ARN-2026-051300"
     status: "RETURNED FOR CORRECTION"
     status_class: "status-returned"
     service: "Equipment Registration"
-    date_submitted: "May 15, 2024"
+    date_submitted: "May 15, 2026"
     applicant: "TECH SOLUTIONS INC."
     office: "NCR - National Capital Region"
     notes:
@@ -58,23 +58,23 @@ applications:
       - "Please re-upload a clear digital copy of the equipment manual."
     timeline:
       - title: "Application Received"
-        date: "May 15, 2024"
+        date: "May 15, 2026"
         desc: "Submission acknowledged."
         done: true
       - title: "Initial Screening"
-        date: "May 16, 2024"
+        date: "May 16, 2026"
         desc: "Application documents reviewed for completeness."
         done: true
       - title: "Returned for Correction"
-        date: "May 17, 2024"
+        date: "May 17, 2026"
         desc: "Application requires action from the applicant due to unreadable documents."
         done: false
         active: true
-  - arn: "ARN-2024-031500"
+  - arn: "ARN-2026-031500"
     status: "APPROVED / FOR RELEASE"
     status_class: "status-approved"
     service: "Radio Operator Certificate"
-    date_submitted: "March 15, 2024"
+    date_submitted: "March 15, 2026"
     applicant: "JUAN DELA CRUZ"
     office: "NCR - National Capital Region"
     notes:
@@ -82,21 +82,21 @@ applications:
       - "The certificate is being prepared for release."
     timeline:
       - title: "Application Received"
-        date: "March 15, 2024"
+        date: "March 15, 2026"
         done: true
       - title: "Technical Evaluation"
-        date: "March 20, 2024"
+        date: "March 20, 2026"
         done: true
       - title: "Approved"
-        date: "March 25, 2024"
+        date: "March 25, 2026"
         desc: "Application approved by the Commissioner."
         done: true
         active: false
-  - arn: "ARN-2024-051450"
+  - arn: "ARN-2026-051450"
     status: "FOR PAYMENT"
     status_class: "status-payment"
     service: "Permits and Licenses"
-    date_submitted: "May 10, 2024"
+    date_submitted: "May 10, 2026"
     applicant: "GLOBE TELECOM"
     office: "Central Office (Quezon City)"
     notes:
@@ -104,49 +104,49 @@ applications:
       - "Please pay the prescribed fee of PHP 2,500.00 at any authorized payment center."
     timeline:
       - title: "Application Received"
-        date: "May 10, 2024"
+        date: "May 10, 2026"
         done: true
       - title: "Technical Evaluation"
-        date: "May 12, 2024"
+        date: "May 12, 2026"
         done: true
       - title: "For Payment"
-        date: "May 13, 2024"
+        date: "May 13, 2026"
         desc: "Order of Payment issued. Awaiting payment confirmation."
         done: false
         active: true
-  - arn: "ARN-2024-051500"
+  - arn: "ARN-2026-051500"
     status: "PROCESSING"
     status_class: "status-processing"
     service: "Radio Station License"
-    date_submitted: "May 18, 2024"
+    date_submitted: "May 18, 2026"
     applicant: "SMART COMMUNICATIONS"
     office: "Central Office (Quezon City)"
     notes:
       - "Payment confirmed. Application is now in final processing."
     timeline:
       - title: "Application Received"
-        date: "May 18, 2024"
+        date: "May 18, 2026"
         done: true
       - title: "For Payment"
-        date: "May 19, 2024"
+        date: "May 19, 2026"
         done: true
       - title: "Processing"
-        date: "May 20, 2024"
+        date: "May 20, 2026"
         desc: "Document preparation and final signature routing."
         done: false
         active: true
-  - arn: "ARN-2024-051600"
+  - arn: "ARN-2026-051600"
     status: "RECEIVED"
     status_class: "status-received"
     service: "Equipment Registration"
-    date_submitted: "May 20, 2024"
+    date_submitted: "May 20, 2026"
     applicant: "PATEROS TECH CORP"
     office: "NCR - National Capital Region"
     notes:
       - "Your application is currently queued for initial screening."
     timeline:
       - title: "Application Received"
-        date: "May 20, 2024"
+        date: "May 20, 2026"
         desc: "System acknowledged submission and generated ARN."
         done: true
         active: true

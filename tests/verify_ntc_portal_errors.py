@@ -22,7 +22,7 @@ def run_cuj(page):
     page.screenshot(path="tests/screenshots/track_error_notfound.png")
 
     # Valid ARN
-    page.locator("#arn-input").fill("ARN-2024-051288")
+    page.locator("#arn-input").fill("ARN-2026-051288")
     page.get_by_role("button", name="Search for application status").click()
     page.wait_for_timeout(1500)
     page.screenshot(path="tests/screenshots/track_result.png")
