@@ -2,7 +2,7 @@
 title: "About the NTC EDGE Portal"
 layout: "about"
 mission: "To maintain a responsive regulatory environment for an effective telecommunications and information infrastructure through the exercise of its quasi-judicial and quasi-legislative powers."
-vision: "By 2025, the NTC shall be a world-class regulatory agency providing an environment for a digitally-empowered Philippines."
+vision: "By 2026, the NTC shall be a world-class regulatory agency providing an environment for a digitally-empowered Philippines."
 core_values: "Integrity • Professionalism • Accountability • Innovation"
 ---
 
