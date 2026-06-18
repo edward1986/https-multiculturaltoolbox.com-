@@ -2,6 +2,11 @@ baseURL = '/'
 languageCode = 'en-ph'
 title = 'NTC EDGE Portal'
 
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.5
+  filename = 'sitemap.xml'
+
 [params]
   description = "National Telecommunications Commission - Electronic Data Governance and Evaluation (EDGE) System. Official digital service portal for regulatory and telecommunications-related services."
   government_name = "Republic of the Philippines"

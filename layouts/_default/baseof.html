@@ -6,6 +6,7 @@
     <title>{{ if .IsHome }}{{ .Site.Title }} - {{ .Site.Params.agency_name }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ .Description | default .Site.Params.description }}">
     <meta name="author" content="{{ .Site.Params.agency_name }}">
+    <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
