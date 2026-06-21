@@ -14,7 +14,7 @@
         {{ range $categories }}
             <h2 class="accent-border-left service-cat-title">{{ . }}</h2>
             <div class="grid service-cat-grid">
-                {{ range (where $.Pages "Params.category" .) }}
+                {{ range (where $.Pages "Params.category" .).ByTitle }}
                     {{ partial "service-card.html" . }}
                 {{ end }}
                 {{ if not (where $.Pages "Params.category" .) }}

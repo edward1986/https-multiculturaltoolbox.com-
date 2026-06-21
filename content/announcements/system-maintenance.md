@@ -8,8 +8,8 @@ summary: "The NTC EDGE Portal will undergo scheduled system maintenance on May 2
 Please be advised that the **NTC EDGE Portal** will be undergoing scheduled system maintenance to improve our digital services.
 
 **Schedule:**
-* **Start:** May 20, 2026 (Monday), 8:00 PM
-* **End:** May 21, 2026 (Tuesday), 4:00 AM
+* **Start:** June 27, 2026 (Saturday), 11:00 PM
+* **End:** June 28, 2026 (Sunday), 4:00 AM
 
 **Affected Services:**
 * Online Application Submission

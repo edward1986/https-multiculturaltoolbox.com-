@@ -72,7 +72,7 @@
                         <label for="service-select" class="form-label">Select Regulatory Service</label>
                         <select id="service-select" class="form-control" aria-required="true">
                             <option value="">-- Choose a service --</option>
-                            {{ range (where .Site.RegularPages "Section" "services") }}
+                            {{ range (where .Site.RegularPages "Section" "services").ByTitle }}
                             <option value="{{ .Title }}">{{ .Title }}</option>
                             {{ end }}
                         </select>
