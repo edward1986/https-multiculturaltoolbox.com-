@@ -1,8 +1,8 @@
 ---
 title: "System Maintenance Notice"
-date: 2026-05-15T09:00:00+08:00
+date: 2026-06-20T09:00:00+08:00
 important: true
-summary: "The NTC EDGE Portal will undergo scheduled system maintenance on May 20, 2026."
+summary: "The NTC EDGE Portal will undergo scheduled system maintenance on June 27, 2026."
 ---
 
 Please be advised that the **NTC EDGE Portal** will be undergoing scheduled system maintenance to improve our digital services.
